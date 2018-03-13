@@ -86,7 +86,7 @@ class Livre
      *     @ORM\JoinColumn(name="id_liver", referencedColumnName="id_livre")
      *   },
      *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="id_user", referencedColumnName="id_user")
+     *     @ORM\JoinColumn(name="id_user", referencedColumnName="id")
      *   }
      * )
      */

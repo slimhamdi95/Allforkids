@@ -110,7 +110,7 @@ class Trasnsport
      *
      * @ORM\ManyToOne(targetEntity="User")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="id_user1", referencedColumnName="id_user")
+     *   @ORM\JoinColumn(name="id_user1", referencedColumnName="id")
      * })
      */
     private $idUser1;
@@ -124,7 +124,7 @@ class Trasnsport
      *     @ORM\JoinColumn(name="id_transport", referencedColumnName="id_transport")
      *   },
      *   inverseJoinColumns={
-     *     @ORM\JoinColumn(name="id_user", referencedColumnName="id_user")
+     *     @ORM\JoinColumn(name="id_user", referencedColumnName="id")
      *   }
      * )
      */
