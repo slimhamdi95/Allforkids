@@ -1,3 +1,7 @@
+all_for_kids_entity:
+    resource: "@AllForKidsEntityBundle/Resources/config/routing.yml"
+    prefix:   /
+
 app:
     resource: '@AppBundle/Controller/'
     type: annotation

@@ -1,0 +1,4 @@
+services:
+#    all_for_kids_entity.example:
+#        class: AllForKids\EntityBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]
