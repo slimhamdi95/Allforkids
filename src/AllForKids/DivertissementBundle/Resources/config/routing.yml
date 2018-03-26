@@ -1,0 +1,6 @@
+all_for_kids_divertissement_homepage:
+    path:     /
+    defaults: { _controller: AllForKidsDivertissementBundle:Default:index }
+afficheP:
+    path:     /Affiche
+    defaults: { _controller: AllForKidsDivertissementBundle:Evenement:ShowAll }

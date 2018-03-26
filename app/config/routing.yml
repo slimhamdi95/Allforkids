@@ -1,3 +1,7 @@
+all_for_kids_divertissement:
+    resource: "@AllForKidsDivertissementBundle/Resources/config/routing.yml"
+    prefix:   /divertissement
+
 all_for_kids_entity:
     resource: "@AllForKidsEntityBundle/Resources/config/routing.yml"
     prefix:   /
