@@ -3,7 +3,7 @@
 namespace AllForKids\EntityBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert ;
 /**
  * Evenement
  *
@@ -67,6 +67,8 @@ class Evenement
      * @var string
      *
      * @ORM\Column(name="photo", type="string", length=255, nullable=false)
+     * @Assert\NotBlank(message="Please, upload the event as a image file.")
+     * @Assert\File(mimeTypes={ "image/png" })
      */
     private $photo;
 

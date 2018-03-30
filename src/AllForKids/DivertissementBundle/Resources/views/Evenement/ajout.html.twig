@@ -51,45 +51,66 @@
             <div class="row">
                 <div class="col-xs-12">
                     <div class="homeContactContent">
-                        <form action="#" method="POST" role="form">
-                            <div class="row">
-                                <div class="col-sm-6 col-xs-12">
-                                    <div class="form-group">
-                                        <i class="fa fa-user"></i>
-                                        <input type="text" class="form-control border-color-1" id="exampleInputEmail1" placeholder="First name">
-                                    </div>
+                        {{ form_start(form, {'method': 'post' ,'action': path('AjoutE')}) }}
+
+                        <div class="row">
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <i class="fa fa-user"></i>
+                                    {{ form_widget(form.nom, { 'attr': {'placeholder': 'Nom', 'class': 'form-control border-color-1'} }) }}
+
                                 </div>
-                                <div class="col-sm-6 col-xs-12">
-                                    <div class="form-group">
-                                        <i class="fa fa-envelope" aria-hidden="true"></i>
-                                        <input type="text" class="form-control border-color-2" id="exampleInputEmail2" placeholder="Email address">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-xs-12">
-                                    <div class="form-group">
-                                        <i class="fa fa-phone" aria-hidden="true"></i>
-                                        <input type="text" class="form-control border-color-5" id="exampleInputEmail3" placeholder="Phone">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6 col-xs-12">
-                                    <div class="form-group">
-                                        <i class="fa fa-book" aria-hidden="true"></i>
-                                        <input type="text" class="form-control border-color-6" id="exampleInputEmail4" placeholder="Subject">
-                                    </div>
-                                </div>
-                                <div class="col-xs-12">
-                                    <div class="form-group">
-                                        <i class="fa fa-comments" aria-hidden="true"></i>
-                                        <textarea class="form-control border-color-4" placeholder="Write message"></textarea>
-                                    </div>
-                                </div>
-                                <div class="col-xs-12">
-                                    <div class="formBtnArea">
-                                        <button type="submit" class="btn btn-primary">Send Message</button>
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="form-group date" data-provide="datepicker">
+                                    {{ form_widget(form.date, {attr: {'placeholder': 'dd-mm-yyyy',
+                                        'class': 'form-control border-color-2' },
+                                    }) }}
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-th"></span>
                                     </div>
                                 </div>
                             </div>
-                        </form>
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    {{ form_widget(form.nbrParticipation, { 'attr': {'placeholder': 'Nombre de place ', 'class': 'form-control border-color-5'} }) }}
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <i class="fa fa-book" aria-hidden="true"></i>
+                                    {{ form_widget(form.type, { 'attr': {'placeholder': 'Type', 'class': 'form-control border-color-4'} }) }}
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <i class="fa fa-image" aria-hidden="true"></i>
+                                    {{ form_widget(form.photo, { 'attr': {'placeholder': 'Photo', 'class': 'form-control border-color-4'} }) }}
+                                </div>
+                            </div>
+                            <div class="col-sm-6 col-xs-12">
+                                <div class="form-group">
+                                    <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                    {{ form_widget(form.temp, {attr: {'placeholder': 'HH:MM',
+                                        'data-format': "hh:mm",'class': 'form-control border-color-1' },
+                                    }) }}
+                                </div>
+                            </div>
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <i class="fa fa-comments" aria-hidden="true"></i>
+                                    {{ form_widget(form.descriptionn, { 'attr': {'placeholder': 'Description', 'class': 'form-control border-color-4'} }) }}
+                                </div>
+                            </div>
+
+                            <div class="col-xs-12">
+                                <div class="formBtnArea">
+                                    {{ form_widget(form.Enregistre, { 'attr': {'placeholder': 'Description', 'class': 'btn btn-primary'} }) }}
+
+                                </div>
+                            </div>
+                        </div>
+  {{ form_end(form) }}
                     </div>
                 </div>
             </div>
