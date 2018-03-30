@@ -1,39 +1,24 @@
-<table>
-    <tr>
-        <th>Nom</th><th>Description</th>
-        <th>Supprimer</th>
-    </tr>
-    {% for ev in e %}
-        <tr>
+<!DOCTYPE html>
+<html lang="en">
 
-            <td>{{ ev.getNom() }}</td>
-            <td>{{ ev.getDescriptionn() }}</td>
-            <td>{{ ev.getDate() |date("m/d/Y")}}</td>
-            <td>{{ ev.getType() }}</td>
-            <td>{{ ev.getNbrParticipation() }}</td>
-            <td>{{ ev.getPhoto() }}</td>
-            <td>{{ ev.getTemp()|date('H:i:s') }}</td>
-
-
-        </tr>
-    {% endfor %}
-</table>
+<!-- Mirrored from themes.iamabdus.com/kidz/1.4/product-left-sidebar.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 13 Mar 2018 16:12:39 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
 <head>
 
     <!-- SITE TITTLE -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title> Kids Event</title>
+    <title>Products Left Sidebar - KIDZ STORE</title>
 
     <!-- PLUGINS CSS STYLE -->
-    <link href="{{ asset ('plugins/jquery-ui/jquery-ui.css" rel="stylesheet')}}">
-    <link href="{{ asset ('plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet')}}">
-    <link href="{{ asset ('plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet')}}">
-    <link rel="stylesheet" type="text/css" href="{{ asset ('plugins/rs-plugin/css/settings.css')}}" media="screen">
-    <link rel="stylesheet" type="text/css" href="{{ asset ('plugins/selectbox/select_option1.css')}}">
+    <link href="{{ asset('plugins/jquery-ui/jquery-ui.css" rel="stylesheet') }}">
+    <link href="{{ asset('plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('plugins/rs-plugin/css/settings.css') }}" media="screen">
+    <link rel="stylesheet" type="text/css" href="{{ asset('plugins/selectbox/select_option1.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('plugins/owl-carousel/owl.carousel.css') }}" media="screen">
-    <link rel="stylesheet" type="text/css" href="{{ asset('plugins/isotope/jquery.fancybox.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('plugins/isotope/jquery.fancybox.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('plugins/isotope/isotope.css') }}">
 
     <!-- GOOGLE FONT -->
@@ -55,317 +40,122 @@
     <![endif]-->
 
 </head>
-<body  class="body-wrapper">
+
+<body class="body-wrapper">
+
+
 <div class="main-wrapper">
-<section class="mainContent full-width clearfix productSection">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-9 col-sm-7 col-xs-12 pull-right">
-                <div class="row">
-                    <div class="col-md-4 col-xs-6">
-                        <div class="box bg-color-1">
-                            <div class="box-img border-color-1 text-center">
-                                <a href="single-product.html">
-                                    <img src="{{ asset('img/home/product/product-img1.jpg') }}" alt="image" class="img-responsive">
-                                </a>
-                                <a data-toggle="modal" href=".html" class="btn-block"><i class="fa fa-eye" aria-hidden="true"></i>Quick View</a>
-                            </div>
-                            <div class="box-info">
-                                <h4>Barbie Racing Car</h4>
-                                <div class="price">
-                                    <span>$50</span>
+
+    <section class="mainContent full-width clearfix productSection">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9 col-sm-7 col-xs-12 pull-right">
+                    <div class="row">
+                        {% for ev in e %}
+                        <div class="col-md-4 col-xs-6">
+                            <div class="box bg-color-4">
+                                <div class="box-img border-color-4 text-center">
+                                    <a href="single-product.html">
+                                        <img src="{{ asset('img/home/product/'~a) }}" alt="image" class="img-responsive">
+                                    </a>
+                                    <a data-toggle="modal" href=".html" class="btn-block"><i class="fa fa-eye" aria-hidden="true"></i> détail</a>
                                 </div>
-                                <a href="cart-page.html" class="btn btn-primary "><i class="fa fa-shopping-basket " aria-hidden="true"></i>Add to Cart</a>
+                                <div class="box-info">
+                                    <h4>{{ ev.nom }}</h4>
+                                    <p style="color: white">{{ ev.getDescriptionn() }}</p>
+                                    <p style="color: white">  {{ ev.getDate() |date("m/d/Y")}}</p>
+                                    <div class="price">
+                                       <span>Place restant : {{ ev.getNbrParticipation() }}</span>
+                                    </div>
+
+                                </div>
                             </div>
                         </div>
+                        {% endfor %}
                     </div>
 
-                    <div class="col-md-4 col-xs-6">
-                        <div class="box bg-color-2">
-                            <div class="box-img border-color-2 text-center">
-                                <a href="single-product.html">
-                                    <img src="img/home/product/product-img2.jpg" alt="image" class="img-responsive">
-                                </a>
-                                <a data-toggle="modal" href=".html" class="btn-block"><i class="fa fa-eye" aria-hidden="true"></i>Quick View</a>
-                            </div>
-                            <div class="box-info">
-                                <h4>Barbie Racing Car</h4>
-                                <div class="price">
-                                    <span>$50</span>
-                                    <span><del>$60</del></span>
-                                </div>
-                                <a href="cart-page.html" class="btn btn-primary "><i class="fa fa-shopping-basket " aria-hidden="true"></i>Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-xs-6">
-                        <div class="box bg-color-6">
-                            <div class="box-img border-color-6 text-center">
-                                <a href="single-product.html">
-                                    <img src="img/home/product/product-img3.jpg" alt="image" class="img-responsive">
-                                </a>
-                                <a data-toggle="modal" href=".html" class="btn-block"><i class="fa fa-eye" aria-hidden="true"></i>Quick View</a>
-                            </div>
-                            <div class="box-info">
-                                <h4>Barbie Racing Car</h4>
-                                <div class="price">
-                                    <span>$50</span>
-                                </div>
-                                <a href="cart-page.html" class="btn btn-primary "><i class="fa fa-shopping-basket " aria-hidden="true"></i>Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-xs-6">
-                        <div class="box bg-color-4">
-                            <div class="box-img border-color-4 text-center">
-                                <a href="single-product.html">
-                                    <img src="img/home/product/product-img4.jpg" alt="image" class="img-responsive">
-                                </a>
-                                <a data-toggle="modal" href=".html" class="btn-block"><i class="fa fa-eye" aria-hidden="true"></i>Quick View</a>
-                            </div>
-                            <div class="box-info">
-                                <h4>Barbie Racing Car</h4>
-                                <div class="price">
-                                    <span>$50</span>
-                                    <span><del>$60</del></span>
-                                </div>
-                                <a href="cart-page.html" class="btn btn-primary "><i class="fa fa-shopping-basket " aria-hidden="true"></i>Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-xs-6">
-                        <div class="box bg-color-1">
-                            <div class="box-img border-color-1 text-center">
-                                <a href="single-product.html">
-                                    <img src="img/home/product/product-img5.jpg" alt="image" class="img-responsive">
-                                </a>
-                                <a data-toggle="modal" href=".html" class="btn-block"><i class="fa fa-eye" aria-hidden="true"></i>Quick View</a>
-                            </div>
-                            <div class="box-info">
-                                <h4>Barbie Racing Car</h4>
-                                <div class="price">
-                                    <span>$50</span>
-                                </div>
-                                <a href="cart-page.html" class="btn btn-primary "><i class="fa fa-shopping-basket " aria-hidden="true"></i>Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-xs-6">
-                        <div class="box bg-color-2">
-                            <div class="box-img border-color-2 text-center">
-                                <a href="single-product.html">
-                                    <img src="img/home/product/product-img6.jpg" alt="image" class="img-responsive">
-                                </a>
-                                <a data-toggle="modal" href=".html" class="btn-block"><i class="fa fa-eye" aria-hidden="true"></i>Quick View</a>
-                            </div>
-                            <div class="box-info">
-                                <h4>Barbie Racing Car</h4>
-                                <div class="price">
-                                    <span>$50</span>
-                                    <span><del>$60</del></span>
-                                </div>
-                                <a href="cart-page.html" class="btn btn-primary "><i class="fa fa-shopping-basket " aria-hidden="true"></i>Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-xs-6">
-                        <div class="box bg-color-6">
-                            <div class="box-img border-color-6 text-center">
-                                <a href="single-product.html">
-                                    <img src="img/home/product/product-img7.jpg" alt="image" class="img-responsive">
-                                </a>
-                                <a data-toggle="modal" href=".html" class="btn-block"><i class="fa fa-eye" aria-hidden="true"></i>Quick View</a>
-                            </div>
-                            <div class="box-info">
-                                <h4>Barbie Racing Car</h4>
-                                <div class="price">
-                                    <span>$50</span>
-                                </div>
-                                <a href="cart-page.html" class="btn btn-primary "><i class="fa fa-shopping-basket " aria-hidden="true"></i>Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-xs-6">
-                        <div class="box bg-color-1">
-                            <div class="box-img border-color-1 text-center">
-                                <a href="single-product.html">
-                                    <img src="img/home/product/product-img1.jpg" alt="image" class="img-responsive">
-                                </a>
-                                <a data-toggle="modal" href=".html" class="btn-block"><i class="fa fa-eye" aria-hidden="true"></i>Quick View</a>
-                            </div>
-                            <div class="box-info">
-                                <h4>Barbie Racing Car</h4>
-                                <div class="price">
-                                    <span>$50</span>
-                                </div>
-                                <a href="cart-page.html" class="btn btn-primary "><i class="fa fa-shopping-basket " aria-hidden="true"></i>Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-xs-6">
-                        <div class="box bg-color-2">
-                            <div class="box-img border-color-2 text-center">
-                                <a href="single-product.html">
-                                    <img src="img/home/product/product-img2.jpg" alt="image" class="img-responsive">
-                                </a>
-                                <a data-toggle="modal" href=".html" class="btn-block"><i class="fa fa-eye" aria-hidden="true"></i>Quick View</a>
-                            </div>
-                            <div class="box-info">
-                                <h4>Barbie Racing Car</h4>
-                                <div class="price">
-                                    <span>$50</span>
-                                    <span><del>$60</del></span>
-                                </div>
-                                <a href="cart-page.html" class="btn btn-primary "><i class="fa fa-shopping-basket " aria-hidden="true"></i>Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-xs-6">
-                        <div class="box bg-color-6">
-                            <div class="box-img border-color-6 text-center">
-                                <a href="single-product.html">
-                                    <img src="img/home/product/product-img3.jpg" alt="image" class="img-responsive">
-                                </a>
-                                <a data-toggle="modal" href=".html" class="btn-block"><i class="fa fa-eye" aria-hidden="true"></i>Quick View</a>
-                            </div>
-                            <div class="box-info">
-                                <h4>Barbie Racing Car</h4>
-                                <div class="price">
-                                    <span>$50</span>
-                                </div>
-                                <a href="cart-page.html" class="btn btn-primary "><i class="fa fa-shopping-basket " aria-hidden="true"></i>Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-xs-6">
-                        <div class="box bg-color-4">
-                            <div class="box-img border-color-4 text-center">
-                                <a href="single-product.html">
-                                    <img src="img/home/product/product-img8.jpg" alt="image" class="img-responsive">
-                                </a>
-                                <a data-toggle="modal" href=".html" class="btn-block"><i class="fa fa-eye" aria-hidden="true"></i>Quick View</a>
-                            </div>
-                            <div class="box-info">
-                                <h4>Barbie Racing Car</h4>
-                                <div class="price">
-                                    <span>$50</span>
-                                    <span><del>$60</del></span>
-                                </div>
-                                <a href="cart-page.html" class="btn btn-primary "><i class="fa fa-shopping-basket " aria-hidden="true"></i>Add to Cart</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-xs-6">
-                        <div class="box bg-color-5">
-                            <div class="box-img border-color-5 text-center">
-                                <a href="single-product.html">
-                                    <img src="img/home/product/product-img3.jpg" alt="image" class="img-responsive">
-                                </a>
-                                <a data-toggle="modal" href=".html" class="btn-block"><i class="fa fa-eye" aria-hidden="true"></i>Quick View</a>
-                            </div>
-                            <div class="box-info">
-                                <h4>Barbie Racing Car</h4>
-                                <div class="price">
-                                    <span>$50</span>
-                                    <span><del>$60</del></span>
-                                </div>
-                                <a href="cart-page.html" class="btn btn-primary "><i class="fa fa-shopping-basket " aria-hidden="true"></i>Add to Cart</a>
-                            </div>
-                        </div>
+                    <div class="pagerArea text-center">
+                        <ul class="pager">
+                            <li class="prev"><a href="#"><i class="fa fa-arrow-left" aria-hidden="true"></i>Prev</a></li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">...</a></li>
+                            <li><a href="#">15</a></li>
+                            <li class="next"><a href="#">Next<i class="fa fa-arrow-right" aria-hidden="true"></i></a></li>
+                        </ul>
                     </div>
                 </div>
+                <div class="col-md-3 col-sm-5 col-xs-12 pull-left">
+                    <aside>
+                        <div class="panel panel-default courseSidebar">
+                            <div class="panel-heading bg-color-1 border-color-1">
+                                <h3 class="panel-title">Search</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Enter Your Search" aria-describedby="basic-addon2">
+                                    <span class="input-group-addon" id="basic-addon2"><input class="btn btn-primary bg-color-1" type="submit" value="Search"></span>
+                                </div>
+                            </div>
+                        </div>
 
-                <div class="pagerArea text-center">
-                    <ul class="pager">
-                        <li class="prev"><a href="#"><i class="fa fa-arrow-left" aria-hidden="true"></i>Prev</a></li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">...</a></li>
-                        <li><a href="#">15</a></li>
-                        <li class="next"><a href="#">Next<i class="fa fa-arrow-right" aria-hidden="true"></i></a></li>
-                    </ul>
+                        <div class="panel panel-default courseSidebar">
+                            <div class="panel-heading bg-color-5 border-color-5">
+                                <h3 class="panel-title">Categories</h3>
+                            </div>
+                            <div class="panel-body">
+                                <ul class="list-unstyled categoryItem">
+                                    <li><a href="category.html">Dresses</a></li>
+                                    <li><a href="category.html">Foot Wear</a></li>
+                                    <li><a href="category.html">Inner Wear</a></li>
+                                    <li><a href="category.html">Night Wear</a></li>
+                                    <li><a href="category.html">Toys</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </aside>
                 </div>
             </div>
-            <div class="col-md-3 col-sm-5 col-xs-12 pull-left">
-                <aside>
-                    <div class="panel panel-default courseSidebar">
-                        <div class="panel-heading bg-color-1 border-color-1">
-                            <h3 class="panel-title">Search</h3>
+        </div>
+    </section>
+
+
+</div>
+
+<div class="scrolling">
+    <a href="#pageTop" class="backToTop hidden-xs" id="backToTop"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+</div>
+
+<!-- LOGIN MODAL -->
+<div class="modal fade customModal" id="loginModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="panel panel-default formPanel">
+                <div class="panel-heading bg-color-1 border-color-1">
+                    <h3 class="panel-title">Login</h3>
+                </div>
+                <div class="panel-body">
+                    <form action="#" method="POST" role="form">
+                        <div class="form-group formField">
+                            <input type="text" class="form-control" placeholder="User name">
                         </div>
-                        <div class="panel-body">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Enter Your Search" aria-describedby="basic-addon2">
-                                <span class="input-group-addon" id="basic-addon2"><input class="btn btn-primary bg-color-1" type="submit" value="Search"></span>
-                            </div>
+                        <div class="form-group formField">
+                            <input type="password" class="form-control" placeholder="Password">
                         </div>
-                    </div>
-                    <div class="panel panel-default courseSidebar">
-                        <div class="panel-heading bg-color-2 border-color-2">
-                            <h3 class="panel-title">Filter By</h3>
+                        <div class="form-group formField">
+                            <input type="submit" class="btn btn-primary btn-block bg-color-3 border-color-3" value="Log in">
                         </div>
-                        <div class="panel-body">
-                            <div class="lightDrop">
-                                <select name="guiest_id4" id="guiest_id4" class="select-drop">
-                                    <option value="0">All Classes</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
-                                </select>
-                            </div>
-                            <div class="lightDrop">
-                                <select name="guiest_id5" id="guiest_id5" class="select-drop">
-                                    <option value="0">Ages</option>
-                                    <option value="1">3</option>
-                                    <option value="2">4</option>
-                                    <option value="3">5</option>
-                                </select>
-                            </div>
-                            <div class="priceRange">
-                                <div class="price-slider-inner">
-                      <span class="amount-wrapper">
-                        Price:
-                        <input type="text" id="price-amount-1" readonly>
-                        <strong>-</strong>
-                        <input type="text" id="price-amount-2" readonly>
-                      </span>
-                                    <div id="price-range"></div>
-                                </div>
-                                <input class="btn btn-primary bg-color-2" type="submit" value="Filter">
-                                <!-- <span class="priceLabel">Price: <strong>$12 - $30</strong></span> -->
-                            </div>
+                        <div class="form-group formField">
+                            <p class="help-block"><a href="#">Forgot password?</a></p>
                         </div>
-                    </div>
-                    <div class="panel panel-default courseSidebar">
-                        <div class="panel-heading bg-color-5 border-color-5">
-                            <h3 class="panel-title">Categories</h3>
-                        </div>
-                        <div class="panel-body">
-                            <ul class="list-unstyled categoryItem">
-                                <li><a href="category.html">Dresses</a></li>
-                                <li><a href="category.html">Foot Wear</a></li>
-                                <li><a href="category.html">Inner Wear</a></li>
-                                <li><a href="category.html">Night Wear</a></li>
-                                <li><a href="category.html">Toys</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </aside>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</section>
-    </div>
+</div>
+
 
 
 <script src="{{ asset('plugins/jquery/jquery-min.js') }}"></script>
@@ -387,3 +177,7 @@
 <link href="{{ asset('options/optionswitch.css') }}" rel="stylesheet">
 <script src="{{ asset('options/optionswitcher.js') }}"></script>
 </body>
+
+<!-- Mirrored from themes.iamabdus.com/kidz/1.4/product-left-sidebar.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 13 Mar 2018 16:12:39 GMT -->
+</html>
+
