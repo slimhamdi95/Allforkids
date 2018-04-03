@@ -34,11 +34,12 @@ class EvenementController extends Controller
             $file = new ImageUpload($this->getParameter('images_directory'));
 
             $fileName = $file->upload($ev->getPhoto());
-            // updates the 'brochure' property to store the PDF file name
-            // instead of its contents
+
             $ev->setPhoto($fileName);
+            $ev->setIdUser($this->getUser());
             $em=$this->getDoctrine()->getManager();
             $em->persist($ev);
+
             $em->flush();
             return $this->redirectToRoute("afficheE");
         }
@@ -46,5 +47,15 @@ class EvenementController extends Controller
         return $this->render('AllForKidsDivertissementBundle:Evenement:ajout.html.twig', array('form'=>$form->createView()));
 
     }
-
+   public function ShowAction($id){
+       $em=$this->getDoctrine()->getManager();
+       $ev=$em->getRepository('AllForKidsEntityBundle:Evenement')->find($id);
+       $a= $ev->getIdUser()->getId();
+       $u=$em->getRepository('AllForKidsEntityBundle:User')->find($a);
+       return $this->render('AllForKidsDivertissementBundle:Evenement:Show.html.twig',
+           array(
+               'e'=>$ev,
+               'u'=>$u
+           ));
+   }
 }

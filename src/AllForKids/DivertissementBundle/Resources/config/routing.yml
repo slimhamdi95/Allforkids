@@ -7,3 +7,6 @@ afficheE:
 AjoutE:
     path:     /Ajoutev
     defaults: { _controller: AllForKidsDivertissementBundle:Evenement:Add }
+DetailE:
+    path:     /Detailev{id}
+    defaults: { _controller: AllForKidsDivertissementBundle:Evenement:Show }
