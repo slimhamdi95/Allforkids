@@ -56,6 +56,12 @@
             <div class="row">
                 <div class="col-md-9 col-sm-8 col-xs-12 block pull-right">
                     <div class="thumbnail thumbnailContent alt">
+
+                        {% for message in app.flashes('notice') %}
+                            <div  class="alert alert-success">
+                                {{ message }}
+                            </div>
+                        {% endfor %}
                         <img src="{{ asset('uploads/images/'~e.getPhoto()) }}" alt="image" class="img-responsive">
                         <div class="caption border-color-1 singleBlog">
                             <h3 class="color-1">Description.</h3>
@@ -94,11 +100,41 @@
                                             <i class="fa fa-phone" aria-hidden="true"></i>
                                         </div>
                                         <div class="media-body iconContent">
-                                            <h4 class="media-heading color-4">Contact</h4>
+                                            <h4 class="media-heading color-4">Contact </h4>
                                             <p>{{ u.email }}</p>
                                         </div>
                                     </li>
-                                    <li><a href="#" class="btn btn-primary bg-color-6 btn-block">Register now</a></li>
+
+                                    {% if v == false %}
+                                    {% if pe == false and nb != 0 %}
+                                        <li><a href="{{ path('ParticipE',{'id':e.getIdEvenement()}) }}" class="btn btn-primary bg-color-6 btn-block"> Inscrire maintenant</a></li>
+                                    {% elseif  pe == false and nb == 0  %}
+                                        <li  class="media"> <h4 class="center-block color-3"><strong>Complet</strong></h4></li>
+                                    {% else %}
+                                    <li>
+                                        <a href="" class="btn btn-primary bg-color-6 btn-block" data-placement="top" title="" data-original-title="Supprimer"  data-toggle="modal" data-target="#deleteModal{{ e.getIdEvenement() }}">Anuller l'inscription    </a>
+                                        <div class="modal fade" id="deleteModal{{ e.getIdEvenement() }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                            <div class="modal-dialog">
+                                                <br><br><br><br>
+                                                <div class="modal-content">
+                                                    <div class="modal-header">
+                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                                        <h4 class="modal-title">Comfirmation d' Anulation  :</h4>
+                                                    </div>
+                                                    <div class="modal-body" >
+                                                        <p><span>Voulez-vous vraiment Anuller l'inscription a  <a href="#"></a>  {{ e.getNom() }}? </span></p>
+
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <button type="button" class="btn btn-default " data-dismiss="modal">Annuler</button>
+                                                        <a href="{{ path ('AnulParticipE',{'id':e.getIdEvenement()}) }}" data-toggle="modal" class="btn btn-danger"  id="lien" >Confirme</a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                  {% endif %}
+                                    {% endif %}
                                 </ul>
                             </div>
                         </div>
@@ -108,6 +144,7 @@
         </div>
     </section>
 </div>
+
 </body>
 <script src="{{ asset('plugins/jquery/jquery-min.js') }}"></script>
 <script src="{{ asset('plugins/jquery-ui/jquery-ui.js') }}"></script>
@@ -127,3 +164,4 @@
 <script src="{{ asset('js/custom.js') }}"></script>
 <link href="{{ asset('options/optionswitch.css') }}" rel="stylesheet">
 <script src="{{ asset('options/optionswitcher.js') }}"></script>
+

@@ -10,3 +10,12 @@ AjoutE:
 DetailE:
     path:     /Detailev{id}
     defaults: { _controller: AllForKidsDivertissementBundle:Evenement:Show }
+ParticipE:
+    path:     /participev{id}
+    defaults: { _controller: AllForKidsDivertissementBundle:Evenement:Particip }
+AnulParticipE:
+    path:     /Anulparticipev{id}
+    defaults: { _controller: AllForKidsDivertissementBundle:Evenement:AnulParticip }
+MyEvent:
+    path:     /MyEvent
+    defaults: { _controller: AllForKidsDivertissementBundle:Evenement:MyEvent }
