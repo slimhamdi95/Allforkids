@@ -8,6 +8,6 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('AllForKidsDivertissementBundle:Default:index.html.twig');
+        return $this->render('AllForKidsDivertissementBun   dle:Default:index.html.twig');
     }
 }
