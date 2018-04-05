@@ -84,6 +84,9 @@
                 </div>
                 <div class="col-md-3 col-sm-5 col-xs-12 pull-left">
                     <aside>
+                        <a href="{{ path('AjoutE') }}" class="btn btn-primary  bg-color-1 border-color-1 btn-block"> Ajouter Mon Evenement </a>
+                        <br>
+                        <br>
                         <div class="panel panel-default courseSidebar">
                             <div class="panel-heading bg-color-1 border-color-1">
                                 <h3 class="panel-title">Search</h3>
@@ -104,8 +107,8 @@
                                 <ul class="list-unstyled categoryItem">
                                     <li><a href="{{ path('afficheE') }}">Tout les Evenements</a></li>
                                     <li><a href="{{ path('MyEvent') }}">Mes Evenements</a></li>
-                                    <li><a href="category.html">Les Evenements de la semaine</a></li>
-                                    <li><a href="category.html">Mes inscriptions</a></li>
+                                    <li><a href="{{ path('SemainEvent') }}">Les Evenements de la semaine</a></li>
+                                    <li><a href="{{ path('MesEventInsc') }}">Mes inscriptions</a></li>
 
                                 </ul>
                             </div>

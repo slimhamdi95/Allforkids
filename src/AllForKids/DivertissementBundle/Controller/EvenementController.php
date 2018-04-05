@@ -125,12 +125,16 @@ class EvenementController extends Controller
    }
    public function MesEventInscAction(){
        $em=$this->getDoctrine()->getManager();
-       $evenement=$em->getRepository('AllForKidsEntityBundle:Evenement')->findDqlInscrit($this->getUser()->getId());
+       $evenement=$em->getRepository('AllForKidsEntityBundle:Evenement')->findDqlInscrit(
+           $this->getUser()->getId());
 
-       return $this->render('AllForKidsDivertissementBundle:Evenement:MesEventIns.html.twig',
+       return $this->render('AllForKidsDivertissementBundle:Evenement:MesEventInsc.html.twig',
            array(
                'e'=>$evenement
            ));
+   }
+   public function Recherch(){
+        
    }
 
 }
