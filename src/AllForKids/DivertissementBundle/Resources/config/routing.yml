@@ -19,3 +19,9 @@ AnulParticipE:
 MyEvent:
     path:     /MyEvent
     defaults: { _controller: AllForKidsDivertissementBundle:Evenement:MyEvent }
+SemainEvent:
+    path:     /SemainEvent
+    defaults: { _controller: AllForKidsDivertissementBundle:Evenement:SemainEvent }
+MesEventInsc:
+    path:     /MesEvent
+    defaults: { _controller: AllForKidsDivertissementBundle:Evenement:MesEventInsc }
