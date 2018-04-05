@@ -14,10 +14,9 @@ class EvenementController extends Controller
     public function ShowAllAction(){
         $em=$this->getDoctrine()->getManager();
         $evenement=$em->getRepository('AllForKidsEntityBundle:Evenement')->findAll();
-       $a="product-img1.jpg" ;
         return $this->render('AllForKidsDivertissementBundle:Evenement:ShowAll.html.twig',
             array(
-                'e'=>$evenement,'a'=>$a
+                'e'=>$evenement
             ));
     }
 
@@ -103,7 +102,35 @@ class EvenementController extends Controller
 
        return $this->redirectToRoute('DetailE',array('id'=>$id));
    }
-   public function MyEvent(){
+   public function MyEventAction(){
+       $em=$this->getDoctrine()->getManager();
+       $evenement=$em->getRepository('AllForKidsEntityBundle:Evenement')->findBy(
+           ['idUser' => $this->getUser()]
 
+       );
+
+       return $this->render('AllForKidsDivertissementBundle:Evenement:Mayevent.html.twig',
+           array(
+               'e'=>$evenement
+           ));
    }
+   public function SemainEventAction(){
+       $em=$this->getDoctrine()->getManager();
+       $evenement=$em->getRepository('AllForKidsEntityBundle:Evenement')->findDqlSemaine();
+
+       return $this->render('AllForKidsDivertissementBundle:Evenement:SemainEvent.html.twig',
+           array(
+               'e'=>$evenement
+           ));
+   }
+   public function MesEventInscAction(){
+       $em=$this->getDoctrine()->getManager();
+       $evenement=$em->getRepository('AllForKidsEntityBundle:Evenement')->findDqlInscrit($this->getUser()->getId());
+
+       return $this->render('AllForKidsDivertissementBundle:Evenement:MesEventIns.html.twig',
+           array(
+               'e'=>$evenement
+           ));
+   }
+
 }
