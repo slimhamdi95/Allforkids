@@ -1,6 +1,6 @@
 <?php
 
-namespace AllForKids\DivertissementBundle\Controller;
+namespace ForumBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -8,6 +8,6 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('AllForKidsDivertissementBun   dle:Default:index.html.twig');
+        return $this->render('ForumBundle:Default:index.html.twig');
     }
 }
