@@ -46,6 +46,8 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="respond" level="application" />
+    <orderEntry type="library" name="html5shiv" level="application" />
     <orderEntry type="module-library">
       <library name="PHARS">
         <CLASSES>

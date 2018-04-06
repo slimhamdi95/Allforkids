@@ -1,6 +1,6 @@
 <?php
 
-namespace AllForKids\DivertissementBundle\Tests\Controller;
+namespace ForumBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
@@ -12,6 +12,6 @@ class DefaultControllerTest extends WebTestCase
 
         $crawler = $client->request('GET', '/');
 
-        $this->assertContains('Hello rayen', $client->getResponse()->getContent());
+        $this->assertContains('Hello World', $client->getResponse()->getContent());
     }
 }

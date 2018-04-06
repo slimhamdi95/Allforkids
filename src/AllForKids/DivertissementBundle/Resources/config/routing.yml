@@ -1,6 +1,27 @@
 all_for_kids_divertissement_homepage:
     path:     /
     defaults: { _controller: AllForKidsDivertissementBundle:Default:index }
-afficheP:
-    path:     /Affiche
+afficheE:
+    path:     /Afficheev
     defaults: { _controller: AllForKidsDivertissementBundle:Evenement:ShowAll }
+AjoutE:
+    path:     /Ajoutev
+    defaults: { _controller: AllForKidsDivertissementBundle:Evenement:Add }
+DetailE:
+    path:     /Detailev{id}
+    defaults: { _controller: AllForKidsDivertissementBundle:Evenement:Show }
+ParticipE:
+    path:     /participev{id}
+    defaults: { _controller: AllForKidsDivertissementBundle:Evenement:Particip }
+AnulParticipE:
+    path:     /Anulparticipev{id}
+    defaults: { _controller: AllForKidsDivertissementBundle:Evenement:AnulParticip }
+MyEvent:
+    path:     /MyEvent
+    defaults: { _controller: AllForKidsDivertissementBundle:Evenement:MyEvent }
+SemainEvent:
+    path:     /SemainEvent
+    defaults: { _controller: AllForKidsDivertissementBundle:Evenement:SemainEvent }
+MesEventInsc:
+    path:     /MesEvent
+    defaults: { _controller: AllForKidsDivertissementBundle:Evenement:MesEventInsc }

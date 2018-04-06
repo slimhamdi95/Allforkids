@@ -1,0 +1,8 @@
+forum_homepage:
+    path:     /
+    defaults: { _controller: ForumBundle:Default:index }
+
+
+_creation:
+    path:     /Creation
+    defaults: { _controller: ForumBundle:Forum:Creation }
