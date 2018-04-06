@@ -6,18 +6,24 @@ use AllForKids\DivertissementBundle\ImageUpload;
 use AllForKids\EntityBundle\Entity\Evenement;
 use AllForKids\EntityBundle\Entity\Participevenement;
 use AllForKids\EntityBundle\Form\EvenementType;
+use AllForKids\EntityBundle\Form\RechercheEventType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\File\UploadedFile ;
 class EvenementController extends Controller
 {
-    public function ShowAllAction(){
+    public function ShowAllAction(Request $request){
+        if($request->isMethod('POST')){
+            $nom = $request->get('re');
+            return $this->redirectToRoute("Recherche",array('nom'=>$nom));
+        }
         $em=$this->getDoctrine()->getManager();
         $evenement=$em->getRepository('AllForKidsEntityBundle:Evenement')->findAll();
         return $this->render('AllForKidsDivertissementBundle:Evenement:ShowAll.html.twig',
             array(
                 'e'=>$evenement
             ));
+
     }
 
     /**
@@ -102,7 +108,11 @@ class EvenementController extends Controller
 
        return $this->redirectToRoute('DetailE',array('id'=>$id));
    }
-   public function MyEventAction(){
+   public function MyEventAction(Request $request){
+       if($request->isMethod('POST')){
+           $nom = $request->get('re');
+           return $this->redirectToRoute("Recherche",array('nom'=>$nom));
+       }
        $em=$this->getDoctrine()->getManager();
        $evenement=$em->getRepository('AllForKidsEntityBundle:Evenement')->findBy(
            ['idUser' => $this->getUser()]
@@ -114,7 +124,11 @@ class EvenementController extends Controller
                'e'=>$evenement
            ));
    }
-   public function SemainEventAction(){
+   public function SemainEventAction(Request $request){
+       if($request->isMethod('POST')){
+           $nom = $request->get('re');
+           return $this->redirectToRoute("Recherche",array('nom'=>$nom));
+       }
        $em=$this->getDoctrine()->getManager();
        $evenement=$em->getRepository('AllForKidsEntityBundle:Evenement')->findDqlSemaine();
 
@@ -123,7 +137,11 @@ class EvenementController extends Controller
                'e'=>$evenement
            ));
    }
-   public function MesEventInscAction(){
+   public function MesEventInscAction(Request $request){
+       if($request->isMethod('POST')){
+           $nom = $request->get('re');
+           return $this->redirectToRoute("Recherche",array('nom'=>$nom));
+       }
        $em=$this->getDoctrine()->getManager();
        $evenement=$em->getRepository('AllForKidsEntityBundle:Evenement')->findDqlInscrit(
            $this->getUser()->getId());
@@ -133,8 +151,26 @@ class EvenementController extends Controller
                'e'=>$evenement
            ));
    }
-   public function Recherch(){
-        
+   public function RecherchAction(Request $request,$nom){
+       if($request->isMethod('POST')){
+           $nom = $request->get('re');
+           return $this->redirectToRoute("Recherche",array('nom'=>$nom));
+       }
+           $em=$this->getDoctrine();
+           $evs = $em->getRepository(Evenement::class)
+               ->findDqlNomParametre($nom);
+
+
+       return $this->render('AllForKidsDivertissementBundle:Evenement:Recherche.html.twig',
+           array( 'e'=>$evs)
+       );
+   }
+   public function DeleteAction($id){
+       $em=$this->getDoctrine()->getManager();
+       $ev=$em->getRepository(Evenement::class)->find($id);
+       $em->remove($ev);
+       $em->flush();
+       return $this->redirectToRoute('afficheE');
    }
 
 }

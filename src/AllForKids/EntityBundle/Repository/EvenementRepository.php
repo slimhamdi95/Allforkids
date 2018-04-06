@@ -29,4 +29,12 @@ class EvenementRepository extends \Doctrine\ORM\EntityRepository
         return $q->getResult();
 
     }
+    public function findDqlNomParametre($s)
+    {
+        $q=$this->getEntityManager()
+            ->createQuery("select e FROM AllForKidsEntityBundle:Evenement e WHERE e.nom LIKE :nom ")
+            ->setParameter('nom','%'.$s.'%');
+        return $q->getResult();
+
+    }
 }

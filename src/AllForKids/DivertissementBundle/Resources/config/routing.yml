@@ -25,3 +25,9 @@ SemainEvent:
 MesEventInsc:
     path:     /MesEvent
     defaults: { _controller: AllForKidsDivertissementBundle:Evenement:MesEventInsc }
+Recherche:
+    path:     /Recherche{nom}
+    defaults: { _controller: AllForKidsDivertissementBundle:Evenement:Recherch }
+Delete:
+    path:     /delete{id}
+    defaults: { _controller: AllForKidsDivertissementBundle:Evenement:Delete }
