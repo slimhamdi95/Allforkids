@@ -8,7 +8,7 @@ use Symfony\Component\Validator\Constraints as Assert ;
  * Evenement
  *
  * @ORM\Table(name="evenement", indexes={@ORM\Index(name="id_user", columns={"id_user"})})
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AllForKids\EntityBundle\Repository\EvenementRepository")
  */
 class Evenement
 {
