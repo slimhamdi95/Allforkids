@@ -1,0 +1,139 @@
+{% extends '@Transport/layout.html.twig' %}
+
+{% block body %}
+    <h1 style="text-align: center">Transport creation</h1>
+
+    {{ form_start(form)  }}
+    <div id="cmsmasters_row_5aa7fae42d707" class="cmsmasters_row cmsmasters_color_scheme_default cmsmasters_row_top_default cmsmasters_row_bot_default cmsmasters_row_boxed">
+        <div class="cmsmasters_row_outer_parent">
+            <div class="cmsmasters_row_outer">
+                <div class="cmsmasters_row_inner">
+                    <a href="{{ path('transport_index') }}">Back to the list</a>
+                    <div class="cmsmasters_row_margin">
+                        <div class="cmsmasters_column one_half">
+                            <div id="cmsmasters_heading_5aa7fae42d861" class="cmsmasters_heading_wrap cmsmasters_heading_align_left">
+                                <h2 class="cmsmasters_heading">A Sample Questionnaire</h2>
+                            </div><div class="cmsmasters_contact_form"><div class="cmsmasters-form-builder">
+
+                                    <div id="form_2836">
+
+                                        <div class="form_info cmsmasters_input one_first">
+                                            <label for="cmsmasters_name_2">Nombre de place <span class="color_2">*</span></label>
+                                            <div class="form_field_wrap">
+                                                {{ form_widget(form.place) }}
+                                            </div>
+                                        </div>
+                                        <div class="form_info cmsmasters_input one_first">
+                                            <label for="cmsmasters_email_2">Frais par personne <span class="color_2">*</span></label>
+                                            <div class="form_field_wrap">
+                                                {{ form_widget(form.frais) }}
+                                            </div>
+                                        </div>
+                                        <div class="form_info cmsmasters_input one_first">
+                                            <label for="cmsmasters_phone_2">Telephone <span class="color_2">*</span></label>
+                                            <div class="form_field_wrap">
+                                                {{ form_widget(form.telephone) }}
+                                            </div>
+                                        </div>
+                                        <div class="form_info cmsmasters_select">
+                                            <div class="form_field_wrap">
+                                                {{ form_widget(form.date) }}
+                                            </div>
+                                        </div>
+
+                                        <div class="form_info cmsmasters_select">
+                                            <label>Type de covoiturage</label>
+                                            <div class="form_field_wrap">
+                                                <select name="cmsmasters_gender" id="cmsmasters_gender">
+                                                    <option value="Male">occasionnellement</option>
+                                                    <option value="Female">régulièrement</option>
+                                                </select>
+                                            </div>
+                                            <div class="cl"></div>
+                                        </div>
+                                    </div>
+                                </div></div>
+                        </div>
+                        <div class="cmsmasters_column one_half">
+
+                            <div id="cmsmasters_heading_5aa7fae42e0e1" class="cmsmasters_heading_wrap cmsmasters_heading_align_left">
+                                <h2 class="cmsmasters_heading">Contact Form</h2>
+                            </div><div class="cmsmasters_contact_form"><div class="cmsmasters-form-builder">
+
+                                    <div  id="form_2831">
+
+                                        <div class="form_info cmsmasters_input one_first">
+                                            <label for="cmsmasters_name_6">Depart <span class="color_2">*</span></label>
+                                            <div class="form_field_wrap">
+                                                {{ form_widget(form.depart) }}
+                                            </div>
+                                        </div>
+                                        <div class="form_info cmsmasters_input one_first">
+                                            <label for="cmsmasters_email">Arrivée <span class="color_2">*</span></label>
+                                            <div class="form_field_wrap">
+                                                {{ form_widget(form.arrive) }}
+                                            </div>
+                                        </div>
+                                        <div class="form_info cmsmasters_textarea one_first">
+                                            <label for="cmsmasters_your_message">Description <span class="color_2">*</span></label>
+                                            <div class="form_field_wrap">
+                                                {{ form_widget(form.description) }}
+                                            </div>
+                                        </div>
+                                        <div class="form_info submit_wrap">
+                                            <input type="submit" value="Create" />
+                                        </div>
+                                        <div class="cl"></div>
+                                    </div>
+                                </div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCq5FMCE1AZYb8dXtdqyNfuez-5Sv9z73M&callback=initMap"  async defer></script>
+    <div id="map"></div>
+    <script type="text/javascript">
+        var map;
+        var depart;
+        var arrive;
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: 36.862499, lng: 10.195556},
+                zoom: 8
+            });
+            var depart = document.getElementById('transportbundle_transport_depart');
+            var autocomplete =  new google.maps.places.Autocomplete(depart);
+            var arriv = document.getElementById('transportbundle_transport_arrive');
+            var autocompletearriv =  new google.maps.places.Autocomplete(arriv);
+            google.maps.event.addListener(autocomplete, 'place_changed', function() {
+                var data = $("#search_form").serialize();
+                departCor = autocomplete.getPlace().geometry.location;
+                markerdep = new google.maps.Marker({
+                    position: departCor,
+                    map: map
+                });
+                alert(departCor);
+
+                //  show_submit_data(data);
+            });
+            google.maps.event.addListener(autocompletearriv, 'place_changed', function() {
+                arriveCor = autocompletearriv.getPlace().geometry.location;
+                markerdep = new google.maps.Marker({
+                    position: arriveCor,
+                    map: map
+                });
+                //var data = $("#search_form").serialize();
+                alert(arriveCor);
+                //  show_submit_data(data);
+            });
+        }
+
+    </script>
+    {{ form_end(form) }}
+
+{% endblock %}
+
+

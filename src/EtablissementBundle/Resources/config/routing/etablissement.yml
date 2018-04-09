@@ -1,0 +1,24 @@
+etablissement_index:
+    path:     /
+    defaults: { _controller: "EtablissementBundle:Etablissement:index" }
+    methods:  GET
+
+etablissement_show:
+    path:     /{idEtablissement}/show
+    defaults: { _controller: "EtablissementBundle:Etablissement:show" }
+    methods:  GET
+
+etablissement_new:
+    path:     /new
+    defaults: { _controller: "EtablissementBundle:Etablissement:new" }
+    methods:  [GET, POST]
+
+etablissement_edit:
+    path:     /{idEtablissement}/edit
+    defaults: { _controller: "EtablissementBundle:Etablissement:edit" }
+    methods:  [GET, POST]
+
+etablissement_delete:
+    path:     /{idEtablissement}/delete
+    defaults: { _controller: "EtablissementBundle:Etablissement:delete" }
+    methods:  DELETE

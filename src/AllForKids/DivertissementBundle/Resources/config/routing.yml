@@ -31,3 +31,12 @@ Recherche:
 Delete:
     path:     /delete{id}
     defaults: { _controller: AllForKidsDivertissementBundle:Evenement:Delete }
+Update:
+    path:     /modifier{id}
+    defaults: { _controller: AllForKidsDivertissementBundle:Evenement:Update }
+DeleteD:
+    path:     /DeleteD
+    defaults: { _controller: AllForKidsDivertissementBundle:Evenement:SupprimerD }
+ajax_star_rating_system:
+  path:  /ajax/starrating/update/data
+  defaults: { _controller: AllForKidsDivertissementBundle:AjaxStarratingsystem:updateData }

@@ -1,7 +1,16 @@
-forum:
-    resource: "@ForumBundle/Resources/config/routing.yml"
-    prefix:   /forum
-
+transport:
+    resource: "@TransportBundle/Resources/config/routing.yml"
+    prefix:   /
+discutea_forum:
+    resource: "@DForumBundle/Resources/config/routing.yml"
+    prefix:   /
+med:
+    resource: "@MedBundle/Controller/"
+    type:     annotation
+    prefix:   /
+etablissement:
+    resource: "@EtablissementBundle/Resources/config/routing.yml"
+    prefix:   /Etab
 rayen:
     resource: "@RayenBundle/Controller/"
     type:     annotation

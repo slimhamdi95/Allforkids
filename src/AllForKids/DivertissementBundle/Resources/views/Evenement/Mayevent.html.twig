@@ -71,15 +71,7 @@
                     </div>
 
                     <div class="pagerArea text-center">
-                        <ul class="pager">
-                            <li class="prev"><a href="#"><i class="fa fa-arrow-left" aria-hidden="true"></i>Prev</a></li>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">...</a></li>
-                            <li><a href="#">15</a></li>
-                            <li class="next"><a href="#">Next<i class="fa fa-arrow-right" aria-hidden="true"></i></a></li>
-                        </ul>
+                        {{ knp_pagination_render(e) }}
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-5 col-xs-12 pull-left">

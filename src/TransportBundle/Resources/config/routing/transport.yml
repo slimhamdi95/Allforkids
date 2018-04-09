@@ -1,0 +1,39 @@
+transport_index:
+    path:     /
+    defaults: { _controller: "TransportBundle:Transport:index" }
+    methods:  GET
+
+transport_mytransport:
+    path:     /myTransport
+    defaults: { _controller: "TransportBundle:Transport:myTransport" }
+    methods:  GET
+
+transport_joindre:
+    path:     /{idTransport}/joindre
+    defaults: { _controller: "TransportBundle:Transport:joindre" }
+    methods:  [GET, POST]
+
+transport_delete_joindre:
+    path:     /{idTransport}/deletejoindre
+    defaults: { _controller: "TransportBundle:Transport:annulJoindre" }
+    methods:
+
+transport_show:
+    path:     /{idTransport}/show
+    defaults: { _controller: "TransportBundle:Transport:show" }
+    methods:  GET
+
+transport_new:
+    path:     /new
+    defaults: { _controller: "TransportBundle:Transport:new" }
+    methods:  [GET, POST]
+
+transport_edit:
+    path:     /{idTransport}/edit
+    defaults: { _controller: "TransportBundle:Transport:edit" }
+    methods:  [GET, POST]
+
+transport_delete:
+    path:     /{idTransport}/delete
+    defaults: { _controller: "TransportBundle:Transport:delete" }
+    methods:  DELETE

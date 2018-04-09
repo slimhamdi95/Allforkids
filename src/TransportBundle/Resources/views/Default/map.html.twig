@@ -1,0 +1,46 @@
+{% extends '@Transport/layout.html.twig' %}
+
+{% block middle %}
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCq5FMCE1AZYb8dXtdqyNfuez-5Sv9z73M"></script>
+
+    <div id="map" class="firasclass">  </div>
+    <script type="text/javascript" >
+        initMap();
+        var map;
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: -34.397, lng: 150.644},
+                zoom: 8
+            });
+
+        }
+        function getDirections(loc1,loc2) {
+            $('#tellme').prop("disabled", false);
+            // ==== Set up the walk and avoid highways options ====
+            var request = {};
+
+            request.travelMode = google.maps.DirectionsTravelMode.DRIVING;
+
+            // ==== set the start and end locations ====
+            var saddr = loc1;
+            var daddr = loc2;
+
+            request.origin = saddr;
+            request.destination = daddr;
+            directionsService.route(request, function (response, status) {
+                if (status == google.maps.DirectionsStatus.OK) {
+                    directionsDisplay.setDirections(response);
+                    for (var i = 0; i < response.routes[0].legs[0].steps.length; i++) {
+                        helpings.push(response.routes[0].legs[0].steps[i].instructions);
+                    }
+                } else
+                    alert("Directions not found:" + status);
+            });
+
+        }
+    </script>
+
+
+
+{% endblock %}
