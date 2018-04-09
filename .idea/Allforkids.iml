@@ -57,8 +57,15 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="respond" level="application" />
     <orderEntry type="library" name="html5shiv" level="application" />
+<<<<<<< HEAD
     <orderEntry type="library" name="jquery-latest" level="application" />
     <orderEntry type="library" name="jquery" level="application" />
+=======
+<<<<<<< HEAD
+    <orderEntry type="library" name="jquery-latest" level="application" />
+    <orderEntry type="library" name="jquery" level="application" />
+=======
+>>>>>>> 432275f99a31c9f43fec79ffba3a7b8f5d200933
     <orderEntry type="module-library">
       <library name="PHARS">
         <CLASSES>
@@ -69,5 +76,9 @@
         </SOURCES>
       </library>
     </orderEntry>
+<<<<<<< HEAD
+=======
+>>>>>>> d635026c873fbba9f14335a254aa38040eb85311
+>>>>>>> 432275f99a31c9f43fec79ffba3a7b8f5d200933
   </component>
 </module>
