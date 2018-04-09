@@ -1,0 +1,154 @@
+
+{% block body %}
+    <link href="{{ asset('plugins/jquery-ui/jquery-ui.css" rel="stylesheet') }}">
+    <link href="{{ asset('plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('plugins/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('plugins/rs-plugin/css/settings.css') }}" media="screen">
+    <link rel="stylesheet" type="text/css" href="{{ asset('plugins/selectbox/select_option1.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('plugins/owl-carousel/owl.carousel.css') }}" media="screen">
+    <link rel="stylesheet" type="text/css" href="{{ asset('plugins/isotope/jquery.fancybox.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('plugins/isotope/isotope.css') }}">
+    <div class="clearfix"></div>
+    <div class="count">
+
+    </div>
+    <div class="container">
+        <a href="" class=" btn btn-danger " data-placement="top" title="" data-original-title="Supprimer"  data-toggle="modal" data-target="#deleteModaldp">Supprimer Evenement passé</a>
+        <div class="modal fade" id="deleteModaldp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <br><br><br><br>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title">Comfirmation de suppression :</h4>
+                    </div>
+                    <div class="modal-body" >
+                        <p><span>Voulez-vous vraiment supprimer <a href="#"></a>  Les evenement deja passé </span></p>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default " data-dismiss="modal">Annuler</button>
+                        <a href="{{ path ('DeleteD') }}" data-toggle="modal" class="btn btn-danger"  id="lien" >Supprimer</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="clearfix"></div><br />
+
+    <div class="container">
+        <table class='table table-bordered table-striped'>
+            <tr>
+                <th>Img</th>
+                <th>Nom</th>
+                <th>Date</th>
+                <th>Temp</th>
+                <th>Type</th>
+                <th>User</th>
+                <th>Plus d'information</th>
+                <th>Supprimer</th>
+            </tr>
+            {% for ev in e %}
+                <tr>
+                    <td>  <img width="100px" src="{{ asset('uploads/images/'~ev.getPhoto()) }}" alt="image" class="img-responsive"> </td>
+                    <td>{{ ev.getNom() }}</td>
+                    <td>{{ ev.getDate() |date("m/d/Y") }}</td>
+                    <td>{{ ev.getTemp()|date('H:i') }}</td>
+                    <td>{{ ev.getType()  }}</td>
+                    <td>{{ ev.getIdUser()  }}</td>
+                    <td>
+                        <button type="button" class="btn-info btn" data-toggle="modal" data-target="#myModal{{ ev.getIdEvenement() }}">Informations</button>
+
+                        <div class="modal fade" id="myModal{{ ev.getIdEvenement() }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <br><br><br><br>
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title" id="myModalLabel"> les Informations :</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+
+                                            <div class="col-lg-6">
+
+                                                <ul>
+                                                    <li><strong>Nom :</strong>   {{ ev.getNom() }} </li> <br>
+                                                    <li><strong>Date:</strong> {{ ev.getDate() |date("m/d/Y") }}</li> <br>
+                                                    <li><strong>Temps:</strong>{{  ev.getTemp()|date('H:i') }}</li><br>
+                                                    <li><strong>Type:</strong>{{   ev.getType() }}</li><br>
+                                                    <li><strong>Description:</strong>{{   ev.getDescriptionn() }}</li><br>
+                                                    <li><strong>l'utilisateur:</strong>{{  ev.getIdUser() }}</li><br>
+                                                </ul>
+
+                                            </div>
+                                            <div class="col-lg-6">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                    </td>
+                  <td>
+                      <a href="" class="tooltip-test" data-placement="top" title="" data-original-title="Supprimer"  data-toggle="modal" data-target="#deleteModal{{ ev.getIdEvenement() }}"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span>    </a>
+                        <div class="modal fade" id="deleteModal{{ ev.getIdEvenement() }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <br><br><br><br>
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                        <h4 class="modal-title">Comfirmation de suppression :</h4>
+                                    </div>
+                                    <div class="modal-body" >
+                                        <p><span>Voulez-vous vraiment supprimer <a href="#"></a>  {{ ev.getNom() }}? </span></p>
+
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-default " data-dismiss="modal">Annuler</button>
+                                        <a href="{{ path ('Delete',{'id': ev.getIdEvenement()}) }}" data-toggle="modal" class="btn btn-danger"  id="lien" >Supprimer</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+
+
+                </tr>
+            {% endfor %}
+
+
+        </table>
+        <div class="pagerArea text-center">
+            {{ knp_pagination_render(e) }}
+        </div>
+    </div>
+{% endblock %}
+<script src="{{ asset('plugins/jquery/jquery-min.js') }}"></script>
+<script src="{{ asset('plugins/jquery-ui/jquery-ui.js') }}"></script>
+<script src="{{ asset('plugins/bootstrap/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('plugins/rs-plugin/js/jquery.themepunch.tools.min.js') }}"></script>
+<script src="{{ asset('plugins/rs-plugin/js/jquery.themepunch.revolution.min.js') }}"></script>
+<script src="{{ asset('plugins/selectbox/jquery.selectbox-0.1.3.min.js') }}"></script>
+<script src="{{ asset('plugins/owl-carousel/owl.carousel.js') }}"></script>
+<script src="{{ asset('../../../cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js') }}"></script>
+<script src="{{ asset('plugins/counter-up/jquery.counterup.min.js') }}"></script>
+<script src="{{ asset('plugins/isotope/isotope.min.js') }}"></script>
+<script src="{{ asset('plugins/isotope/jquery.fancybox.pack.js') }}"></script>
+<script src="{{ asset('plugins/isotope/isotope-triger.js') }}"></script>
+<script src="{{ asset('plugins/countdown/jquery.syotimer.js') }}"></script>
+<script src="{{ asset('plugins/velocity/velocity.min.js') }}"></script>
+<script src="{{ asset('plugins/smoothscroll/SmoothScroll.js') }}"></script>
+<script src="{{ asset('js/custom.js') }}"></script>
+<link href="{{ asset('options/optionswitch.css') }}" rel="stylesheet">
+<script src="{{ asset('options/optionswitcher.js') }}"></script>

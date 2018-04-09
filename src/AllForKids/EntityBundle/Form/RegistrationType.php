@@ -6,6 +6,8 @@ namespace AllForKids\EntityBundle\Form;
 use FOS\UserBundle\Form\Type\RegistrationFormType;
 use FOS\UserBundle\FOSUserBundle;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\UrlType;
@@ -25,7 +27,21 @@ class RegistrationType extends AbstractType
                 ->add('prenom')
                 ->add('date',DateType::class)
                 ->add('picture', FileType::class, array('label' => 'Image'))
-                ->add('role');
+                ->add('role')
+                ->add('roles',CollectionType::class, array(
+                    'entry_type' => ChoiceType::class,
+                    'entry_options' => array(
+                        'label' => false, /* Ajoutez cette ligne */
+                        'choices' => array(
+                            'Parent'  => 'ROLE_PARENT'       ,
+                            'Eléve'  => 'ROLE_ELEVE'        ,
+                            'Responsable' =>  'ROLE_RESPONSABLE',
+                            'Medecin' =>  'ROLE_MEDECIN'
+
+                        )
+                    )
+                )
+            );
     }/**
      * {@inheritdoc}
      */
