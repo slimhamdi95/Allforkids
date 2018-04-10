@@ -19,7 +19,7 @@ transport_delete_joindre:
     methods:
 
 transport_show:
-    path:     /{idTransport}/show
+    path:     /show/{idTransport}
     defaults: { _controller: "TransportBundle:Transport:show" }
     methods:  GET
 

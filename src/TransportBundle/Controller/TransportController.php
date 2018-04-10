@@ -38,10 +38,11 @@ class TransportController extends Controller
         $pe = new JoindreTransport();
         $pe->setTransportId($idTransport);
         $pe->setUserId($user);
+
         $em->persist($pe);
         $em->flush();
 
-        return $this->redirectToRoute('transport_index',array('id'=>$idTransport));
+        return $this->redirectToRoute('transport_index');
     }
 
     /**
