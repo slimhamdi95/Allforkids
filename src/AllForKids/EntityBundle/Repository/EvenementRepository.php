@@ -37,4 +37,12 @@ class EvenementRepository extends \Doctrine\ORM\EntityRepository
         return $q->getResult();
 
     }
+    public function DeleteDqlDep()
+    {
+        $q=$this->getEntityManager()
+            ->createQuery("delete  FROM AllForKidsEntityBundle:Evenement e WHERE e.date < CURRENT_DATE()");
+
+        $q->execute();
+
+    }
 }

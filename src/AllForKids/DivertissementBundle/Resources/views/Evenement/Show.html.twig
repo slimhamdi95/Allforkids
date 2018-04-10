@@ -138,6 +138,7 @@
                                     </li>
                                   {% endif %}
                                         {% else %}
+                                            <li><a href="{{ path('Update',{'id':e.getIdEvenement()}) }}" class="btn btn-primary bg-color-2 btn-block">Modifier</a></li>
                                             <li>
                                                 <a href="" class="btn btn-primary bg-color-3 btn-block" data-placement="top" title="" data-original-title="Supprimer"  data-toggle="modal" data-target="#deleteModal{{ e.getIdEvenement() }}">Supprimer    </a>
                                                 <div class="modal fade" id="deleteModal{{ e.getIdEvenement() }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">

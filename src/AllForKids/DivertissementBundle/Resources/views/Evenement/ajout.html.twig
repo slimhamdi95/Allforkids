@@ -118,6 +118,7 @@
     <!-- Map -->
     <div class="col-xs-12">
         <div class="mapArea areaPadding">
+            <input id="depart" type="text"/>
             <div id="map" style="position: relative; overflow: hidden;"><div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);"><div class="gm-err-container"><div class="gm-err-content"><div class="gm-err-icon"><img src="http://maps.gstatic.com/mapfiles/api-3/images/icon_error.png" draggable="false" style="user-select: none;"></div><div class="gm-err-title">Petit problème... Une erreur s'est produite</div><div class="gm-err-message">Google&nbsp;Maps ne s'est pas chargé correctement sur cette page. Pour plus d'informations techniques sur cette erreur, veuillez consulter la console JavaScript.</div></div></div></div></div>
         </div>
     </div>
@@ -150,7 +151,51 @@
 <script src="{{ asset('options/optionswitcher.js') }}"></script>
 
 </body>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
+<script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCq5FMCE1AZYb8dXtdqyNfuez-5Sv9z73M&callback=initMap"  async defer></script>
+<style>
+    /* Always set the map height explicitly to define the size of the div
+     * element that contains the map. */
+    #map {
+        height: 100%;
+    }
+    /* Optional: Makes the sample page fill the window. */
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+</style>
 
+
+
+<script type="text/javascript">
+    var map;
+    var depart;
+    var arrive;
+    function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: {lat: 36.862499, lng: 10.195556},
+            zoom: 8
+        });
+        var depart = document.getElementById('depart');
+        var autocomplete =  new google.maps.places.Autocomplete(depart);
+        var arriv = document.getElementById('arriv');
+        var autocompletearriv =  new google.maps.places.Autocomplete(arriv);
+        google.maps.event.addListener(autocomplete, 'place_changed', function() {
+            var data = $("#search_form").serialize();
+            departloc = autocomplete.getPlace().geometry.location;
+            markerdep = new google.maps.Marker({
+                position: depart,
+                map: map
+            });
+            alert(departloc);
+            //  show_submit_data(data);
+        });
+
+    }
+
+</script>
 
 <!-- Mirrored from themes.iamabdus.com/kidz/1.4/contact-us.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 13 Mar 2018 16:12:08 GMT -->
 </html>

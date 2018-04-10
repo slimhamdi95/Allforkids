@@ -1,0 +1,13 @@
+transport_transport:
+    resource: "@TransportBundle/Resources/config/routing/transport.yml"
+    prefix:   /transport
+
+template_homepage:
+    path:     /home
+    defaults: { _controller: TransportBundle:Default:index }
+
+map:
+    path:     /map
+    defaults: { _controller: TransportBundle:Default:map }
+
+

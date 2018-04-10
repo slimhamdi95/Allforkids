@@ -6,22 +6,36 @@ use AllForKids\DivertissementBundle\ImageUpload;
 use AllForKids\EntityBundle\Entity\Evenement;
 use AllForKids\EntityBundle\Entity\Participevenement;
 use AllForKids\EntityBundle\Form\EvenementType;
+use AllForKids\EntityBundle\Form\EvenmentUpdateType;
 use AllForKids\EntityBundle\Form\RechercheEventType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\DependencyInjection\ContainerInterface;
+use Symfony\Component\Form\Exception\TransformationFailedException;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\HttpFoundation\File\Exception\FileNotFoundException;
+use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\File\UploadedFile ;
 class EvenementController extends Controller
 {
     public function ShowAllAction(Request $request){
+
         if($request->isMethod('POST')){
             $nom = $request->get('re');
             return $this->redirectToRoute("Recherche",array('nom'=>$nom));
         }
+
         $em=$this->getDoctrine()->getManager();
         $evenement=$em->getRepository('AllForKidsEntityBundle:Evenement')->findAll();
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $evenement, /* query NOT result */
+            $request->query->getInt('page', 1)/*page number*/,
+            $request->query->getInt('limit', 6)/*limit per page*/
+        );
         return $this->render('AllForKidsDivertissementBundle:Evenement:ShowAll.html.twig',
             array(
-                'e'=>$evenement
+                'e' => $pagination
             ));
 
     }
@@ -32,7 +46,8 @@ class EvenementController extends Controller
      */
     public function AddAction(Request $request){
         $ev =new Evenement();
-        $form=$this->createForm(EvenementType::class,$ev);
+
+        $form=$this->createForm(EvenementType::class,$ev,array('required'=>true));
         $form->handleRequest($request);
 
         if ($form->isValid()){
@@ -113,15 +128,22 @@ class EvenementController extends Controller
            $nom = $request->get('re');
            return $this->redirectToRoute("Recherche",array('nom'=>$nom));
        }
+
        $em=$this->getDoctrine()->getManager();
        $evenement=$em->getRepository('AllForKidsEntityBundle:Evenement')->findBy(
            ['idUser' => $this->getUser()]
 
        );
+       $paginator  = $this->get('knp_paginator');
+       $pagination = $paginator->paginate(
+           $evenement, /* query NOT result */
+           $request->query->getInt('page', 1)/*page number*/,
+           $request->query->getInt('limit', 6)/*limit per page*/
+       );
 
        return $this->render('AllForKidsDivertissementBundle:Evenement:Mayevent.html.twig',
            array(
-               'e'=>$evenement
+               'e'=>$pagination
            ));
    }
    public function SemainEventAction(Request $request){
@@ -131,10 +153,16 @@ class EvenementController extends Controller
        }
        $em=$this->getDoctrine()->getManager();
        $evenement=$em->getRepository('AllForKidsEntityBundle:Evenement')->findDqlSemaine();
+       $paginator  = $this->get('knp_paginator');
+       $pagination = $paginator->paginate(
+           $evenement, /* query NOT result */
+           $request->query->getInt('page', 1)/*page number*/,
+           $request->query->getInt('limit', 6)/*limit per page*/
+       );
 
        return $this->render('AllForKidsDivertissementBundle:Evenement:SemainEvent.html.twig',
            array(
-               'e'=>$evenement
+               'e'=>$pagination
            ));
    }
    public function MesEventInscAction(Request $request){
@@ -145,10 +173,15 @@ class EvenementController extends Controller
        $em=$this->getDoctrine()->getManager();
        $evenement=$em->getRepository('AllForKidsEntityBundle:Evenement')->findDqlInscrit(
            $this->getUser()->getId());
-
+       $paginator  = $this->get('knp_paginator');
+       $pagination = $paginator->paginate(
+           $evenement, /* query NOT result */
+           $request->query->getInt('page', 1)/*page number*/,
+           $request->query->getInt('limit', 6)/*limit per page*/
+       );
        return $this->render('AllForKidsDivertissementBundle:Evenement:MesEventInsc.html.twig',
            array(
-               'e'=>$evenement
+               'e'=>$pagination
            ));
    }
    public function RecherchAction(Request $request,$nom){
@@ -159,10 +192,15 @@ class EvenementController extends Controller
            $em=$this->getDoctrine();
            $evs = $em->getRepository(Evenement::class)
                ->findDqlNomParametre($nom);
-
+       $paginator  = $this->get('knp_paginator');
+       $pagination = $paginator->paginate(
+           $evs, /* query NOT result */
+           $request->query->getInt('page', 1)/*page number*/,
+           $request->query->getInt('limit', 6)/*limit per page*/
+       );
 
        return $this->render('AllForKidsDivertissementBundle:Evenement:Recherche.html.twig',
-           array( 'e'=>$evs)
+           array( 'e'=>$pagination)
        );
    }
    public function DeleteAction($id){
@@ -172,5 +210,72 @@ class EvenementController extends Controller
        $em->flush();
        return $this->redirectToRoute('afficheE');
    }
+   public function UpdateAction(Request $request,$id)
+   {
+       $id=$request->get('id');
+       $em=$this->getDoctrine();
+       $e = $em->getRepository(Evenement::class)->find($id);
+       $img=$e->getPhoto();
+       $e->setPhoto(null);
+       $form=$this->createForm( EvenmentUpdateType::class,$e);
+       $form->handleRequest($request);
 
+       if ($form->isValid()){
+         if($e->getPhoto()== null ){
+
+             $e->setPhoto($img);
+         }else{
+             $file = new ImageUpload($this->getParameter('images_directory'));
+
+             $fileName = $file->upload($e->getPhoto());
+
+             $e->setPhoto($fileName);
+         }
+
+           $em=$this->getDoctrine()->getManager();
+           $em->flush();
+           return $this->redirectToRoute("MyEvent");
+       }
+       return $this->render('AllForKidsDivertissementBundle:Evenement:update.html.twig', array('form'=>$form->createView(),'e'=>$e));
+
+   }
+   public function SupprimerDAction(){
+       $em=$this->getDoctrine()->getManager();
+       $em->getRepository('AllForKidsEntityBundle:Evenement')-> DeleteDqlDep();
+       $this->addFlash(
+           'notice',
+           'Evenements Supprimer  avec succès!'
+       );
+
+       return $this->redirectToRoute('afficheE');
+   }
+
+    /**
+     * @param $data
+     * @return null|UploadedFile
+     */
+    public function reverseTransform($data)
+    {
+        if (!$data) {
+            return null;
+        }
+
+        $path = $data['tmp_name'];
+        $pathinfo = pathinfo($path);
+        $basename = $pathinfo['basename'];
+
+        try {
+            $uploadedFile = new UploadedFile(
+                $path,
+                $basename,
+                $data['type'],
+                $data['size'],
+                $data['error']
+            );
+        } catch (FileNotFoundException $ex) {
+            throw new TransformationFailedException($ex->getMessage());
+        }
+
+        return $uploadedFile;
+    }
 }

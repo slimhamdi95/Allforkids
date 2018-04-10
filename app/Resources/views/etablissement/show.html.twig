@@ -1,0 +1,183 @@
+{% extends 'base.html.twig' %}
+
+{% block  body %}
+
+
+
+
+
+    <!-- _________________________ Start Middle _________________________ -->
+    <div id="middle">
+        <style type="text/css">.headline_color {
+                background-image:url{{ asset('bundles/etablissement/wp-content/uploads/2015/12/header.jpg') }};
+                background-repeat:no-repeat;
+                background-attachment:scroll;
+                background-size:cover;
+            }.headline_color {
+                 background-color:;
+             }
+            .headline_aligner,
+            .cmsmasters_breadcrumbs_aligner {
+                min-height:250px;
+            }
+        </style>
+        <div class="headline cmsmasters_color_scheme_first">
+            <div class="headline_outer cmsmasters_headline_disabled">
+                <div class="headline_color"></div>
+            </div>
+        </div>
+        <div class="middle_inner">
+            <header class="cmsmasters_profile_header entry-header">
+                <h1 class="cmsmasters_profile_title entry-title">L'établissement {{ etablissement.nom }} </h1>
+            </header>
+            <div class="content_wrap fullwidth profile_page">
+
+                <!--_________________________ Start Content _________________________ -->
+                <div class="middle_content entry" role="main">
+                    <div class="profiles opened-article">
+
+                        <!--_________________________ Start Standard Profile _________________________ -->
+
+                        <article id="post-7367" class="cmsmasters_open_profile post-7367 profile type-profile status-publish has-post-thumbnail hentry pl-categs-staff">
+                            <div class="profile_content with_sidebar"><div class="cmsmasters_profile_content entry-content">
+                                    <style type="text/css">
+                                        #cmsmasters_row_5abc253672e70 .cmsmasters_row_outer_parent {
+                                            padding-top: 0px;
+                                        }
+
+                                        #cmsmasters_row_5abc253672e70 .cmsmasters_row_outer_parent {
+                                            padding-bottom: 50px;
+                                        }
+
+
+                                        #cmsmasters_row_5abc2536731d6 .cmsmasters_row_outer_parent {
+                                            padding-top: 0px;
+                                        }
+
+                                        #cmsmasters_row_5abc2536731d6 .cmsmasters_row_outer_parent {
+                                            padding-bottom: 50px;
+                                        }
+
+                                    </style><div id="cmsmasters_row_5abc253672e70" class="cmsmasters_row cmsmasters_color_scheme_default cmsmasters_row_top_default cmsmasters_row_bot_default cmsmasters_row_boxed">
+                                        <div class="cmsmasters_row_outer_parent">
+                                            <div class="cmsmasters_row_outer">
+                                                <div class="cmsmasters_row_inner">
+                                                    <div class="cmsmasters_row_margin">
+                                                        <div class="cmsmasters_column one_first">
+                                                            <div class="aligncenter">
+                                                                <div class="cmsmasters_img  cmsmasters_image_c">
+                                                                    <img src="{{ asset('uploads/images/' ~ 	etablissement.image) }}" height="100px" width="250px">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="cmsmasters_row_5abc2536731d6" class="cmsmasters_row cmsmasters_color_scheme_default cmsmasters_row_top_default cmsmasters_row_bot_default cmsmasters_row_boxed">
+                                        <div class="cmsmasters_row_outer_parent">
+                                            <div class="cmsmasters_row_outer">
+                                                <div class="cmsmasters_row_inner">
+                                                    <div class="cmsmasters_row_margin">
+                                                        <div class="cmsmasters_column one_first">
+                                                            <div class="cmsmasters_text">
+                                                                <p>{{ etablissement.description }}.</p>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div></div>
+                            <div class="profile_sidebar">
+                                <div class="profile_details entry-meta">
+                                    <h3 class="profile_details_title">Détail de l'établissement</h3>
+                                    <div class="profile_details_item">
+                                        <div class="profile_details_item_title">Nom:</div>
+                                        <div class="profile_details_item_desc">{{ etablissement.nom }}</div>
+                                    </div>
+                                    <div class="profile_details_item">
+                                        <div class="profile_details_item_title">Type:</div>
+                                        <div class="profile_details_item_desc">{{ etablissement.type }}</div>
+                                    </div>
+                                    <div class="profile_details_item">
+                                        <div class="profile_details_item_title">Region:</div>
+                                        <div class="profile_details_item_desc">{{ etablissement.region }}</div>
+                                    </div>
+                                    <div class="profile_details_item">
+                                        <div class="profile_details_item_title">Ville:</div>
+                                        <div class="profile_details_item_desc">{{  etablissement.ville }}</div>
+                                    </div>
+                                    {% if ((is_granted('ROLE_ADMIN') == true ) or (is_granted('ROLE_RESPONSABLE') == true )) %}
+                                    <div class="profile_details_item">
+                                        <div class="profile_details_item_title">Vérification:</div>
+                                        <div class="profile_details_item_desc">{{  etablissement.verification }}</div>
+                                    </div>
+                                    {% endif %}
+                                    <table>
+                                        <tr>
+                                            <td>
+
+                                                <div class="profile_details_item">
+                                                    {% if ( (is_granted('ROLE_ADMIN') == true ) or (is_granted('ROLE_RESPONSABLE')) ) %}
+                                                        {{ form_start(delete_form) }}
+                                                        <input type="submit" value="Effacer">
+                                                        {{ form_end(delete_form) }}
+                                                    {% endif %}
+                                                </div>
+                                            </td>
+
+                                            <td>
+                                                {% if (is_granted('ROLE_ADMIN') == true) and not (etablissement.verification == 'Valide') %}
+                                                    <div class="profile_details_item">
+                                                        <a href="{{ path('etablissement_valide',{'idetab':etablissement.idEtablissement}) }}" class="btn">Valider</a>
+                                                    </div>
+                                                {% endif %}
+                                            </td>
+                                            <td>{% if (is_granted('ROLE_ELEVE') == true )  %}
+                                                    <div class="profile_details_item">
+                                                        <a href="{{ path('etablissement_rejoinde',{'idetab':etablissement.idEtablissement}) }}" class="btn">Rejoindre</a>
+                                                    </div>
+                                                {% endif %}
+                                            </td>
+                                        </tr>
+                                    </table>
+
+                                    {% if ((is_granted('ROLE_ELEVE') == true) and not  (rej)) %}
+                                        <div class="profile_social_icons">
+                                            <a title="eleve" href="{{ path('moyenne') }}">Mes note</a>
+
+                                        </div>
+                                    {% endif %}
+
+                                    {% if (is_granted('ROLE_RESPONSABLE') == true ) %}
+                                        <div class="profile_social_icons">
+                                            <a title="eleve" href="{{ path('liste_eleves',{'idetab':etablissement.idEtablissement}) }}">Liste des éleves</a>
+
+                                        </div>
+                                    {% endif %}
+
+                                </div>
+
+                            </div>
+                        </article>
+            </div>
+        </div>
+    </div>
+    <!-- _________________________ Finish Middle _________________________ -->
+    <a href="javascript:void(0);" id="slide_top" class="cmsmasters_theme_icon_slide_top"></a>
+    </div>
+
+        <ul>
+            <li>
+                <a href="{{ path('etablissement_index') }}">Back to the list</a>
+            </li>
+            <li>
+                <a href="{{ path('etablissement_edit', { 'idEtablissement': etablissement.idEtablissement }) }}">Edit</a>
+            </li>
+
+        </ul>
+{% endblock %}

@@ -21,6 +21,13 @@ class AppKernel extends Kernel
             new AllForKids\DivertissementBundle\AllForKidsDivertissementBundle(),
             new RayenBundle\RayenBundle(),
             new ForumBundle\ForumBundle(),
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+            new Knp\Bundle\SnappyBundle\KnpSnappyBundle(),
+            new EtablissementBundle\EtablissementBundle(),
+            new MedBundle\MedBundle(),
+            new blackknight467\StarRatingBundle\StarRatingBundle(),
+            new Discutea\DForumBundle\DForumBundle(),
+            new TransportBundle\TransportBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

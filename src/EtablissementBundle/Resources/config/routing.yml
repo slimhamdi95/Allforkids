@@ -1,0 +1,35 @@
+etablissement_etablissement:
+    resource: "@EtablissementBundle/Resources/config/routing/etablissement.yml"
+    prefix:   /etablissement
+
+liste_eleves:
+    path:     /liste_eleves/{idetab}
+    defaults: { _controller: EtablissementBundle:Default:eleves }
+moyenne:
+    path:     /moyenne/
+    defaults: { _controller: EtablissementBundle:Default:moyenne }
+eleve_note:
+    path:     /noter_eleve/{idelev}
+    defaults: { _controller: EtablissementBundle:Default:note }
+
+eleve_valide:
+    path:     /valid/{id}
+    defaults: { _controller: EtablissementBundle:Default:elevesval }
+
+etablissement_homepage:
+    path:     /
+    defaults: { _controller: EtablissementBundle:Default:index }
+
+etablissement_valide:
+    path:     /valid/{idetab}
+    defaults: { _controller: EtablissementBundle:Etablissement:valider }
+
+etablissement_info:
+    path:     /inf
+    defaults: { _controller: EtablissementBundle:Etablissement:info }
+
+etablissement_rejoinde:
+    path:     /rej/{idetab}
+    defaults: { _controller: EtablissementBundle:Etablissement:rejoindre }
+
+
