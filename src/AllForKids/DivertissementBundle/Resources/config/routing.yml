@@ -2,7 +2,7 @@ all_for_kids_divertissement_homepage:
     path:     /
     defaults: { _controller: AllForKidsDivertissementBundle:Default:index }
 afficheE:
-    path:     /admin/Afficheev
+    path:     /Afficheev
     defaults: { _controller: AllForKidsDivertissementBundle:Evenement:ShowAll }
 AjoutE:
     path:     /Ajoutev
