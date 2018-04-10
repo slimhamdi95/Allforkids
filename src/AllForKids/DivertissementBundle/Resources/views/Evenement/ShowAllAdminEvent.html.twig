@@ -80,7 +80,27 @@
                                                     <li><strong>Type:</strong>{{   ev.getType() }}</li><br>
                                                     <li><strong>Description:</strong>{{   ev.getDescriptionn() }}</li><br>
                                                     <li><strong>l'utilisateur:</strong>{{  ev.getIdUser() }}</li><br>
+                                                    <input type="text"  id="long" hidden value="{{ ev.getLongitude() }}">
+                                                    <input type="text"  id="lat" hidden value="{{ ev.getLatitude() }}">
                                                 </ul>
+                                                <div class="mapArea areaPadding">
+                                                    <div id="map" style="position: relative; overflow: hidden; width:550px ; height: 300px">
+                                                        <div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);">
+                                                            <div class="gm-err-container">
+                                                                <div class="gm-err-content">
+                                                                    <div class="gm-err-icon"><img
+                                                                                src="http://maps.gstatic.com/mapfiles/api-3/images/icon_error.png"
+                                                                                draggable="false" style="user-select: none;"></div>
+                                                                    <div class="gm-err-title">Petit problème... Une erreur s'est produite</div>
+                                                                    <div class="gm-err-message">Google&nbsp;Maps ne s'est pas chargé correctement
+                                                                        sur cette page. Pour plus d'informations techniques sur cette erreur,
+                                                                        veuillez consulter la console JavaScript.
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
 
                                             </div>
                                             <div class="col-lg-6">
@@ -152,3 +172,40 @@
 <script src="{{ asset('js/custom.js') }}"></script>
 <link href="{{ asset('options/optionswitch.css') }}" rel="stylesheet">
 <script src="{{ asset('options/optionswitcher.js') }}"></script>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
+<script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCq5FMCE1AZYb8dXtdqyNfuez-5Sv9z73M&callback=initMap"
+        async defer></script>
+<style>
+    /* Always set the map height explicitly to define the size of the div
+     * element that contains the map. */
+    #map {
+        height: 100%;
+    }
+
+    /* Optional: Makes the sample page fill the window. */
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+</style>
+<script type="text/javascript">
+
+    var latetu = document.getElementById("lat").value;
+    var long = document.getElementById("long").value ;
+    function initMap() {
+        var mapCanvas = document.getElementById("map");
+        var myCenter = new google.maps.LatLng(latetu,long);
+        var mapOptions = {center: myCenter, zoom: 8};
+        var map = new google.maps.Map(mapCanvas,mapOptions);
+        var marker = new google.maps.Marker({
+            position: myCenter,
+            animation: google.maps.Animation.BOUNCE
+        });
+        marker.setMap(map);
+
+
+
+
+    }
+</script>

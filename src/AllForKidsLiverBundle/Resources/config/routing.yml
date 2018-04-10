@@ -1,0 +1,12 @@
+all_for_kids_liver_homepage:
+    path:     /
+    defaults: { _controller: AllForKidsLiverBundle:Default:index }
+AffichLiver:
+    path:     /AfficheLivre
+    defaults: { _controller: AllForKidsLiverBundle:Liver:ShowAll }
+AjoutLiver:
+    path:     /AjoutLivre
+    defaults: { _controller: AllForKidsLiverBundle:Liver:Add }
+DetailLiver :
+    path:     /AjoutLivre
+    defaults: { _controller: AllForKidsLiverBundle:Liver:Add }

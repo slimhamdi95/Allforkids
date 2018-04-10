@@ -18,25 +18,25 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\File\UploadedFile ;
 class EvenementController extends Controller
 {
-    public function ShowAllAction(Request $request){
+           public function ShowAllAction(Request $request){
 
-        if($request->isMethod('POST')){
-            $nom = $request->get('re');
-            return $this->redirectToRoute("Recherche",array('nom'=>$nom));
-        }
+            if($request->isMethod('POST')){
+                $nom = $request->get('re');
+                return $this->redirectToRoute("Recherche",array('nom'=>$nom));
+            }
 
-        $em=$this->getDoctrine()->getManager();
-        $evenement=$em->getRepository('AllForKidsEntityBundle:Evenement')->findAll();
-        $paginator  = $this->get('knp_paginator');
-        $pagination = $paginator->paginate(
-            $evenement, /* query NOT result */
-            $request->query->getInt('page', 1)/*page number*/,
-            $request->query->getInt('limit', 6)/*limit per page*/
-        );
-        return $this->render('AllForKidsDivertissementBundle:Evenement:ShowAll.html.twig',
-            array(
-                'e' => $pagination
-            ));
+            $em=$this->getDoctrine()->getManager();
+            $evenement=$em->getRepository('AllForKidsEntityBundle:Evenement')->findAll();
+            $paginator  = $this->get('knp_paginator');
+            $pagination = $paginator->paginate(
+                $evenement, /* query NOT result */
+                $request->query->getInt('page', 1)/*page number*/,
+                $request->query->getInt('limit', 6)/*limit per page*/
+            );
+            return $this->render('AllForKidsDivertissementBundle:Evenement:ShowAll.html.twig',
+                array(
+                    'e' => $pagination
+                ));
 
     }
 
@@ -58,6 +58,9 @@ class EvenementController extends Controller
 
             $ev->setPhoto($fileName);
             $ev->setIdUser($this->getUser());
+            $ev->setLatitude($request->get('lat'));
+            $ev->setLongitude($request->get('lng'));
+
             $em=$this->getDoctrine()->getManager();
             $em->persist($ev);
 
@@ -231,7 +234,8 @@ class EvenementController extends Controller
 
              $e->setPhoto($fileName);
          }
-
+           $e->setLatitude($request->get('lat'));
+           $e->setLongitude($request->get('lng'));
            $em=$this->getDoctrine()->getManager();
            $em->flush();
            return $this->redirectToRoute("MyEvent");

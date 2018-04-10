@@ -1,7 +1,8 @@
 <html lang="en">
 
 <!-- Mirrored from themes.iamabdus.com/kidz/1.4/single-event-left-sidebar.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 13 Mar 2018 16:12:05 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8"/><!-- /Added by HTTrack -->
 <head>
 
     <!-- SITE TITTLE -->
@@ -43,14 +44,14 @@
 
 
 <div class="main-wrapper">
-<section class="pageTitleSection">
-    <div class="container">
-        <div class="pageTitleInfo">
-            <h2>{{e.getNom()  }}</h2>
+    <section class="pageTitleSection">
+        <div class="container">
+            <div class="pageTitleInfo">
+                <h2>{{ e.getNom() }}</h2>
 
+            </div>
         </div>
-    </div>
-</section>
+    </section>
     <section class="mainContent full-width clearfix">
         <div class="container">
             <div class="row">
@@ -58,7 +59,7 @@
                     <div class="thumbnail thumbnailContent alt">
 
                         {% for message in app.flashes('notice') %}
-                            <div  class="alert alert-success">
+                            <div class="alert alert-success">
                                 {{ message }}
                             </div>
                         {% endfor %}
@@ -68,10 +69,29 @@
                             <p>{{ e.getDescriptionn() }}</p>
                         </div>
                     </div>
+                    <div class="mapArea areaPadding">
+                        <div id="map" style="position: relative; overflow: hidden;">
+                            <div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);">
+                                <div class="gm-err-container">
+                                    <div class="gm-err-content">
+                                        <div class="gm-err-icon"><img
+                                                    src="http://maps.gstatic.com/mapfiles/api-3/images/icon_error.png"
+                                                    draggable="false" style="user-select: none;"></div>
+                                        <div class="gm-err-title">Petit problème... Une erreur s'est produite</div>
+                                        <div class="gm-err-message">Google&nbsp;Maps ne s'est pas chargé correctement
+                                            sur cette page. Pour plus d'informations techniques sur cette erreur,
+                                            veuillez consulter la console JavaScript.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-md-3 col-sm-4 col-xs-12 pull-left">
                     <aside>
-                        <a href="{{ path('AjoutE') }}" class="btn btn-primary  bg-color-1 border-color-1 btn-block"> Ajouter Mon Evenement </a>
+                        <a href="{{ path('AjoutE') }}" class="btn btn-primary  bg-color-1 border-color-1 btn-block">
+                            Ajouter Mon Evenement </a>
                         <br>
                         <br>
                         <div class="panel panel-default eventSidebar">
@@ -109,58 +129,86 @@
                                     </li>
 
                                     {% if v == false %}
-                                    {% if pe == false and nb != 0 %}
-                                        <li><a href="{{ path('ParticipE',{'id':e.getIdEvenement()}) }}" class="btn btn-primary bg-color-6 btn-block"> Inscrire maintenant</a></li>
-                                    {% elseif  pe == false and nb == 0  %}
-                                        <li  class="media"> <h4 class="center-block color-3"><strong>Complet</strong></h4></li>
-                                    {% else %}
-                                    <li>
-                                        <a href="" class="btn btn-primary bg-color-6 btn-block" data-placement="top" title="" data-original-title="Supprimer"  data-toggle="modal" data-target="#deleteModal{{ e.getIdEvenement() }}">Anuller l'inscription    </a>
-                                        <div class="modal fade" id="deleteModal{{ e.getIdEvenement() }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                            <div class="modal-dialog">
-                                                <br><br><br><br>
-                                                <div class="modal-content">
-                                                    <div class="modal-header">
-                                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                        <h4 class="modal-title">Comfirmation d' Anulation  :</h4>
-                                                    </div>
-                                                    <div class="modal-body" >
-                                                        <p><span>Voulez-vous vraiment Anuller l'inscription a  <a href="#"></a>  {{ e.getNom() }}? </span></p>
-
-                                                    </div>
-                                                    <div class="modal-footer">
-                                                        <button type="button" class="btn btn-default " data-dismiss="modal">Annuler</button>
-                                                        <a href="{{ path ('AnulParticipE',{'id':e.getIdEvenement()}) }}" data-toggle="modal" class="btn btn-danger"  id="lien" >Confirme</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                  {% endif %}
+                                        {% if pe == false and nb != 0 %}
+                                            <li><a href="{{ path('ParticipE',{'id':e.getIdEvenement()}) }}"
+                                                   class="btn btn-primary bg-color-6 btn-block"> Inscrire maintenant</a>
+                                            </li>
+                                        {% elseif  pe == false and nb == 0 %}
+                                            <li class="media"><h4 class="center-block color-3"><strong>Complet</strong>
+                                                </h4></li>
                                         {% else %}
-                                            <li><a href="{{ path('Update',{'id':e.getIdEvenement()}) }}" class="btn btn-primary bg-color-2 btn-block">Modifier</a></li>
                                             <li>
-                                                <a href="" class="btn btn-primary bg-color-3 btn-block" data-placement="top" title="" data-original-title="Supprimer"  data-toggle="modal" data-target="#deleteModal{{ e.getIdEvenement() }}">Supprimer    </a>
-                                                <div class="modal fade" id="deleteModal{{ e.getIdEvenement() }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                <a href="" class="btn btn-primary bg-color-6 btn-block"
+                                                   data-placement="top" title="" data-original-title="Supprimer"
+                                                   data-toggle="modal"
+                                                   data-target="#deleteModal{{ e.getIdEvenement() }}">Anuller
+                                                    l'inscription </a>
+                                                <div class="modal fade" id="deleteModal{{ e.getIdEvenement() }}"
+                                                     tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                                                     aria-hidden="true">
                                                     <div class="modal-dialog">
                                                         <br><br><br><br>
                                                         <div class="modal-content">
                                                             <div class="modal-header">
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                                <h4 class="modal-title">Comfirmation de Suppression  :</h4>
+                                                                <button type="button" class="close" data-dismiss="modal"
+                                                                        aria-label="Close"><span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                                <h4 class="modal-title">Comfirmation d' Anulation :</h4>
                                                             </div>
-                                                            <div class="modal-body" >
-                                                                <p><span>Voulez-vous vraiment Supprimer <a href="#"></a>  {{ e.getNom() }}? </span></p>
+                                                            <div class="modal-body">
+                                                                <p>
+                                                                    <span>Voulez-vous vraiment Anuller l'inscription a  <a
+                                                                                href="#"></a> {{ e.getNom() }}? </span>
+                                                                </p>
 
                                                             </div>
                                                             <div class="modal-footer">
-                                                                <button type="button" class="btn btn-default " data-dismiss="modal">Annuler</button>
-                                                                <a href="{{ path ('Delete',{'id':e.getIdEvenement()}) }}" data-toggle="modal" class="btn btn-danger"  id="lien" >Confirme</a>
+                                                                <button type="button" class="btn btn-default "
+                                                                        data-dismiss="modal">Annuler
+                                                                </button>
+                                                                <a href="{{ path ('AnulParticipE',{'id':e.getIdEvenement()}) }}"
+                                                                   data-toggle="modal" class="btn btn-danger" id="lien">Confirme</a>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </li>
+                                        {% endif %}
+                                    {% else %}
+                                        <li><a href="{{ path('Update',{'id':e.getIdEvenement()}) }}"
+                                               class="btn btn-primary bg-color-2 btn-block">Modifier</a></li>
+                                        <li>
+                                            <a href="" class="btn btn-primary bg-color-3 btn-block" data-placement="top"
+                                               title="" data-original-title="Supprimer" data-toggle="modal"
+                                               data-target="#deleteModal{{ e.getIdEvenement() }}">Supprimer </a>
+                                            <div class="modal fade" id="deleteModal{{ e.getIdEvenement() }}"
+                                                 tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                                                 aria-hidden="true">
+                                                <div class="modal-dialog">
+                                                    <br><br><br><br>
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-label="Close"><span
+                                                                        aria-hidden="true">&times;</span></button>
+                                                            <h4 class="modal-title">Comfirmation de Suppression :</h4>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <p><span>Voulez-vous vraiment Supprimer <a
+                                                                            href="#"></a> {{ e.getNom() }}? </span></p>
+
+                                                        </div>
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-default "
+                                                                    data-dismiss="modal">Annuler
+                                                            </button>
+                                                            <a href="{{ path ('Delete',{'id':e.getIdEvenement()}) }}"
+                                                               data-toggle="modal" class="btn btn-danger" id="lien">Confirme</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </li>
                                     {% endif %}
                                 </ul>
                             </div>
@@ -170,6 +218,8 @@
             </div>
         </div>
     </section>
+    <input type="text"  id="long" hidden value="{{ e.getLongitude() }}">
+    <input type="text"  id="lat" hidden value="{{ e.getLatitude() }}">
 </div>
 
 </body>
@@ -180,15 +230,54 @@
 <script src="{{ asset('plugins/rs-plugin/js/jquery.themepunch.revolution.min.js') }}"></script>
 <script src="{{ asset('plugins/selectbox/jquery.selectbox-0.1.3.min.js') }}"></script>
 <script src="{{ asset('plugins/owl-carousel/owl.carousel.js') }}"></script>
-<script src="{{ asset('../../../cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js') }}"></script>
 <script src="{{ asset('plugins/counter-up/jquery.counterup.min.js') }}"></script>
 <script src="{{ asset('plugins/isotope/isotope.min.js') }}"></script>
 <script src="{{ asset('plugins/isotope/jquery.fancybox.pack.js') }}"></script>
 <script src="{{ asset('plugins/isotope/isotope-triger.js') }}"></script>
 <script src="{{ asset('plugins/countdown/jquery.syotimer.js') }}"></script>
+<script src="{{ asset('plugins/google-custom-map/google-map.js') }}"></script>
 <script src="{{ asset('plugins/velocity/velocity.min.js') }}"></script>
 <script src="{{ asset('plugins/smoothscroll/SmoothScroll.js') }}"></script>
 <script src="{{ asset('js/custom.js') }}"></script>
+
 <link href="{{ asset('options/optionswitch.css') }}" rel="stylesheet">
 <script src="{{ asset('options/optionswitcher.js') }}"></script>
 
+
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
+<script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCq5FMCE1AZYb8dXtdqyNfuez-5Sv9z73M&callback=initMap"
+        async defer></script>
+<style>
+    /* Always set the map height explicitly to define the size of the div
+     * element that contains the map. */
+    #map {
+        height: 100%;
+    }
+
+    /* Optional: Makes the sample page fill the window. */
+    html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+</style>
+<script type="text/javascript">
+
+    var latetu = document.getElementById("lat").value;
+    var long = document.getElementById("long").value ;
+    function initMap() {
+        var mapCanvas = document.getElementById("map");
+        var myCenter = new google.maps.LatLng(latetu,long);
+        var mapOptions = {center: myCenter, zoom: 8};
+        var map = new google.maps.Map(mapCanvas,mapOptions);
+        var marker = new google.maps.Marker({
+            position: myCenter,
+            animation: google.maps.Animation.BOUNCE
+        });
+        marker.setMap(map);
+
+
+
+
+    }
+</script>
