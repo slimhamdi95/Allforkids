@@ -1,13 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<<<<<<< HEAD:.idea/commandlinetools/Symfony_10_04_18_20_07_s.xml
-<framework xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schemas/frameworkDescriptionVersion1.1.4.xsd" frameworkId="com.symfony" name="Symfony_10/04/18 20:07_s" invoke="C:\wamp64\bin\php\php5.6.31\php.exe C:\wamp64\www\Allforkids\bin\console" alias="s" enabled="true" version="2">
-=======
-<<<<<<< HEAD:.idea/commandlinetools/Symfony_09_04_18_15_17_s.xml
 <framework xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schemas/frameworkDescriptionVersion1.1.4.xsd" frameworkId="com.symfony" name="Symfony_09/04/18 15:17_s" invoke="C:\wamp64\bin\php\php5.6.31\php.exe C:\wamp64\www\Allforkids\bin\console" alias="s" enabled="false" version="2">
-=======
-<framework xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="schemas/frameworkDescriptionVersion1.1.4.xsd" frameworkId="com.symfony" name="Symfony_10/04/18 13:17_s" invoke="C:\wamp64\bin\php\php5.6.25\php.exe C:\wamp64\www\Allforkids\bin\console" alias="s" enabled="true" version="2">
->>>>>>> a25aaed2f8916ffa0faeaabbe34a5c038b92f08f:.idea/commandlinetools/Symfony_10_04_18_13_17_s.xml
->>>>>>> 6092b3cbb9682a196da84a230b1721e6a8fd9639:.idea/commandlinetools/Symfony_10_04_18_13_17_s.xml
   <extraData><![CDATA[version:3]]></extraData>
   <command>
     <name>about</name>
