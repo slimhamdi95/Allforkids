@@ -28,13 +28,13 @@
     <!-- CUSTOM CSS -->
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('css/default.css') }}" id="option_color">
-
+    <style>
+        .star { display: inline-block; background: url("{{ asset('bundles/evenement/star.png') }}") no-repeat; width: 25px; height: 25px }
+        .star_hover { display: inline-block; background: url("{{asset('bundles/evenement/star.png')  }}") no-repeat; background-position: 0 -25px; width: 25px; height: 25px }
+    </style>
     <!-- Icons -->
     <link rel="shortcut icon" href="{{ asset('img/favicon.png') }}">
-    <style>
-        .star { display: inline-block; background: url("{{ asset('bundles/evenement/js/star.png') }}") no-repeat; width: 25px; height: 25px }
-        .star_hover { display: inline-block; background: url("{{ asset('bundles/evenement/js/star.png') }}") no-repeat; background-position: 0 -25px; width: 25px; height: 25px }
-    </style>
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -164,11 +164,12 @@
 </body>
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 <script src="{{ asset('bundles/evenement/js/jquery.cookie.js') }}"></script>
-<script src="{{ asset('bundles/evenement/js/precise-star-rating.js') }}"></script>
+<script src="{{ asset('bundles/evenement/precise-star-rating.js') }}"></script>
 <script>
-    var loader = "{{ asset('bundles/evenement/js/loader-small.gif') }}"; //link to the animated loader-small.gif
+    var loader = "{{ asset('bundles/evenement/loader-small.gif') }}"; //link to the animated loader-small.gif
 
 </script>
+
 <!-- Mirrored from themes.iamabdus.com/kidz/1.4/product-left-sidebar.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 13 Mar 2018 16:12:39 GMT -->
 </html>
 

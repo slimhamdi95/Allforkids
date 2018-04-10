@@ -9,6 +9,7 @@
 namespace AllForKids\DivertissementBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use AllForKids\EntityBundle\Entity\starratingsystem;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Cookie;
@@ -38,7 +39,6 @@ class AjaxStarratingsystemController extends Controller
             $em->persist($newRate);
             $em->flush();
         }
-
         $query = $em->createQuery('SELECT s.rate, s.nbrrate FROM AllForKidsEntityBundle:starratingsystem s WHERE s.media = :media')
             ->setParameter('media', $mediaId);
         $result = $query->getResult();
