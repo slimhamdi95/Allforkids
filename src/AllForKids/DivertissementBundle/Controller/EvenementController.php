@@ -58,6 +58,9 @@ class EvenementController extends Controller
 
             $ev->setPhoto($fileName);
             $ev->setIdUser($this->getUser());
+            $ev->setLatitude($request->get('lat'));
+            $ev->setLongitude($request->get('lng'));
+
             $em=$this->getDoctrine()->getManager();
             $em->persist($ev);
 
@@ -231,7 +234,8 @@ class EvenementController extends Controller
 
              $e->setPhoto($fileName);
          }
-
+           $e->setLatitude($request->get('lat'));
+           $e->setLongitude($request->get('lng'));
            $em=$this->getDoctrine()->getManager();
            $em->flush();
            return $this->redirectToRoute("MyEvent");
