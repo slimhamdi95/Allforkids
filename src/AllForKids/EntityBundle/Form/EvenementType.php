@@ -37,9 +37,12 @@ class EvenementType extends AbstractType
             ->add('type', ChoiceType::class, array(
                 'required'=>true,
                 'choices'  => array(
-                    'Maybe' => 'Maybe',
-                    'Yes' => 'Yes',
-                    'No' => 'No',
+                    'musique' => 'musique',
+                    'cinema' => 'cinema',
+                    'randonnée' => 'randonnée',
+                    'theatre' => 'theatre',
+                    'magicien' => 'magicien',
+                    'Parck' => 'Parck',
                 )))
             ->add('nbrParticipation',IntegerType::class,array('required'=>true))
             ->add('photo',FileType::class, array('label' => 'Image','required'=>true))

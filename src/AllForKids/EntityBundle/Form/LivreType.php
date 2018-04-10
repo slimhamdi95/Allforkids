@@ -21,18 +21,23 @@ class LivreType extends AbstractType
             ->add('categorie',ChoiceType::class, array(
                 'required'=>true,
                 'choices'  => array(
-                    'Maybe' => 'Maybe',
-                    'Yes' => 'Yes',
-                    'No' => 'No',
+                    'conte 2-5 ans' => 'conte 2-5 ans',
+                    'conte 6-10 ans' => 'conte 6-10 ans',
+                    'Cours' => 'Cours',
+                    'parascolaire' => 'parascolaire',
+                    'gied parental' => 'gied parental',
+
                 )))
             ->add('description',TextareaType::class,array('required'=>true))
             
             ->add('type',ChoiceType::class, array(
         'required'=>true,
         'choices'  => array(
-            'Maybe' => 'Maybe',
-            'Yes' => 'Yes',
-            'No' => 'No',
+            'educatif' => 'educatif',
+            'Histoire' => 'Histoire',
+            'narratif' => 'narratif',
+            'théâtre' => 'théâtre',
+            'professionnels' => 'professionnels',
         )))
           
             ->add('photo',FileType::class, array('label' => 'Image','required'=>true))
