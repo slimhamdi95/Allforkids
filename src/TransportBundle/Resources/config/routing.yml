@@ -10,14 +10,6 @@ map:
     path:     /map
     defaults: { _controller: TransportBundle:Default:map }
 
-<<<<<<< HEAD
 
-=======
-login:
-    path:     /login
-    defaults: { _controller: TransportBundle:Security:login }
 
-logout:
-    path:     /logout
-    defaults: { _controller: TransportBundle:Security:logout }
->>>>>>> c5834072c5d8eebed4b095c574c4becc3376c03d
+

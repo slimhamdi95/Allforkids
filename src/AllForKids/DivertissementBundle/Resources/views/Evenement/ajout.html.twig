@@ -118,7 +118,6 @@
     <!-- Map -->
     <div class="col-xs-12">
         <div class="mapArea areaPadding">
-            <input id="depart" type="text"/>
             <div id="map" style="position: relative; overflow: hidden;"><div style="height: 100%; width: 100%; position: absolute; top: 0px; left: 0px; background-color: rgb(229, 227, 223);"><div class="gm-err-container"><div class="gm-err-content"><div class="gm-err-icon"><img src="http://maps.gstatic.com/mapfiles/api-3/images/icon_error.png" draggable="false" style="user-select: none;"></div><div class="gm-err-title">Petit problème... Une erreur s'est produite</div><div class="gm-err-message">Google&nbsp;Maps ne s'est pas chargé correctement sur cette page. Pour plus d'informations techniques sur cette erreur, veuillez consulter la console JavaScript.</div></div></div></div></div>
         </div>
     </div>
@@ -171,27 +170,13 @@
 
 <script type="text/javascript">
     var map;
-    var depart;
-    var arrive;
+
     function initMap() {
         map = new google.maps.Map(document.getElementById('map'), {
             center: {lat: 36.862499, lng: 10.195556},
             zoom: 8
         });
-        var depart = document.getElementById('depart');
-        var autocomplete =  new google.maps.places.Autocomplete(depart);
-        var arriv = document.getElementById('arriv');
-        var autocompletearriv =  new google.maps.places.Autocomplete(arriv);
-        google.maps.event.addListener(autocomplete, 'place_changed', function() {
-            var data = $("#search_form").serialize();
-            departloc = autocomplete.getPlace().geometry.location;
-            markerdep = new google.maps.Marker({
-                position: depart,
-                map: map
-            });
-            alert(departloc);
-            //  show_submit_data(data);
-        });
+
 
     }
 
