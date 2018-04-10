@@ -28,6 +28,7 @@ class AppKernel extends Kernel
             new blackknight467\StarRatingBundle\StarRatingBundle(),
             new Discutea\DForumBundle\DForumBundle(),
             new TransportBundle\TransportBundle(),
+            new AllForKidsLiverBundle\AllForKidsLiverBundle(),
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
