@@ -1,53 +1,481 @@
 {% extends '@Transport/layout.html.twig' %}
+
 {% block body %}
-<div class="cmsmasters_tabs tabs_mode_tab" style="text-align: center">
-    <div class="search_bar_wrap">
-        <form method="POST">
-            <p class="search_field">
-                <input name="departname" placeholder="enter keywords" value="" type="text" />
-            </p>
-            <p class="search_button">
-                <button type="submit" name="submit" value="recherche" class="cmsmasters_theme_icon_search"></button>
-            </p>
-        </form>
 
-        <div class="cmsmasters_pricing_table pricing_four">
-            {% for transport in transports %}
-                <div {% if transport.place == "0" %} id="cmsmasters_pricing_item_5aa7fb4893cbd" {% else %} id="cmsmasters_pricing_item_5aa7fb4893b8a" {% endif %} class="cmsmasters_pricing_item pricing_best">
-                    <div class="cmsmasters_pricing_item_inner">
-                        <div class="cmsmasters_pricing_item_cont_wrap">
+    <div class="middle_inner">
 
-                            <div class="cmsmasters_pricing_item_cont_inner">
-                                <h2 class="pricing_title">Place Disponible:</h2>
-                                {% if transport.place == "0" %}
-                                    <div class="cmsmasters_price_wrap">
-                                        <span class="cmsmasters_price">Complet</span>
-                                        <br /><span class="cmsmasters_period">{% if transport.date %}{{ transport.date|date('Y-m-d') }}{% endif %}</span>
+        <div class="content_wrap fullwidth">
+            <!--_________________________ Start Content _________________________ -->
+            <div class="middle_content entry" role="main">
+            </div></div><style type="text/css">
+            #cmsmasters_row_5aa7fb4893673 .cmsmasters_row_outer_parent {
+                padding-top: 80px;
+            }
+
+            #cmsmasters_row_5aa7fb4893673 .cmsmasters_row_outer_parent {
+                padding-bottom: 70px;
+            }
+
+
+            #cmsmasters_pricing_item_5aa7fb48938f6 .cmsmasters_pricing_item_cont_inner {
+                background-color:#007097;
+            }
+            #cmsmasters_pricing_item_5aa7fb48938f6 .cmsmasters_button:before {
+                margin-right:.5em;
+                margin-left:0;
+                vertical-align:baseline;
+            }
+
+            #cmsmasters_pricing_item_5aa7fb48938f6 .cmsmasters_button {
+                font-weight:normal;
+                font-style:normal;
+                border-style:solid;
+            }
+            #cmsmasters_pricing_item_5aa7fb48938f6 .cmsmasters_button:hover {
+                background-color:#007097;
+                color:#ffffff;
+            }
+            #cmsmasters_pricing_item_5aa7fb4893a55 .cmsmasters_pricing_item_cont_inner {
+                background-color:#f6c127;
+            }
+            #cmsmasters_pricing_item_5aa7fb4893a55 .cmsmasters_button:before {
+                margin-right:.5em;
+                margin-left:0;
+                vertical-align:baseline;
+            }
+
+            #cmsmasters_pricing_item_5aa7fb4893a55 .cmsmasters_button {
+                font-weight:normal;
+                font-style:normal;
+                border-style:solid;
+            }
+            #cmsmasters_pricing_item_5aa7fb4893a55 .cmsmasters_button:hover {
+                background-color:#f6c127;
+                color:#ffffff;
+            }
+            #cmsmasters_pricing_item_5aa7fb4893b8a .cmsmasters_pricing_item_cont_inner {
+                background-color:#01a491;
+            }
+            #cmsmasters_pricing_item_5aa7fb4893b8a .cmsmasters_button:before {
+                margin-right:.5em;
+                margin-left:0;
+                vertical-align:baseline;
+            }
+
+            #cmsmasters_pricing_item_5aa7fb4893b8a .cmsmasters_button {
+                font-weight:normal;
+                font-style:normal;
+                border-style:solid;
+            }
+            #cmsmasters_pricing_item_5aa7fb4893b8a .cmsmasters_button:hover {
+                background-color:#01a491;
+                color:#ffffff;
+            }
+            #cmsmasters_pricing_item_5aa7fb4893cbd .cmsmasters_pricing_item_cont_inner {
+                background-color:#f96c7e;
+            }
+            #cmsmasters_pricing_item_5aa7fb4893cbd .cmsmasters_button:before {
+                margin-right:.5em;
+                margin-left:0;
+                vertical-align:baseline;
+            }
+
+            #cmsmasters_pricing_item_5aa7fb4893cbd .cmsmasters_button {
+                font-weight:normal;
+                font-style:normal;
+                border-style:solid;
+            }
+            #cmsmasters_pricing_item_5aa7fb4893cbd .cmsmasters_button:hover {
+                background-color:#f96c7e;
+                color:#ffffff;
+            }
+            <!-- ______________ resherche slide style ____________________-->
+
+                 #cmsmasters_row_5aa7fb53e54fc .cmsmasters_row_outer_parent {
+                     padding-top: 70px;
+                 }
+
+            #cmsmasters_row_5aa7fb53e54fc .cmsmasters_row_outer_parent {
+                padding-bottom: 70px;
+            }
+
+
+            #cmsmasters_heading_5aa7fb53e56ae {
+                text-align:left;
+                margin-top:0px;
+                margin-bottom:50px;
+            }
+
+            #cmsmasters_heading_5aa7fb53e56ae .cmsmasters_heading {
+                text-align:left;
+            }
+
+            #cmsmasters_heading_5aa7fb53e56ae .cmsmasters_heading, #cmsmasters_heading_5aa7fb53e56ae .cmsmasters_heading a {
+                font-weight:300;
+                font-style:normal;
+            }
+
+            #cmsmasters_heading_5aa7fb53e56ae .cmsmasters_heading_divider {
+            }
+
+
+            .toggles_mode_accordion #cmsmasters_toggle_5aa7fb53e58e9 .cmsmasters_toggle_title:hover .cmsmasters_toggle_plus,
+            .toggles_mode_toggle #cmsmasters_toggle_5aa7fb53e58e9 {
+                background-color:#f6c127;
+            }
+
+            .toggles_mode_accordion #cmsmasters_toggle_5aa7fb53e58e9 .cmsmasters_toggle_title a:hover {
+                color:#f6c127;
+            }
+
+            .toggles_mode_accordion #cmsmasters_toggle_5aa7fb53e59b7 .cmsmasters_toggle_title:hover .cmsmasters_toggle_plus,
+            .toggles_mode_toggle #cmsmasters_toggle_5aa7fb53e59b7 {
+                background-color:#01a491;
+            }
+
+            .toggles_mode_accordion #cmsmasters_toggle_5aa7fb53e59b7 .cmsmasters_toggle_title a:hover {
+                color:#01a491;
+            }
+
+            .toggles_mode_accordion #cmsmasters_toggle_5aa7fb53e5a59 .cmsmasters_toggle_title:hover .cmsmasters_toggle_plus,
+            .toggles_mode_toggle #cmsmasters_toggle_5aa7fb53e5a59 {
+                background-color:#f96c7e;
+            }
+
+            .toggles_mode_accordion #cmsmasters_toggle_5aa7fb53e5a59 .cmsmasters_toggle_title a:hover {
+                color:#f96c7e;
+            }
+
+            .toggles_mode_accordion #cmsmasters_toggle_5aa7fb53e5afa .cmsmasters_toggle_title:hover .cmsmasters_toggle_plus,
+            .toggles_mode_toggle #cmsmasters_toggle_5aa7fb53e5afa {
+                background-color:#0187a4;
+            }
+
+            .toggles_mode_accordion #cmsmasters_toggle_5aa7fb53e5afa .cmsmasters_toggle_title a:hover {
+                color:#0187a4;
+            }
+
+            #cmsmasters_heading_5aa7fb53e5c53 {
+                text-align:left;
+                margin-top:0px;
+                margin-bottom:50px;
+            }
+
+            #cmsmasters_heading_5aa7fb53e5c53 .cmsmasters_heading {
+                text-align:left;
+            }
+
+            #cmsmasters_heading_5aa7fb53e5c53 .cmsmasters_heading, #cmsmasters_heading_5aa7fb53e5c53 .cmsmasters_heading a {
+                font-weight:300;
+                font-style:normal;
+            }
+
+            #cmsmasters_heading_5aa7fb53e5c53 .cmsmasters_heading_divider {
+            }
+            #cmsmasters_heading_5aa7fb56a905f {
+                text-align:left;
+                margin-top:70px;
+                margin-bottom:50px;
+            }
+
+            #cmsmasters_heading_5aa7fb56a905f .cmsmasters_heading {
+                text-align:left;
+            }
+
+            #cmsmasters_heading_5aa7fb56a905f .cmsmasters_heading, #cmsmasters_heading_5aa7fb56a905f .cmsmasters_heading a {
+                font-weight:300;
+                font-style:normal;
+            }
+
+            #cmsmasters_heading_5aa7fb56a905f .cmsmasters_heading_divider {
+            }
+
+
+            #cmsmasters_tabs_list_item_5aa7fb56a9329 a {
+                background-color:#f6c127;
+            }
+
+            #cmsmasters_tabs_list_item_5aa7fb56a9329:before {
+                border-top-color:#f6c127;
+            }
+
+            #cmsmasters_tabs_list_item_5aa7fb56a93c8 a {
+                background-color:#0187a4;
+            }
+
+            #cmsmasters_tabs_list_item_5aa7fb56a93c8:before {
+                border-top-color:#0187a4;
+            }
+
+            #cmsmasters_tabs_list_item_5aa7fb56a945f a {
+                background-color:#01a491;
+            }
+
+            #cmsmasters_tabs_list_item_5aa7fb56a945f:before {
+                border-top-color:#01a491;
+            }
+
+            #cmsmasters_row_5aa7fb56a94fb .cmsmasters_row_outer_parent {
+                padding-top: 0px;
+            }
+
+
+            #cmsmasters_divider_5aa7fb56a9588 {
+                border-bottom-width:1px;
+                border-bottom-style:solid;
+                padding-top:20px;
+                margin-bottom:20px;
+            }
+
+            #cmsmasters_heading_5aa7fb56a9718 {
+                text-align:left;
+                margin-top:50px;
+                margin-bottom:50px;
+            }
+
+            #cmsmasters_heading_5aa7fb56a9718 .cmsmasters_heading {
+                text-align:left;
+            }
+
+            #cmsmasters_heading_5aa7fb56a9718 .cmsmasters_heading, #cmsmasters_heading_5aa7fb56a9718 .cmsmasters_heading a {
+                font-weight:300;
+                font-style:normal;
+            }
+
+            #cmsmasters_heading_5aa7fb56a9718 .cmsmasters_heading_divider {
+            }
+
+
+            #cmsmasters_tabs_list_item_5aa7fb56a97cb a {
+                background-color:#01a491;
+            }
+
+            #cmsmasters_tabs_list_item_5aa7fb56a97cb:before {
+                border-left-color:#01a491;
+                border-right-color:#01a491;
+            }
+
+            #cmsmasters_tabs_list_item_5aa7fb56a9873 a {
+                background-color:#f96c7e;
+            }
+
+            #cmsmasters_tabs_list_item_5aa7fb56a9873:before {
+                border-left-color:#f96c7e;
+                border-right-color:#f96c7e;
+            }
+
+            #cmsmasters_tabs_list_item_5aa7fb56a990e a {
+                background-color:#0187a4;
+            }
+
+            #cmsmasters_tabs_list_item_5aa7fb56a990e:before {
+                border-left-color:#0187a4;
+                border-right-color:#0187a4;
+            }
+
+            #cmsmasters_tabs_list_item_5aa7fb56a99a3 a {
+                background-color:#f6c127;
+            }
+
+            #cmsmasters_tabs_list_item_5aa7fb56a99a3:before {
+                border-left-color:#f6c127;
+                border-right-color:#f6c127;
+            }
+
+            #cmsmasters_row_5aa7fb56a9a40 .cmsmasters_row_outer_parent {
+                padding-top: 0px;
+            }
+
+
+            #cmsmasters_divider_5aa7fb56a9ae1 {
+                border-bottom-width:1px;
+                border-bottom-style:solid;
+                padding-top:70px;
+                margin-bottom:70px;
+            }
+
+            #cmsmasters_row_5aa7fb56a9b3e .cmsmasters_row_outer_parent {
+                padding-bottom: 70px;
+            }
+
+
+            #cmsmasters_heading_5aa7fb56a9ce0 {
+                text-align:left;
+                margin-top:0px;
+                margin-bottom:50px;
+            }
+
+            #cmsmasters_heading_5aa7fb56a9ce0 .cmsmasters_heading {
+                text-align:left;
+            }
+
+            #cmsmasters_heading_5aa7fb56a9ce0 .cmsmasters_heading, #cmsmasters_heading_5aa7fb56a9ce0 .cmsmasters_heading a {
+                font-weight:300;
+                font-style:normal;
+            }
+
+            #cmsmasters_heading_5aa7fb56a9ce0 .cmsmasters_heading_divider {
+            }
+
+
+            #cmsmasters_tabs_list_item_5aa7fb56a9db2 a {
+                background-color:#01a491;
+            }
+
+            #cmsmasters_tabs_list_item_5aa7fb56a9db2:before {
+                border-left-color:#01a491;
+                border-right-color:#01a491;
+            }
+
+            #cmsmasters_tabs_list_item_5aa7fb56a9e75 a {
+                background-color:#f96c7e;
+            }
+
+            #cmsmasters_tabs_list_item_5aa7fb56a9e75:before {
+                border-left-color:#f96c7e;
+                border-right-color:#f96c7e;
+            }
+
+            #cmsmasters_tabs_list_item_5aa7fb56a9f39 a {
+                background-color:#0187a4;
+            }
+
+            #cmsmasters_tabs_list_item_5aa7fb56a9f39:before {
+                border-left-color:#0187a4;
+                border-right-color:#0187a4;
+            }
+
+            #cmsmasters_tabs_list_item_5aa7fb56a9ffc a {
+                background-color:#f6c127;
+            }
+
+            #cmsmasters_tabs_list_item_5aa7fb56a9ffc:before {
+                border-left-color:#f6c127;
+                border-right-color:#f6c127;
+            }
+        </style>
+        <div class="headline cmsmasters_color_scheme_first">
+            <div class="headline_outer">
+                <div class="headline_color"></div><div class="headline_inner align_center">
+                    <div class="headline_aligner"></div><div class="headline_text">
+                        <h1 class="entry-title">Offres disponible de covoiturage</h1>
+                        <div class="cmsmasters_breadcrumbs"><div class="cmsmasters_breadcrumbs_aligner"></div>
+                        </div></div></div>
+            </div>
+        </div>
+        <div id="cmsmasters_row_5aa7fb4893673" class="cmsmasters_row cmsmasters_color_scheme_default cmsmasters_row_top_default cmsmasters_row_bot_default cmsmasters_row_boxed">
+            <div class="cmsmasters_row_outer_parent">
+                <div class="cmsmasters_row_outer">
+                    <div class="cmsmasters_row_inner">
+                        <div class="cmsmasters_row_margin">
+                            <div class="cmsmasters_column one_first">
+                                <!--_________________________ Start searche bar _________________________ -->
+                                <div class="cmsmasters_tabs tabs_mode_tab" style="text-align: left;padding-top: 20px">
+                                    <li id="cmsmasters_tabs_list_item_5aa7fb56a93c8" class="cmsmasters_tabs_list_item">
+                                        <a href="{{ path('transport_index') }}" >
+                                            return vers l'acceil
+                                        </a>
+                                    </li>
+                                </div>
+
+                                <div class="cmsmasters_tabs tabs_mode_tab" style="text-align: center; padding-bottom: 20px">
+                                    <div class="search_bar_wrap">
+                                        <form method="POST">
+                                            <p class="search_field">
+                                                <input id="departname" name="departname" placeholder="enter keywords" value="" type="search" />
+                                            </p>
+                                            <p class="search_button">
+                                                <button type="submit" name="submit" value="recherche" class="cmsmasters_theme_icon_search"></button>
+                                            </p>
+
+                                            <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
+                                            <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCq5FMCE1AZYb8dXtdqyNfuez-5Sv9z73M&callback=initMap"  async defer></script>
+                                            <div id="map"></div>
+                                            <script type="text/javascript">
+                                                var map;
+                                                var departName;
+                                                var arriveName;
+                                                function initMap() {
+                                                    map = new google.maps.Map(document.getElementById('map'), {
+                                                        center: {lat: 36.862499, lng: 10.195556},
+                                                        zoom: 8
+                                                    });
+                                                    var departname = document.getElementById('departname');
+
+                                                    var autocomplete =  new google.maps.places.Autocomplete(departname);
+
+                                                    var arriveName = document.getElementById('transportbundle_transport_arriveName');
+
+                                                    var autocompletearriv =  new google.maps.places.Autocomplete(arriveName);
+
+                                                    google.maps.event.addListener(autocomplete, 'place_changed', function() {
+                                                        var data = $("#search_form").serialize();
+                                                        depart = autocomplete.getPlace().geometry.location;
+                                                        markerdep = new google.maps.Marker({
+                                                            position: depart,
+                                                            map: map
+                                                        });
+                                                        document.getElementById('transportbundle_transport_depart').value = depart;
+                                                    });
+
+                                                    google.maps.event.addListener(autocompletearriv, 'place_changed', function() {
+                                                        arrive = autocompletearriv.getPlace().geometry.location;
+                                                        markerdep = new google.maps.Marker({
+                                                            position: arrive,
+                                                            map: map
+                                                        });
+                                                        document.getElementById('transportbundle_transport_arrive').value = arrive;
+                                                    });
+                                                }
+
+                                            </script>
+                                        </form>
                                     </div>
-                                {% else %}
-                                    <div class="cmsmasters_price_wrap">
-                                        <span class="cmsmasters_price">{{ transport.place }}</span>
-                                        <br /><span class="cmsmasters_period">{% if transport.date %}{{ transport.date|date('Y-m-d') }}{% endif %}</span>
-                                    </div>
-                                {% endif %}
+                                </div>
+                                <!-- _________________________ Finish searche bar _________________________ -->
+                                <div class="cmsmasters_pricing_table pricing_four">
+                                    {% for transport in transports %}
+                                        <div {% if transport.place == "0" %} id="cmsmasters_pricing_item_5aa7fb4893cbd" {% else %} id="cmsmasters_pricing_item_5aa7fb4893b8a" {% endif %} class="cmsmasters_pricing_item pricing_best">
+                                            <div class="cmsmasters_pricing_item_inner">
+                                                <div class="cmsmasters_pricing_item_cont_wrap">
+
+                                                    <div class="cmsmasters_pricing_item_cont_inner">
+                                                        <h2 class="pricing_title">Place Disponible:</h2>
+                                                        {% if transport.place == "0" %}
+                                                            <div class="cmsmasters_price_wrap">
+                                                                <span class="cmsmasters_price">Complet</span>
+                                                                <br /><span class="cmsmasters_period">{% if transport.date %}{{ transport.date|date('Y-m-d') }}{% endif %}</span>
+                                                            </div>
+                                                        {% else %}
+                                                            <div class="cmsmasters_price_wrap">
+                                                                <span class="cmsmasters_price">{{ transport.place }}</span>
+                                                                <br /><span class="cmsmasters_period">{% if transport.date %}{{ transport.date|date('Y-m-d') }}{% endif %}</span>
+                                                            </div>
+                                                        {% endif %}
+                                                    </div>
+                                                    <ul class="feature_list">
+                                                        <li><span>Depart:{{ transport.departName }}</span></li>
+                                                        <li><span>Arrivé:{{ transport.arriveName }}</span></li>
+                                                        <li><span>Telephone:{{ transport.telephone }}</span></li>
+                                                        <li><span class="cmsmasters_price">{{ transport.frais }}</span>
+                                                            <span class="cmsmasters_currency">TND</span>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div class="cmsmasters_pricing_item_cont_wrap">
+                                                    <a href="{{ path('transport_show', { 'idTransport': transport.idTransport }) }}" class="cmsmasters_button"><span>plus de détails</span></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
                             </div>
-                            <ul class="feature_list">
-                                <li><span>Depart:{{ transport.departName }}</span></li>
-                                <li><span>Arrivé:{{ transport.arriveName }}</span></li>
-                                <li><span>Telephone:{{ transport.telephone }}</span></li>
-                                <li><span class="cmsmasters_price">{{ transport.frais }}</span>
-                                    <span class="cmsmasters_currency">TND</span>
-                                </li>
-                            </ul>
-                        </div>
-                        <div class="cmsmasters_pricing_item_cont_wrap">
-                            <a href="{{ path('transport_show', { 'idTransport': transport.idTransport }) }}" class="cmsmasters_button"><span>plus de détails</span></a>
                         </div>
                     </div>
                 </div>
-            {% endfor %}
+            </div>
         </div>
     </div>
-</div>
+
 
 {% endblock %}
