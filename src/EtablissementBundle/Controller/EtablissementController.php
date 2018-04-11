@@ -104,11 +104,11 @@ class EtablissementController extends Controller
      */
     public function showAction(Etablissement $etablissement)
     {
-        $rej= true;
+        $rej= false;
         $deleteForm = $this->createDeleteForm($etablissement);
         foreach ($etablissement->getRejoindres() as $rejoindre){
             if($rejoindre->getUser() === $this->getUser())
-                $rej = false;break;
+                $rej = true;
         }
         return $this->render('etablissement/show.html.twig', array(
             'etablissement' => $etablissement,
@@ -126,11 +126,18 @@ class EtablissementController extends Controller
         $deleteForm = $this->createDeleteForm($etablissement);
         $editForm = $this->createForm('EtablissementBundle\Form\EtablissementType', $etablissement);
         $editForm->handleRequest($request);
-
+        $em = $this->getDoctrine()->getManager();
+        $etab = $em->getRepository('EtablissementBundle\Entity\Etablissement')->find($etablissement->getIdetablissement());
         if ($editForm->isSubmitted() ) {
+
+            if($etablissement->getImage()== null){
+                $etablissement->setImage($etab->getImage());
+            }
+            $etablissement->setVille($request->get('villeselect'));
+
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('etablissement_edit', array('idEtablissement' => $etablissement->getIdetablissement()));
+            return $this->redirectToRoute('etablissement_show', array('idEtablissement' => $etablissement->getIdetablissement()));
         }
 
         return $this->render('etablissement/edit.html.twig', array(
@@ -179,7 +186,8 @@ class EtablissementController extends Controller
         $etab = $em->getRepository('EtablissementBundle:Etablissement')->findOneBy(['idEtablissement'=>$request->get('idetab')]);
         $etab->setVerification('Valide');
         $em->flush();
-        return $this->redirectToRoute('etablissement_homepage');
+        $path = $this->generateUrl('etablissement_show',['idEtablissement'=>$etab->getIdEtablissement()]);
+        return $this->redirect($path);
     }
     public function rejoindreAction(Request $request){
         $rejoindre = new Rejoindre();

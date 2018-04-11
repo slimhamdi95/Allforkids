@@ -93,6 +93,15 @@ class User extends BaseUser
      * @ORM\ManyToMany(targetEntity="Trasnsport", mappedBy="idUser")
      */
     private $idTransport;
+    /**
+     * @ORM\OneToMany(targetEntity="EtablissementBundle\Entity\Rejoindre", mappedBy="user", fetch="EXTRA_LAZY")
+     */
+    private $rejoindres;
+    /**
+     * @ORM\OneToMany(targetEntity="EtablissementBundle\Entity\Note", mappedBy="user", fetch="EXTRA_LAZY")
+     */
+    private $notes;
+
 
     /**
      * Constructor
@@ -264,6 +273,72 @@ class User extends BaseUser
         $this->role = $role;
     }
 
+    /**
+     * Add rejoindre
+     *
+     * @param \EtablissementBundle\Entity\Rejoindre $rejoindre
+     *
+     * @return User
+     */
+    public function addRejoindre(\EtablissementBundle\Entity\Rejoindre $rejoindre)
+    {
+        $this->rejoindres[] = $rejoindre;
 
+        return $this;
+    }
+
+    /**
+     * Remove rejoindre
+     *
+     * @param \EtablissementBundle\Entity\Rejoindre $rejoindre
+     */
+    public function removeRejoindre(\EtablissementBundle\Entity\Rejoindre $rejoindre)
+    {
+        $this->rejoindres->removeElement($rejoindre);
+    }
+
+    /**
+     * Get rejoindre
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getRejoindres()
+    {
+        return $this->rejoindres;
+    }
+
+    /**
+     * Add note
+     *
+     * @param \EtablissementBundle\Entity\Note $note
+     *
+     * @return User
+     */
+    public function addNote(\EtablissementBundle\Entity\Note $note)
+    {
+        $this->notes[] = $note;
+
+        return $this;
+    }
+
+    /**
+     * Remove note
+     *
+     * @param \EtablissementBundle\Entity\Note $note
+     */
+    public function removeNote(\EtablissementBundle\Entity\Note $note)
+    {
+        $this->notes->removeElement($note);
+    }
+
+    /**
+     * Get notes
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getNotes()
+    {
+        return $this->notes;
+    }
 }
 

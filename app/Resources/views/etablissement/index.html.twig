@@ -53,6 +53,13 @@
                                             {% endif %}
                                             <th class="cmsmasters_table_cell_aligncenter">
                                                 <div class="profile_details_item">
+                                                    {% if (is_granted('ROLE_RESPONSABLE') == true ) %}
+
+
+                                                        <a href="{{ path('etablissement_new') }}">créer éablissement</a>
+
+
+                                                    {% endif %}
                                                 </div>
                                             </th>
                                         </tr>
@@ -86,13 +93,7 @@
                                         {% endfor %}
                                         </tbody>
                                     </table>
-                                    {% if (is_granted('ROLE_RESPONSABLE') == true ) %}
-                                    <ul>
-                                        <li>
-                                            <a href="{{ path('etablissement_new') }}">Create a new etablissement</a>
-                                        </li>
-                                    </ul>
-                                    {% endif %}
+
                                 </div>
                             </div>
                         </div>

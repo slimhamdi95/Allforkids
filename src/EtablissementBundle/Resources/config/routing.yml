@@ -21,7 +21,7 @@ etablissement_homepage:
     defaults: { _controller: EtablissementBundle:Default:index }
 
 etablissement_valide:
-    path:     /valid/{idetab}
+    path:     /valider/{idetab}
     defaults: { _controller: EtablissementBundle:Etablissement:valider }
 
 etablissement_info:
