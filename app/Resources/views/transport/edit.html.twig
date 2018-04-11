@@ -1,23 +1,18 @@
 {% extends '@Transport/layout.html.twig' %}
 
 {% block body %}
-    <h1>Transport edit</h1>
+    <h1 style="text-align: center;padding-top: 20px">Transport edit</h1>
 
     {{ form_start(edit_form) }}
-
-
-
-
-
-
-    <h1 style="text-align: center">Transport creation</h1>
-
-
     <div id="cmsmasters_row_5aa7fae42d707" class="cmsmasters_row cmsmasters_color_scheme_default cmsmasters_row_top_default cmsmasters_row_bot_default cmsmasters_row_boxed">
         <div class="cmsmasters_row_outer_parent">
             <div class="cmsmasters_row_outer">
                 <div class="cmsmasters_row_inner">
-                    <a href="{{ path('transport_index') }}">Back to the list</a>
+                    <div class="cmsmasters_tabs tabs_mode_tab" style="text-align:left">
+                        <li id="cmsmasters_tabs_list_item_5aa7fb56a945f" class="cmsmasters_tabs_list_item">
+                            <a href="{{ path('transport_index') }}">Back to the list</a>
+                        </li>
+                    </div>
                     <div class="cmsmasters_row_margin">
                         <div class="cmsmasters_column one_half">
                             <div id="cmsmasters_heading_5aa7fae42d861" class="cmsmasters_heading_wrap cmsmasters_heading_align_left">
@@ -53,10 +48,7 @@
                                         <div class="form_info cmsmasters_select">
                                             <label>Type de covoiturage</label>
                                             <div class="form_field_wrap">
-                                                <select name="cmsmasters_gender" id="cmsmasters_gender">
-                                                    <option value="Male">occasionnellement</option>
-                                                    <option value="Female">régulièrement</option>
-                                                </select>
+                                                {{ form_widget(edit_form.type) }}
                                             </div>
                                             <div class="cl"></div>
                                         </div>
@@ -74,13 +66,13 @@
                                         <div class="form_info cmsmasters_input one_first">
                                             <label for="cmsmasters_name_6">Depart <span class="color_2">*</span></label>
                                             <div class="form_field_wrap">
-                                                {{ form_widget(edit_form.depart) }}
+                                                {{ form_widget(edit_form.departName) }}
                                             </div>
                                         </div>
                                         <div class="form_info cmsmasters_input one_first">
                                             <label for="cmsmasters_email">Arrivée <span class="color_2">*</span></label>
                                             <div class="form_field_wrap">
-                                                {{ form_widget(edit_form.arrive) }}
+                                                {{ form_widget(edit_form.arriveName) }}
                                             </div>
                                         </div>
                                         <div class="form_info cmsmasters_textarea one_first">
@@ -89,12 +81,17 @@
                                                 {{ form_widget(edit_form.description) }}
                                             </div>
                                         </div>
+                                        <div style="visibility: hidden">
+                                            {{ form_widget(edit_form.depart) }}
+                                            {{ form_widget(edit_form.arrive) }}
+                                        </div>
                                         <div class="form_info submit_wrap">
-                                            <input type="submit" value="Edit" />
+                                            <input type="submit" value="Enregistrer les modification" />
                                         </div>
                                         <div class="cl"></div>
                                     </div>
-                                </div></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -102,54 +99,49 @@
         </div>
     </div>
     {{ form_end(edit_form) }}
-    <ul>
-        <li>
-            <a href="{{ path('transport_index') }}">Back to the list</a>
-        </li>
-        <li>
-            {{ form_start(delete_form) }}
-            <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
-    </ul>
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
     <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCq5FMCE1AZYb8dXtdqyNfuez-5Sv9z73M&callback=initMap"  async defer></script>
     <div id="map"></div>
     <script type="text/javascript">
         var map;
-        var depart;
-        var arrive;
+        var departName;
+        var arriveName;
         function initMap() {
             map = new google.maps.Map(document.getElementById('map'), {
                 center: {lat: 36.862499, lng: 10.195556},
                 zoom: 8
             });
-            var depart = document.getElementById('transportbundle_transport_depart');
-            var autocomplete =  new google.maps.places.Autocomplete(depart);
-            var arriv = document.getElementById('transportbundle_transport_arrive');
-            var autocompletearriv =  new google.maps.places.Autocomplete(arriv);
+            var departName = document.getElementById('transportbundle_transport_departName');
+            document.getElementById('transportbundle_transport_departName').placeholder='';
+
+            var autocomplete =  new google.maps.places.Autocomplete(departName);
+
+            var arriveName = document.getElementById('transportbundle_transport_arriveName');
+            document.getElementById('transportbundle_transport_arriveName').placeholder='';
+
+            var autocompletearriv =  new google.maps.places.Autocomplete(arriveName);
+
             google.maps.event.addListener(autocomplete, 'place_changed', function() {
                 var data = $("#search_form").serialize();
-                departCor = autocomplete.getPlace().geometry.location;
+                depart = autocomplete.getPlace().geometry.location;
                 markerdep = new google.maps.Marker({
-                    position: departCor,
+                    position: depart,
                     map: map
                 });
-                alert(departCor);
-                //  show_submit_data(data);
+
+                document.getElementById('transportbundle_transport_depart').value = depart;
             });
+
             google.maps.event.addListener(autocompletearriv, 'place_changed', function() {
-                arriveCor = autocompletearriv.getPlace().geometry.location;
+                arrive = autocompletearriv.getPlace().geometry.location;
                 markerdep = new google.maps.Marker({
-                    position: arriveCor,
+                    position: arrive,
                     map: map
                 });
-                //var data = $("#search_form").serialize();
-                alert(arriveCor);
-                //  show_submit_data(data);
+
+                document.getElementById('transportbundle_transport_arrive').value = arrive;
             });
         }
 
     </script>
-
 {% endblock %}

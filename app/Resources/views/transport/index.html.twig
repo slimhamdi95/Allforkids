@@ -398,15 +398,23 @@
                                 <!-- _________________________ Finish searche bar _________________________ -->
                                 <div class="cmsmasters_pricing_table pricing_four">
                                     {% for transport in transports %}
-                                    <div id="cmsmasters_pricing_item_5aa7fb4893b8a" class="cmsmasters_pricing_item pricing_best">
+                                    <div {% if transport.place == "0" %} id="cmsmasters_pricing_item_5aa7fb4893cbd" {% else %} id="cmsmasters_pricing_item_5aa7fb4893b8a" {% endif %} class="cmsmasters_pricing_item pricing_best">
                                         <div class="cmsmasters_pricing_item_inner">
                                             <div class="cmsmasters_pricing_item_cont_wrap">
+
                                                 <div class="cmsmasters_pricing_item_cont_inner">
                                                     <h2 class="pricing_title">Place Disponible:</h2>
+                                                    {% if transport.place == "0" %}
+                                                        <div class="cmsmasters_price_wrap">
+                                                            <span class="cmsmasters_price">Complet</span>
+                                                            <br /><span class="cmsmasters_period">{% if transport.date %}{{ transport.date|date('Y-m-d') }}{% endif %}</span>
+                                                        </div>
+                                                    {% else %}
                                                     <div class="cmsmasters_price_wrap">
                                                         <span class="cmsmasters_price">{{ transport.place }}</span>
                                                         <br /><span class="cmsmasters_period">{% if transport.date %}{{ transport.date|date('Y-m-d') }}{% endif %}</span>
                                                     </div>
+                                                    {% endif %}
                                                 </div>
                                                 <ul class="feature_list">
                                                     <li><span>Depart:{{ transport.departName }}</span></li>
