@@ -94,7 +94,7 @@ class User extends BaseUser
      */
     private $idTransport;
     /**
-<<<<<<< HEAD
+
      * @ORM\OneToMany(targetEntity="EtablissementBundle\Entity\Rejoindre", mappedBy="user", fetch="EXTRA_LAZY")
      */
     private $rejoindres;
@@ -103,11 +103,11 @@ class User extends BaseUser
      */
     private $notes;
 
-=======
+/**
      * @ORM\OneToMany(targetEntity="MedBundle\Entity\Article", mappedBy="user")
      */
     private $articles;
->>>>>>> 1fdfaf6c46f6065f7e37b021ee6e70dff5fa8a76
+
 
     /**
      * Constructor
@@ -281,7 +281,6 @@ class User extends BaseUser
     }
 
     /**
-<<<<<<< HEAD
      * Add rejoindre
      *
      * @param \EtablissementBundle\Entity\Rejoindre $rejoindre
@@ -294,7 +293,7 @@ class User extends BaseUser
 
         return $this;
     }
-=======
+/**
      * @return mixed
      */
     public function getArticles()
@@ -310,7 +309,7 @@ class User extends BaseUser
         $this->articles = $articles;
     }
 
->>>>>>> 1fdfaf6c46f6065f7e37b021ee6e70dff5fa8a76
+
 
     /**
      * Remove rejoindre
