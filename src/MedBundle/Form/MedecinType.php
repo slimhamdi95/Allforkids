@@ -14,11 +14,9 @@ class MedecinType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nom')->add('prenom')->add('mail')->add('tel')->add('adress')
-        ->add('pass', RatingType::class, [
-             'label' => 'Rating'
-         ]);;
-    }/**
+        $builder->add('tel')->add('adress');
+    }
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)

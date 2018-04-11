@@ -1,6 +1,7 @@
 <?php
 namespace EtablissementBundle\EventListener;
 
+use MedBundle\Entity\Article;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Doctrine\ORM\Event\LifecycleEventArgs;
 use Doctrine\ORM\Event\PreUpdateEventArgs;
@@ -33,7 +34,7 @@ class ImageUploadListener
     private function uploadFile($entity)
     {
         // upload only works for Product entities
-        if (!$entity instanceof Etablissement) {
+        if ((!$entity instanceof Etablissement)||(!$entity instanceof Article)) {
             return;
         }
 

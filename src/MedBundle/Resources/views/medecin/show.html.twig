@@ -1,0 +1,89 @@
+{% extends '@Med/layout.html.twig' %}
+{% block body %}
+    <!-- Start about Area -->
+    <section class="about-area section-gap" id="appoinment">
+        <div class="container-fluid">
+            <div class="row d-flex justify-content-end align-items-center">
+                <div class="col-lg-6 col-md-12 about-left no-padding">
+                    <img class="img-fluid" src="{{ asset('uploads/images/' ~ 	app.user.picture) }}" alt="">
+                </div>
+                <div class="col-lg-6 col-md-12 about-right no-padding">
+                    <h1>Profile Medecin N* {{ medecin.id }}</h1>
+                    <table class="table">
+                        <tr>
+                            <td>Nom</td>
+                            <td>{{ medecin.user.nom }}</td>
+                        </tr>
+                        <tr>
+                            <td>Prenom</td>
+                            <td>{{ medecin.user.prenom }}</td>
+                        </tr>
+                        <tr>
+                            <td>Cin</td>
+                            <td>{{ medecin.user.cin }}</td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td>{{ medecin.user.email }}</td>
+                        </tr>
+                        <tr>
+                            <td>Telephone</td>
+                            <td>{{ medecin.tel }}</td>
+                        </tr>
+                        <tr>
+                            <td>Adress</td>
+                            <td>{{ medecin.adress }}</td>
+                        </tr>
+                    </table>
+                    <div class="row">
+                        {% if is_granted('ROLE_MEDECIN') %}
+                        <div class="button-area">
+                            <a href="{{ path('fos_user_profile_edit',{'id':medecin.user}) }}" class="btn-dark" >
+                                Modifier</a>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- End about Area -->
+    <!-- Start blog Area -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Liste des Articles </h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                    <div class="row">
+
+                        <p>Liste des Aticle</p>
+                        {% for article in medecin.user.articles %}
+                            <div class="col-md-55">
+                                <div class="thumbnail">
+                                    <div class="image view view-first">
+                                        <img style="width: 100%; display: block;" src="{{ asset('uploads/images/' ~ 	article.image) }}" alt="image" />
+                                        <div class="mask">
+                                            <p>{{ article.titre }}</p>
+                                            <div class="tools tools-bottom">
+                                                <a href="{{ path('article_show',{'id':article.id}) }}"><i class="fa fa-link"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="caption">
+                                        <p>{{ article.contenu }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- end blog Area -->
+{% endblock %}

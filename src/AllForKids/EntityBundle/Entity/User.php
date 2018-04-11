@@ -93,6 +93,10 @@ class User extends BaseUser
      * @ORM\ManyToMany(targetEntity="Trasnsport", mappedBy="idUser")
      */
     private $idTransport;
+    /**
+     * @ORM\OneToMany(targetEntity="MedBundle\Entity\Article", mappedBy="user")
+     */
+    private $articles;
 
     /**
      * Constructor
@@ -102,6 +106,7 @@ class User extends BaseUser
         parent::__construct();
         $this->idLiver = new \Doctrine\Common\Collections\ArrayCollection();
         $this->idTransport = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->articles = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -262,6 +267,22 @@ class User extends BaseUser
     public function setRole($role)
     {
         $this->role = $role;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getArticles()
+    {
+        return $this->articles;
+    }
+
+    /**
+     * @param mixed $articles
+     */
+    public function setArticles($articles)
+    {
+        $this->articles = $articles;
     }
 
 
