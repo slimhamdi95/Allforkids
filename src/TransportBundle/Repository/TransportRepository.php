@@ -19,4 +19,13 @@ class TransportRepository extends Doctrine\ORM\EntityRepository
 
         return $listTransport;
     }
+
+    public function findDepart($depart)
+    {
+        $q=$this->getEntityManager()
+            ->createQuery("select t FROM TransportBunde:Transport t WHERE t.departName LIKE :depart ")
+            ->setParameter('depart','%'.$depart.'%');
+        return $q->getResult();
+
+    }
 }

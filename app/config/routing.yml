@@ -1,3 +1,7 @@
+med_article:
+    resource: "@MedBundle/Controller/ArticleController.php"
+    type:     annotation
+
 all_for_kids_liver:
     resource: "@AllForKidsLiverBundle/Resources/config/routing.yml"
     prefix:   /Liver
