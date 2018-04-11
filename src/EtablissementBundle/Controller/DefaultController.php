@@ -5,6 +5,7 @@ namespace EtablissementBundle\Controller;
 use EtablissementBundle\Entity\Note;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\BrowserKit\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 
 class DefaultController extends Controller
@@ -64,9 +65,6 @@ class DefaultController extends Controller
     public function moyenneAction(\Symfony\Component\HttpFoundation\Request $request){
 
 
-
-
-
         $sommecoef=0;
         $sommenote=0;
         $notes = $this->getUser()->getNotes();
@@ -74,7 +72,33 @@ class DefaultController extends Controller
             $sommecoef+= $note->getMatiere()->getCoeff();
             $sommenote+= ($note->getNote() * $note->getMatiere()->getCoeff() );
         }
-        $moyenne = $sommenote/$sommecoef;
+        if($sommecoef==0){
+            $this->addFlash('erreur','notes non saisis');
+            $moyenne=-1;
+        }
+        else{
+            $moyenne = $sommenote/$sommecoef;
+        }
+
+        if($request->get('pdf')){
+            $snappy = $this->get('knp_snappy.pdf');
+
+            $html = $this->renderView('etablissement/notepdf.html.twig', array(
+                'notes'=>$notes,
+                'moyenne'=>$moyenne
+            ));
+
+            $filename = 'Resultat';
+
+            return new Response(
+                $snappy->getOutputFromHtml($html),
+                200,
+                array(
+                    'Content-Type'          => 'application/pdf',
+                    'Content-Disposition'   => 'inline; filename="'.$filename.'.pdf"'
+                )
+            );
+        }
         return  $this->render('etablissement/lesnotes.html.twig', array(
             'notes'=>$notes,
             'moyenne'=>$moyenne
