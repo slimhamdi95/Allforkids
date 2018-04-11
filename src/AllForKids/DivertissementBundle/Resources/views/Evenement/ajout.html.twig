@@ -1,3 +1,7 @@
+{% extends '@Transport/layout.html.twig' %}
+
+
+{% block body %}
 <html lang="fr">
 
 <!-- Mirrored from themes.iamabdus.com/kidz/1.4/contact-us.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 13 Mar 2018 16:12:08 GMT -->
@@ -56,14 +60,15 @@
                                 <div class="form-group">
                                     <i class="fa fa-user"></i>
                                     {{ form_widget(form.nom, { 'attr': {'placeholder': 'Nom', 'class': 'form-control border-color-1'} }) }}
-
+                                    {{ form_errors(form.nom) }}
                                 </div>
                             </div>
                             <div class="col-sm-6 col-xs-12">
                                 <div class="form-group date" data-provide="datepicker">
                                     {{ form_widget(form.date, {attr: {'placeholder': 'dd-mm-yyyy',
-                                        'class': 'form-control border-color-2' },
+                                         },
                                     }) }}
+                                    {{ form_errors(form.date) }}
                                     <div class="input-group-addon">
                                         <span class="glyphicon glyphicon-th"></span>
                                     </div>
@@ -72,32 +77,38 @@
                             <div class="col-sm-6 col-xs-12">
                                 <div class="form-group">
                                     {{ form_widget(form.nbrParticipation, { 'attr': {'placeholder': 'Nombre de place ', 'class': 'form-control border-color-5','min':1} }) }}
+                                    {{ form_errors(form.nbrParticipation) }}
                                 </div>
                             </div>
                             <div class="col-sm-6 col-xs-12">
                                 <div class="form-group">
                                     <i class="fa fa-book" aria-hidden="true"></i>
                                     {{ form_widget(form.type, { 'attr': {'placeholder': 'Type', 'class': 'form-control border-color-4'} }) }}
+                                    {{ form_errors(form.type) }}
                                 </div>
                             </div>
                             <div class="col-sm-6 col-xs-12">
                                 <div class="form-group">
                                     <i class="fa fa-image" aria-hidden="true"></i>
                                     {{ form_widget(form.photo, { 'attr': {'placeholder': 'Photo', 'class': 'form-control border-color-4'} }) }}
+                                    {{ form_errors(form.photo) }}
+
                                 </div>
                             </div>
                             <div class="col-sm-6 col-xs-12">
                                 <div class="form-group">
                                     <i class="fa fa-clock-o" aria-hidden="true"></i>
                                     {{ form_widget(form.temp, {attr: {'placeholder': 'HH:MM',
-                                        'data-format': "hh:mm",'class': 'form-control border-color-1' },
+                                        'data-format': "hh:mm" },
                                     }) }}
+                                    {{ form_errors(form.temp) }}
                                 </div>
                             </div>
                             <div class="col-xs-12">
                                 <div class="form-group">
                                     <i class="fa fa-comments" aria-hidden="true"></i>
                                     {{ form_widget(form.descriptionn, { 'attr': {'placeholder': 'Description', 'class': 'form-control border-color-4'} }) }}
+                                    {{ form_errors(form.descriptionn) }}
                                 </div>
                             </div>
                              <input type="text" id="lat" name="lat" hidden>
@@ -218,4 +229,4 @@
 
 <!-- Mirrored from themes.iamabdus.com/kidz/1.4/contact-us.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 13 Mar 2018 16:12:08 GMT -->
 </html>
-
+{% endblock %}

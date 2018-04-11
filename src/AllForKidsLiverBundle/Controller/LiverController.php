@@ -2,6 +2,7 @@
 
 namespace AllForKidsLiverBundle\Controller;
 
+use AllForKids\EntityBundle\Form\LivreUpdateType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -60,7 +61,7 @@ class LiverController extends Controller
             $em->persist($lv);
 
             $em->flush();
-            return $this->redirectToRoute("AffichLiver");
+            return $this->redirectToRoute("AffichAdmin");
         }
 
         return $this->render('AllForKidsLiverBundle:Liver:Ajout.html.twig', array('form'=>$form->createView()));
@@ -94,4 +95,64 @@ class LiverController extends Controller
 
 
     }
+    public function UpdateLiverAction(Request $request,$id){
+        $em=$this->getDoctrine();
+        $e = $em->getRepository(Livre::class)->find($id);
+        $img=$e->getPhoto();
+        $pdf=$e->getUrl();
+        $e->setPhoto(null);
+        $e->setUrl(null);
+        $form=$this->createForm( LivreUpdateType::class,$e);
+        $form->handleRequest($request);
+
+        if ($form->isValid()){
+            if($e->getPhoto()== null ){
+
+                $e->setPhoto($img);
+            }else{
+                $file = new ImageUpload($this->getParameter('images_directory'));
+
+                $fileName = $file->upload($e->getPhoto());
+
+                $e->setPhoto($fileName);
+            }
+            if($e->getUrl()== null ){
+
+                $e->setUrl($pdf);
+            }else{
+                $file = new ImageUpload($this->getParameter('images_directory'));
+
+                $fileName = $file->upload($e->getUrl());
+
+                $e->setUrl($fileName);
+            }
+            $em=$this->getDoctrine()->getManager();
+            $em->flush();
+            return $this->redirectToRoute("AffichAdmin");
+        }
+        return $this->render('AllForKidsLiverBundle:Liver:Updateliver.html.twig', array('form'=>$form->createView(),'e'=>$e));
+
+    }
+    public function DeleteAction($id){
+        $em=$this->getDoctrine()->getManager();
+        $ev=$em->getRepository(Livre::class)->find($id);
+        $em->remove($ev);
+        $em->flush();
+        return $this->redirectToRoute('AffichAdmin');
+    }
+    public function showAllAdminAction(Request $request){
+        $em=$this->getDoctrine()->getManager();
+        $evenement=$em->getRepository('AllForKidsEntityBundle:Livre')->findAll();
+        $paginator  = $this->get('knp_paginator');
+        $pagination = $paginator->paginate(
+            $evenement, /* query NOT result */
+            $request->query->getInt('page', 1)/*page number*/,
+            $request->query->getInt('limit', 6)/*limit per page*/
+        );
+        return $this->render('AllForKidsLiverBundle:Liver:ShowAllAdmin.html.twig',
+            array(
+                'l' => $pagination
+            ));
+    }
+
 }
