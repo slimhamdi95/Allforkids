@@ -5,8 +5,20 @@ AffichLiver:
     path:     /AfficheLivre
     defaults: { _controller: AllForKidsLiverBundle:Liver:ShowAll }
 AjoutLiver:
-    path:     /AjoutLivre
+    path:     /admin/AjoutLivre
     defaults: { _controller: AllForKidsLiverBundle:Liver:Add }
 DetailLiver :
-    path:     /AjoutLivre
-    defaults: { _controller: AllForKidsLiverBundle:Liver:Add }
+    path:     /DetailLiver{id}
+    defaults: { _controller: AllForKidsLiverBundle:Liver:Show }
+RechercheLiver :
+    path:     /RechercheLiver
+    defaults: { _controller: AllForKidsLiverBundle:Liver:SearchDQLCategori }
+UpdateLiver :
+    path:     /admin/UpdateLivre{id}
+    defaults: { _controller: AllForKidsLiverBundle:Liver:UpdateLiver }
+DeleteLiver :
+    path:     /admin/DeleteLivre{id}
+    defaults: { _controller: AllForKidsLiverBundle:Liver:Delete }
+AffichAdmin:
+    path:     /admin/AfficheAdminLivre
+    defaults: { _controller: AllForKidsLiverBundle:Liver:showAllAdmin }
