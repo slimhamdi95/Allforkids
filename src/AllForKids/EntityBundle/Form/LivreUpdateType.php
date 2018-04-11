@@ -1,7 +1,12 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: slim
+ * Date: 11/04/2018
+ * Time: 04:00
+ */
 
 namespace AllForKids\EntityBundle\Form;
-
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -13,17 +18,17 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\Validator\Constraints\Length;
 
-class LivreType extends AbstractType
+class LivreUpdateType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nom',TextType::class,array('required'=>true , 'constraints' => array(new Length(array('min' => 3)))))
-            ->add('categorie',ChoiceType::class, array(
-                'required'=>true,
-                'choices'  => array(
+        $builder->add('nom', TextType::class, array('required' => true, 'constraints' => array(new Length(array('min' => 3)))))
+            ->add('categorie', ChoiceType::class, array(
+                'required' => true,
+                'choices' => array(
                     'conte 2-5 ans' => 'conte 2-5 ans',
                     'conte 6-10 ans' => 'conte 6-10 ans',
                     'Cours' => 'Cours',
@@ -31,22 +36,22 @@ class LivreType extends AbstractType
                     'gied parental' => 'gied parental',
 
                 )))
-            ->add('description',TextareaType::class,array('required'=>true, 'constraints' => array(new Length(array('min' => 20)))))
-            
-            ->add('type',ChoiceType::class, array(
-        'required'=>true,
-        'choices'  => array(
-            'educatif' => 'educatif',
-            'Histoire' => 'Histoire',
-            'narratif' => 'narratif',
-            'théâtre' => 'théâtre',
-            'professionnels' => 'professionnels',
-        )))
-          
-            ->add('photo',FileType::class, array('label' => 'Image','required'=>true,'constraints' => array(new File(array('mimeTypes' =>array('png','jpg'))))))
-            ->add('url',FileType::class, array('label' => 'PDF','required'=>true,'constraints' => array(new File(array('mimeTypes' =>array('pdf'))))))
-            ->add('Enregistre',SubmitType::class);
-    }/**
+            ->add('description', TextareaType::class, array('required' => true, 'constraints' => array(new Length(array('min' => 20)))))
+            ->add('type', ChoiceType::class, array(
+                'required' => true,
+                'choices' => array(
+                    'educatif' => 'educatif',
+                    'Histoire' => 'Histoire',
+                    'narratif' => 'narratif',
+                    'théâtre' => 'théâtre',
+                    'professionnels' => 'professionnels',
+                )))
+            ->add('photo', FileType::class, array('label' => 'Image', 'required' => false))
+            ->add('url', FileType::class, array('label' => 'PDF', 'required' => false))
+            ->add('Enregistre', SubmitType::class);
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
@@ -63,6 +68,4 @@ class LivreType extends AbstractType
     {
         return 'allforkids_entitybundle_livre';
     }
-
-
 }

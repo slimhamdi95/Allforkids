@@ -56,7 +56,7 @@
                                 <div class="form-group">
                                     <i class="fa fa-user"></i>
                                     {{ form_widget(form.nom, { 'attr': {'placeholder': 'Nom', 'class': 'form-control border-color-1'} }) }}
-
+                                    {{ form_errors(form.nom) }}
                                 </div>
                             </div>
                             <div class="col-sm-6 col-xs-12">
@@ -79,6 +79,7 @@
                                 <div class="form-group">
                                     <i class="fa fa-image" aria-hidden="true"></i>
                                     {{ form_widget(form.photo, { 'attr': {'placeholder': 'Photo', 'class': 'form-control border-color-4'} }) }}
+                                    {{ form_errors(form.photo) }}
                                 </div>
                             </div>
                             <div class="col-sm-6 col-xs-12">
@@ -87,12 +88,14 @@
                                     {{ form_widget(form.url, {attr: {'placeholder': 'HH:MM',
                                        'class': 'form-control border-color-1' },
                                     }) }}
+                                    {{ form_errors(form.url) }}
                                 </div>
                             </div>
                             <div class="col-xs-12">
                                 <div class="form-group">
                                     <i class="fa fa-comments" aria-hidden="true"></i>
                                     {{ form_widget(form.description, { 'attr': {'placeholder': 'Description', 'class': 'form-control border-color-4'} }) }}
+                                    {{ form_errors(form.description) }}
                                 </div>
                             </div>
 

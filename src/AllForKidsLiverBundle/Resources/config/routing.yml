@@ -13,3 +13,12 @@ DetailLiver :
 RechercheLiver :
     path:     /RechercheLiver
     defaults: { _controller: AllForKidsLiverBundle:Liver:SearchDQLCategori }
+UpdateLiver :
+    path:     /admin/UpdateLivre{id}
+    defaults: { _controller: AllForKidsLiverBundle:Liver:UpdateLiver }
+DeleteLiver :
+    path:     /admin/DeleteLivre{id}
+    defaults: { _controller: AllForKidsLiverBundle:Liver:Delete }
+AffichAdmin:
+    path:     /admin/AfficheAdminLivre
+    defaults: { _controller: AllForKidsLiverBundle:Liver:showAllAdmin }
