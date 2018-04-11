@@ -63,7 +63,7 @@
                                 {{ message }}
                             </div>
                         {% endfor %}
-                        <img src="{{ asset('uploads/images/'~e.getPhoto()) }}" alt="image" class="img-responsive">
+                        <img src="{{ asset('uploads/images/'~e.getPhoto()) }}" alt="image" class="img-responsive" style="height: 30%;width: 30%">
                         <div class="caption border-color-1 singleBlog">
                             <h3 class="color-1">Description.</h3>
                             <p>{{ e.getDescriptionn() }}</p>

@@ -48,7 +48,7 @@ class TransportController extends Controller
         //$message = $client->message()->send([
         //   'to' => $transport->getTelephone(),
         //    'from' => 'Acme Inc',
-        //   'text' => 'A text message sent using the Nexmo SMS API'
+        //   'text' => 'un nouveau membre a rejoindre votre covoiturage '
         //]);
         $em->persist($pe);
         $em->flush();
@@ -86,6 +86,36 @@ class TransportController extends Controller
             'transports' => $transports,
         ));
     }
+
+    public function rechercheDepartAction (Request $request){
+        $em = $this->getDoctrine()->getManager();
+        $transports = $em->getRepository('TransportBundle:Transport')->findAll();
+        if ($request->isMethod('POST')){
+            $departname=$request->get('departname');
+            $transports=$em->getRepository('TransportBundle:Transport')->findBy(array('departname' => $departname));
+        }
+        return $this->render('transport/recherche.html.twig', array(
+            'transports' => $transports,
+        ));
+    }
+
+    /**
+     * Lists all user rejoindre entities.
+     *
+     */
+    public function myRejoindreAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $this->getUser()->getId();
+        $transportRejoindre = $em->getRepository('TransportBundle:JoindreTransport')->findListTransportjoindre($user);
+        $idtransport = $transportRejoindre->getTransportId();
+        $transport = $em->getRepository('TransportBundle:Transport')->findTransport($idtransport);
+
+        return $this->render('transport/myRejoindre.html.twig', array(
+            'transports' => $transport,
+        ));
+    }
+
 
     /**
      * Creates a new transport entity.

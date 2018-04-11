@@ -15,6 +15,9 @@ use Symfony\Component\Form\Extension\Core\Type\TimeType;
 
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\File;
+use Symfony\Component\Validator\Constraints\Image;
+use Symfony\Component\Validator\Constraints\Length;
 
 class EvenementType extends AbstractType
 {
@@ -26,7 +29,7 @@ class EvenementType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nom',TextType::class,array('required'=>true))
+        $builder->add('nom',TextType::class,array('required'=>true , 'constraints' => array(new Length(array('min' => 3)))))
             ->add('descriptionn',	TextareaType::class,array('required'=>true))
             ->add('date',DateType::class,array(
                 'widget' => 'choice',
@@ -45,7 +48,7 @@ class EvenementType extends AbstractType
                     'Parck' => 'Parck',
                 )))
             ->add('nbrParticipation',IntegerType::class,array('required'=>true))
-            ->add('photo',FileType::class, array('label' => 'Image','required'=>true))
+            ->add('photo',FileType::class, array('label' => 'Image','required'=>true,'constraints' => array(new File(array('mimeTypes' =>array('png','jpg','jpeg'))))))
             ->add('temp',TimeType::class,array(
                 'required'=>true,
                 'widget' => 'choice',
