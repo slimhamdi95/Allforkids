@@ -3,7 +3,7 @@
 namespace AllForKids\EntityBundle\Entity;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Constraints as Assert ;
 
 /**
  * User
@@ -94,6 +94,7 @@ class User extends BaseUser
      */
     private $idTransport;
     /**
+<<<<<<< HEAD
      * @ORM\OneToMany(targetEntity="EtablissementBundle\Entity\Rejoindre", mappedBy="user", fetch="EXTRA_LAZY")
      */
     private $rejoindres;
@@ -102,6 +103,11 @@ class User extends BaseUser
      */
     private $notes;
 
+=======
+     * @ORM\OneToMany(targetEntity="MedBundle\Entity\Article", mappedBy="user")
+     */
+    private $articles;
+>>>>>>> 1fdfaf6c46f6065f7e37b021ee6e70dff5fa8a76
 
     /**
      * Constructor
@@ -111,6 +117,7 @@ class User extends BaseUser
         parent::__construct();
         $this->idLiver = new \Doctrine\Common\Collections\ArrayCollection();
         $this->idTransport = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->articles = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -274,6 +281,7 @@ class User extends BaseUser
     }
 
     /**
+<<<<<<< HEAD
      * Add rejoindre
      *
      * @param \EtablissementBundle\Entity\Rejoindre $rejoindre
@@ -286,6 +294,23 @@ class User extends BaseUser
 
         return $this;
     }
+=======
+     * @return mixed
+     */
+    public function getArticles()
+    {
+        return $this->articles;
+    }
+
+    /**
+     * @param mixed $articles
+     */
+    public function setArticles($articles)
+    {
+        $this->articles = $articles;
+    }
+
+>>>>>>> 1fdfaf6c46f6065f7e37b021ee6e70dff5fa8a76
 
     /**
      * Remove rejoindre

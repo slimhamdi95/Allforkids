@@ -38,10 +38,22 @@ class TransportController extends Controller
         $pe = new JoindreTransport();
         $pe->setTransportId($idTransport);
         $pe->setUserId($user);
+        //$basic  = new \Nexmo\Client\Credentials\Basic('2762edea', '5lnvjtGSQEGFtdne');
+        //$client = new \Nexmo\Client($basic);
+        $transport = $em->getRepository(Transport::class)->find($idTransport);
+        $place = $transport->getPlace();
+        $nbrplace = intval($place);
+        $nbrplace = $nbrplace - 1 ;
+        $transport->setPlace($nbrplace);
+        //$message = $client->message()->send([
+        //   'to' => $transport->getTelephone(),
+        //    'from' => 'Acme Inc',
+        //   'text' => 'un nouveau membre a rejoindre votre covoiturage '
+        //]);
         $em->persist($pe);
         $em->flush();
 
-        return $this->redirectToRoute('transport_index',array('id'=>$idTransport));
+        return $this->redirectToRoute('transport_index');
     }
 
     /**
@@ -74,6 +86,36 @@ class TransportController extends Controller
             'transports' => $transports,
         ));
     }
+
+    public function rechercheDepartAction (Request $request){
+        $em = $this->getDoctrine()->getManager();
+        $transports = $em->getRepository('TransportBundle:Transport')->findAll();
+        if ($request->isMethod('POST')){
+            $departname=$request->get('departname');
+            $transports=$em->getRepository('TransportBundle:Transport')->findBy(array('departname' => $departname));
+        }
+        return $this->render('transport/recherche.html.twig', array(
+            'transports' => $transports,
+        ));
+    }
+
+    /**
+     * Lists all user rejoindre entities.
+     *
+     */
+    public function myRejoindreAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $user = $this->getUser()->getId();
+        $transportRejoindre = $em->getRepository('TransportBundle:JoindreTransport')->findListTransportjoindre($user);
+        $idtransport = $transportRejoindre->getTransportId();
+        $transport = $em->getRepository('TransportBundle:Transport')->findTransport($idtransport);
+
+        return $this->render('transport/myRejoindre.html.twig', array(
+            'transports' => $transport,
+        ));
+    }
+
 
     /**
      * Creates a new transport entity.

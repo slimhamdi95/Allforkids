@@ -8,6 +8,19 @@ transport_mytransport:
     defaults: { _controller: "TransportBundle:Transport:myTransport" }
     methods:  GET
 
+transport_Recherche_depart:
+    path:     /RechercheDepart{nom}
+    defaults: { _controller: "TransportBundle:Transport:RecherchDepart" }
+
+transport_Recherche:
+    path:     /Recherche
+    defaults: { _controller: "TransportBundle:Transport:rechercheDepart" }
+
+transport_myrejoindre:
+    path:     /myRejoindre
+    defaults: { _controller: "TransportBundle:Transport:myRejoindre" }
+    methods:  GET
+
 transport_joindre:
     path:     /{idTransport}/joindre
     defaults: { _controller: "TransportBundle:Transport:joindre" }
@@ -19,7 +32,7 @@ transport_delete_joindre:
     methods:
 
 transport_show:
-    path:     /{idTransport}/show
+    path:     /show/{idTransport}
     defaults: { _controller: "TransportBundle:Transport:show" }
     methods:  GET
 

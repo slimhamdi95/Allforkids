@@ -1,0 +1,45 @@
+
+
+{% block body %}
+    <h1>Medecins list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Mail</th>
+                <th>Tel</th>
+                <th>Pass</th>
+                <th>Adress</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for medecin in medecins %}
+            <tr>
+                <td><a href="{{ path('medecin_show', { 'id': medecin.id }) }}">{{ medecin.id }}</a></td>
+                <td>{{ medecin.nom }}</td>
+                <td>{{ medecin.prenom }}</td>
+                <td>{{ medecin.mail }}</td>
+                <td>{{ medecin.tel }}</td>
+                <td>{{ medecin.pass }}</td>
+                <td>{{ medecin.adress }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('medecin_show', { 'id': medecin.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('medecin_edit', { 'id': medecin.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

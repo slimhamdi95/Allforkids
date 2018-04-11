@@ -20,6 +20,7 @@ use Symfony\Component\Form\Extension\Core\Type\TimeType;
 
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Validator\Constraints\Length;
 
 class EvenmentUpdateType extends AbstractType
 {
@@ -31,8 +32,8 @@ class EvenmentUpdateType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nom',TextType::class,array('required'=>true))
-            ->add('descriptionn',	TextareaType::class,array('required'=>true))
+        $builder->add('nom',TextType::class,array('required'=>true , 'constraints' => array(new Length(array('min' => 3)))))
+            ->add('descriptionn',	TextareaType::class,array('required'=>true, 'constraints' => array(new Length(array('min' => 20)))))
             ->add('date',DateType::class,array(
                 'widget' => 'choice',
                 'html5' => false,
@@ -42,9 +43,12 @@ class EvenmentUpdateType extends AbstractType
             ->add('type', ChoiceType::class, array(
                 'required'=>true,
                 'choices'  => array(
-                    'Maybe' => 'Maybe',
-                    'Yes' => 'Yes',
-                    'No' => 'No',
+                    'musique' => 'musique',
+                    'cinema' => 'cinema',
+                    'randonnée' => 'randonnée',
+                    'theatre' => 'theatre',
+                    'magicien' => 'magicien',
+                    'Parck' => 'Parck',
                 )))
             ->add('nbrParticipation',IntegerType::class,array('required'=>true))
             ->add('photo',FileType::class, array('label' => 'Image','required'=>false))
