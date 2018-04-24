@@ -63,7 +63,7 @@ class Etablissement
      *
      * @ORM\Column(name="image", type="string", length=255, nullable=false)
      * @Assert\NotBlank(message="Ajouter une image jpg")
-     * @Assert\File(mimeTypes={ "image/jpeg" ,"image/png"})
+     * @Assert\File(mimeTypes={ "image/jpg" ,"image/png"})
      */
     private $image;
 

@@ -43,8 +43,8 @@ class LivreType extends AbstractType
             'professionnels' => 'professionnels',
         )))
           
-            ->add('photo',FileType::class, array('label' => 'Image','required'=>true,'constraints' => array(new File(array('mimeTypes' =>array('png','jpg'))))))
-            ->add('url',FileType::class, array('label' => 'PDF','required'=>true,'constraints' => array(new File(array('mimeTypes' =>array('pdf'))))))
+            ->add('photo',FileType::class, array('label' => 'Image','required'=>true))
+            ->add('url',FileType::class, array('label' => 'PDF','required'=>true))
             ->add('Enregistre',SubmitType::class);
     }/**
      * {@inheritdoc}
