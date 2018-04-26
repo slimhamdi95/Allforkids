@@ -2,14 +2,64 @@
 
 namespace EtablissementBundle\Controller;
 
+use EtablissementBundle\Entity\Etablissement;
 use EtablissementBundle\Entity\Note;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\BrowserKit\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 
 class DefaultController extends Controller
 {
+
+
+    /****Mobile Service ******/
+    public function all1Action()
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $etablissement = $em->getRepository('EtablissementBundle:Etablissement')->findAll();
+        $ser = new Serializer([new ObjectNormalizer()]);
+        $formated = $ser->normalize($etablissement);
+        return new JsonResponse($formated);
+
+    }
+
+    public function find1Action($id)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $ev = $em->getRepository('EtablissementBundle:Etablissement')->find($id);
+        $ser = new Serializer([new ObjectNormalizer()]);
+        $formated = $ser->normalize($ev);
+        return new JsonResponse($formated);
+    }
+
+    public function new1Action(\Symfony\Component\HttpFoundation\Request $request){
+        $em = $this->getDoctrine()->getManager();
+        $ev = new Etablissement();
+        $ev->setNom($request->get('nom'));
+        $ev->setType($request->get('type'));
+        $ev->setRegion($request->get('region'));
+        $ev->setVille($request->get('ville'));
+        $ev->setDescription($request->get('description'));
+        $ev->setImage($request->get('image'));
+        $ev->setVerification($request->get('verfication'));
+        $ev->setIdUser($request->get('user'));
+
+        $em->persist($ev);
+        $em->flush();
+
+        $ser = new Serializer([new ObjectNormalizer()]);
+        $formated = $ser->normalize($ev);
+        return new JsonResponse($formated);
+    }
+
+//////////////////////////SYMFONY/////////////////
+
     public function indexAction()
     {
         return $this->render('EtablissementBundle:Default:index.html.twig');

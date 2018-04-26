@@ -32,4 +32,16 @@ etablissement_rejoinde:
     path:     /rej/{idetab}
     defaults: { _controller: EtablissementBundle:Etablissement:rejoindre }
 
+all1:
+    path:     /all1
+    defaults: { _controller: EtablissementBundle:Default:all1 }
+
+find1:
+    path:     /find1/{id}
+    defaults: { _controller: EtablissementBundle:Default:find1 }
+
+new1:
+    path:     /new1
+    defaults: { _controller: EtablissementBundle:Default:new1 }
+
 
