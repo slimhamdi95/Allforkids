@@ -43,3 +43,12 @@ ajax_star_rating_system:
 showadminevent:
     path:     /admin/showevent
     defaults: { _controller: AllForKidsDivertissementBundle:Evenement:ShowAllAdmin }
+all:
+    path:     /all
+    defaults: { _controller: AllForKidsDivertissementBundle:Evenement:Allev }
+showmobil:
+    path:     /showone/{id}
+    defaults: { _controller: AllForKidsDivertissementBundle:Evenement:ShowMobil }
+newmobil:
+    path:     /new
+    defaults: { _controller: AllForKidsDivertissementBundle:Evenement:new }

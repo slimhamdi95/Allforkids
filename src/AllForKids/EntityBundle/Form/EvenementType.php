@@ -48,7 +48,7 @@ class EvenementType extends AbstractType
                     'Parck' => 'Parck',
                 )))
             ->add('nbrParticipation',IntegerType::class,array('required'=>true))
-            ->add('photo',FileType::class, array('label' => 'Image','required'=>true,'constraints' => array(new File(array('mimeTypes' =>array('png','jpg'))))))
+            ->add('photo',FileType::class, array('label' => 'Image','required'=>true,))
             ->add('temp',TimeType::class,array(
                 'required'=>true,
                 'widget' => 'choice',

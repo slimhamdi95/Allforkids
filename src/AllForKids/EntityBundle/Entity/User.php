@@ -66,7 +66,7 @@ class User extends BaseUser
      *
      * @Assert\File(
      *     maxSize = "5M",
-     *     mimeTypes = {"image/jpeg", "image/gif", "image/png"},
+     *     mimeTypes = { "image/gif", "image/png"},
      *     maxSizeMessage = "The maxmimum allowed file size is 5MB.",
      *     mimeTypesMessage = "Type de Ficher non autorisées"
      * )
@@ -87,12 +87,7 @@ class User extends BaseUser
      */
     private $idLiver;
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Trasnsport", mappedBy="idUser")
-     */
-    private $idTransport;
+
     /**
 
      * @ORM\OneToMany(targetEntity="EtablissementBundle\Entity\Rejoindre", mappedBy="user", fetch="EXTRA_LAZY")
@@ -116,7 +111,7 @@ class User extends BaseUser
     {
         parent::__construct();
         $this->idLiver = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->idTransport = new \Doctrine\Common\Collections\ArrayCollection();
+
         $this->articles = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -184,21 +179,7 @@ class User extends BaseUser
         $this->idLiver = $idLiver;
     }
 
-    /**
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getIdTransport()
-    {
-        return $this->idTransport;
-    }
 
-    /**
-     * @param \Doctrine\Common\Collections\Collection $idTransport
-     */
-    public function setIdTransport($idTransport)
-    {
-        $this->idTransport = $idTransport;
-    }
 
     /**
      * @return string

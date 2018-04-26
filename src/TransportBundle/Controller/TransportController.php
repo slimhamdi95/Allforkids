@@ -38,18 +38,18 @@ class TransportController extends Controller
         $pe = new JoindreTransport();
         $pe->setTransportId($idTransport);
         $pe->setUserId($user);
-        //$basic  = new \Nexmo\Client\Credentials\Basic('2762edea', '5lnvjtGSQEGFtdne');
-        //$client = new \Nexmo\Client($basic);
+        $basic  = new \Nexmo\Client\Credentials\Basic('2762edea', '5lnvjtGSQEGFtdne');
+        $client = new \Nexmo\Client($basic);
         $transport = $em->getRepository(Transport::class)->find($idTransport);
         $place = $transport->getPlace();
         $nbrplace = intval($place);
         $nbrplace = $nbrplace - 1 ;
         $transport->setPlace($nbrplace);
-        //$message = $client->message()->send([
-        //   'to' => $transport->getTelephone(),
-        //    'from' => 'Acme Inc',
-        //   'text' => 'un nouveau membre a rejoindre votre covoiturage '
-        //]);
+        $message = $client->message()->send([
+           'to' => $transport->getTelephone(),
+            'from' => 'Acme Inc',
+           'text' => 'un nouveau membre a rejoindre votre covoiturage '
+        ]);
         $em->persist($pe);
         $em->flush();
 
