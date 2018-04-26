@@ -1,4 +1,4 @@
-{% extends '@Transport/layout.html.twig' %}
+{% extends '@Med/layout.html.twig' %}
 
 {% block body %}
 
@@ -30,7 +30,6 @@
                                     <p>{{ article.contenu }}</p>
                                 </div>
                             </div>
-                            {{ someInteger|rating(4) }}
                         </div>
                      {% endfor %}
                     </div>
@@ -38,17 +37,8 @@
             </div>
         </div>
     </div>
-    {% stylesheets
-    'bundles/starrating/css/rating.css'
-    filter="cssrewrite" %}
-    <link href="{{ asset_url }}" rel="stylesheet" type="text/css" />
-    {% endstylesheets %}
 
-<!-- make sure that jquery is included --!>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-	{% javascripts
-'@StarRatingBundle/Resources/public/js/rating.js' %}
-      <script src="{{ asset_url }}"></script>
-    {% endjavascripts %}
+
+
 
 {% endblock %}
