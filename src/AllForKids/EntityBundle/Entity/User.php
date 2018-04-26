@@ -101,7 +101,19 @@ class User extends BaseUser
 /**
      * @ORM\OneToMany(targetEntity="MedBundle\Entity\Article", mappedBy="user")
      */
+<<<<<<< HEAD
+    private $idTransport;
+    /**
+     * @ORM\OneToMany(targetEntity="EtablissementBundle\Entity\Rejoindre", mappedBy="user", fetch="EXTRA_LAZY")
+     */
+    private $rejoindres;
+    /**
+     * @ORM\OneToMany(targetEntity="EtablissementBundle\Entity\Note", mappedBy="user", fetch="EXTRA_LAZY")
+     */
+    private $notes;
+=======
     private $articles;
+>>>>>>> be55639eaef63b98511947bd5e9a9b6b417c1183
 
 
     /**
@@ -274,6 +286,9 @@ class User extends BaseUser
 
         return $this;
     }
+<<<<<<< HEAD
+
+=======
 /**
      * @return mixed
      */
@@ -292,6 +307,7 @@ class User extends BaseUser
 
 
 
+>>>>>>> be55639eaef63b98511947bd5e9a9b6b417c1183
     /**
      * Remove rejoindre
      *
