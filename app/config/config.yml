@@ -8,11 +8,13 @@ imports:
     - { resource: "@ForumBundle/Resources/config/services.yml" }
     - { resource: "@MedBundle/Resources/config/services.yml" }
     - { resource: "@TransportBundle/Resources/config/services.yml" }
+    - { resource: "@AllForKidsLiverBundle/Resources/config/services.yml" }
 
 # Put parameters here that don't need to change on each machine where the app is deployed
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: fr
+    images_directory: '%kernel.root_dir%/../web/uploads/images'
 
 framework:
     #esi: ~
@@ -65,6 +67,8 @@ doctrine:
         auto_generate_proxy_classes: '%kernel.debug%'
         naming_strategy: doctrine.orm.naming_strategy.underscore
         auto_mapping: true
+        resolve_target_entities:
+                    Symfony\Component\Security\Core\User\UserInterface: AllForKids\EntityBundle\Entity\User
 
 # Swiftmailer Configuration
 swiftmailer:

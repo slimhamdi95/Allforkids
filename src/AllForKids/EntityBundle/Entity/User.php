@@ -3,7 +3,7 @@
 namespace AllForKids\EntityBundle\Entity;
 use FOS\UserBundle\Model\User as BaseUser;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Constraints as Assert ;
 
 /**
  * User
@@ -66,7 +66,7 @@ class User extends BaseUser
      *
      * @Assert\File(
      *     maxSize = "5M",
-     *     mimeTypes = {"image/jpeg", "image/gif", "image/png"},
+     *     mimeTypes = { "image/gif", "image/png"},
      *     maxSizeMessage = "The maxmimum allowed file size is 5MB.",
      *     mimeTypesMessage = "Type de Ficher non autorisées"
      * )
@@ -87,11 +87,21 @@ class User extends BaseUser
      */
     private $idLiver;
 
+
     /**
-     * @var \Doctrine\Common\Collections\Collection
-     *
-     * @ORM\ManyToMany(targetEntity="Trasnsport", mappedBy="idUser")
+
+     * @ORM\OneToMany(targetEntity="EtablissementBundle\Entity\Rejoindre", mappedBy="user", fetch="EXTRA_LAZY")
      */
+    private $rejoindres;
+    /**
+     * @ORM\OneToMany(targetEntity="EtablissementBundle\Entity\Note", mappedBy="user", fetch="EXTRA_LAZY")
+     */
+    private $notes;
+
+/**
+     * @ORM\OneToMany(targetEntity="MedBundle\Entity\Article", mappedBy="user")
+     */
+<<<<<<< HEAD
     private $idTransport;
     /**
      * @ORM\OneToMany(targetEntity="EtablissementBundle\Entity\Rejoindre", mappedBy="user", fetch="EXTRA_LAZY")
@@ -101,6 +111,9 @@ class User extends BaseUser
      * @ORM\OneToMany(targetEntity="EtablissementBundle\Entity\Note", mappedBy="user", fetch="EXTRA_LAZY")
      */
     private $notes;
+=======
+    private $articles;
+>>>>>>> be55639eaef63b98511947bd5e9a9b6b417c1183
 
 
     /**
@@ -110,7 +123,8 @@ class User extends BaseUser
     {
         parent::__construct();
         $this->idLiver = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->idTransport = new \Doctrine\Common\Collections\ArrayCollection();
+
+        $this->articles = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -177,21 +191,7 @@ class User extends BaseUser
         $this->idLiver = $idLiver;
     }
 
-    /**
-     * @return \Doctrine\Common\Collections\Collection
-     */
-    public function getIdTransport()
-    {
-        return $this->idTransport;
-    }
 
-    /**
-     * @param \Doctrine\Common\Collections\Collection $idTransport
-     */
-    public function setIdTransport($idTransport)
-    {
-        $this->idTransport = $idTransport;
-    }
 
     /**
      * @return string
@@ -286,7 +286,28 @@ class User extends BaseUser
 
         return $this;
     }
+<<<<<<< HEAD
 
+=======
+/**
+     * @return mixed
+     */
+    public function getArticles()
+    {
+        return $this->articles;
+    }
+
+    /**
+     * @param mixed $articles
+     */
+    public function setArticles($articles)
+    {
+        $this->articles = $articles;
+    }
+
+
+
+>>>>>>> be55639eaef63b98511947bd5e9a9b6b417c1183
     /**
      * Remove rejoindre
      *

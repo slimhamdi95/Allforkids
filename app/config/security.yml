@@ -20,7 +20,11 @@ security:
             form_login:
                 provider: fos_userbundle
                 csrf_token_generator : security.csrf.token_manager # Use form.csrf_provider instead for Symfony <2.4
+<<<<<<< HEAD
                 default_target_path:            /Etab/etablissement
+=======
+                default_target_path:            /home
+>>>>>>> be55639eaef63b98511947bd5e9a9b6b417c1183
             logout:
                 path:   /logout
                 target: /login
@@ -31,3 +35,5 @@ security:
         - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/admin/, role: ROLE_ADMIN }
+        - { path:  divertissement/admin/, role: ROLE_ADMIN }
+        - { path:  Liver/admin/, role: ROLE_ADMIN }

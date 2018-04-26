@@ -61,7 +61,7 @@ class StarRatingExtension extends  \Twig_Extension
     $starBar .= '</div>';
     $starBar .= '<div class="resultMedia'.$mediaId.'" style="font-size: small; color: grey">'; // We show the rate score and number of rates
     if (!isset($query)) $starBar .= 'Not rated yet';
-    else $starBar .= 'Rating: ' . $average . '/' . $numStar . ' (' . $nbrRate . ' votes)';
+    else $starBar .= 'Rating: ' . $average . '/' . $numStar ;
     $starBar .= '</div>';
     $starBar .= '<div class="box'.$mediaId.'"></div>';
     $starBar .= '</div>';

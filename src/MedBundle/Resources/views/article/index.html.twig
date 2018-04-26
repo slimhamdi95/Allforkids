@@ -1,0 +1,54 @@
+{% extends '@Transport/layout.html.twig' %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="col-md-12">
+            <div class="x_panel">
+                <div class="x_title">
+                    <h2>Liste des Articles </h2>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="x_content">
+
+                    <div class="row">
+
+                        <p>Liste des Aticle</p>
+                        {% for article in articles %}
+                        <div class="col-md-55">
+                            <div class="thumbnail">
+                                <div class="image view view-first">
+                                    <img style="width: 100%; display: block;" src="{{ asset('uploads/images/' ~ 	article.image) }}" alt="image" />
+                                    <div class="mask">
+                                        <p>{{ article.titre }}</p>
+                                        <div class="tools tools-bottom">
+                                            <a href="{{ path('article_show',{'id':article.id}) }}"><i class="fa fa-link"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="caption">
+                                    <p>{{ article.contenu }}</p>
+                                </div>
+                            </div>
+                            {{ someInteger|rating(4) }}
+                        </div>
+                     {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% stylesheets
+    'bundles/starrating/css/rating.css'
+    filter="cssrewrite" %}
+    <link href="{{ asset_url }}" rel="stylesheet" type="text/css" />
+    {% endstylesheets %}
+
+<!-- make sure that jquery is included --!>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+	{% javascripts
+'@StarRatingBundle/Resources/public/js/rating.js' %}
+      <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+{% endblock %}

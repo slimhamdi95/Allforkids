@@ -68,7 +68,7 @@ class Evenement
      *
      * @ORM\Column(name="photo", type="string", length=255, nullable=false)
      *
-     * @Assert\File(mimeTypes={ "image/png", "image/jpg", "image/jpeg" })
+     * @Assert\File(mimeTypes={ "image/png", "image/jpg" })
      */
     private $photo;
 

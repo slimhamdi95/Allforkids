@@ -3,12 +3,12 @@
 namespace AllForKids\EntityBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert ;
 /**
  * Livre
  *
  * @ORM\Table(name="livre")
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="AllForKids\EntityBundle\Repository\LivreRepository")
  */
 class Livre
 {
@@ -67,12 +67,15 @@ class Livre
      * @var string
      *
      * @ORM\Column(name="photo", type="string", length=255, nullable=false)
+     *
+     * @Assert\File(mimeTypes={ "image/png", "image/jpg" })
+     *
      */
     private $photo;
 
     /**
      * @var string
-     *
+     *@Assert\File(mimeTypes={ "application/pdf" })
      * @ORM\Column(name="url", type="string", length=255, nullable=false)
      */
     private $url;
@@ -98,6 +101,166 @@ class Livre
     public function __construct()
     {
         $this->idUser = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * @return int
+     */
+    public function getIdLivre()
+    {
+        return $this->idLivre;
+    }
+
+    /**
+     * @param int $idLivre
+     */
+    public function setIdLivre($idLivre)
+    {
+        $this->idLivre = $idLivre;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNom()
+    {
+        return $this->nom;
+    }
+
+    /**
+     * @param string $nom
+     */
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+    }
+
+    /**
+     * @return string
+     */
+    public function getCategorie()
+    {
+        return $this->categorie;
+    }
+
+    /**
+     * @param string $categorie
+     */
+    public function setCategorie($categorie)
+    {
+        $this->categorie = $categorie;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    /**
+     * @param string $description
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+
+    /**
+     * @return int
+     */
+    public function getGood()
+    {
+        return $this->good;
+    }
+
+    /**
+     * @param int $good
+     */
+    public function setGood($good)
+    {
+        $this->good = $good;
+    }
+
+    /**
+     * @return int
+     */
+    public function getBad()
+    {
+        return $this->bad;
+    }
+
+    /**
+     * @param int $bad
+     */
+    public function setBad($bad)
+    {
+        $this->bad = $bad;
+    }
+
+    /**
+     * @return string
+     */
+    public function getPhoto()
+    {
+        return $this->photo;
+    }
+
+    /**
+     * @param string $photo
+     */
+    public function setPhoto($photo)
+    {
+        $this->photo = $photo;
+    }
+
+    /**
+     * @return string
+     */
+    public function getUrl()
+    {
+        return $this->url;
+    }
+
+    /**
+     * @param string $url
+     */
+    public function setUrl($url)
+    {
+        $this->url = $url;
+    }
+
+    /**
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getIdUser()
+    {
+        return $this->idUser;
+    }
+
+    /**
+     * @param \Doctrine\Common\Collections\Collection $idUser
+     */
+    public function setIdUser($idUser)
+    {
+        $this->idUser = $idUser;
     }
 
 }

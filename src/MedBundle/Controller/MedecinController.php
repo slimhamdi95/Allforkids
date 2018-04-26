@@ -32,6 +32,7 @@ class MedecinController extends Controller
             'medecins' => $medecins,
         ));
     }
+
     /**
      * Finds and displays a medecin entity.
      *
@@ -58,11 +59,11 @@ class MedecinController extends Controller
     /**
      * Creates a new medecin entity.
      *
-     * @Route("/new", name="medecin_new")
+     * @Route("/completer", name="medecin_completer")
      * @Method({"GET", "POST"})
-     * @Security("is_granted('ROLE_ADMIN')")
+     *
      */
-    public function newAction(Request $request)
+    public function completerAction(Request $request)
     {
         $medecin = new Medecin();
         $form = $this->createForm('MedBundle\Form\MedecinType', $medecin);
@@ -70,13 +71,15 @@ class MedecinController extends Controller
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            $medecin->setUser($this->getUser());
             $em->persist($medecin);
             $em->flush();
-
+            $this->addFlash('success','Données completer');
             return $this->redirectToRoute('medecin_show', array('id' => $medecin->getId()));
+
         }
 
-        return $this->render('medecin/new.html.twig', array(
+        return $this->render('@Med/medecin/completer.html.twig', array(
             'medecin' => $medecin,
             'form' => $form->createView(),
         ));
@@ -92,7 +95,7 @@ class MedecinController extends Controller
     {
         $deleteForm = $this->createDeleteForm($medecin);
 
-        return $this->render('medecin/show.html.twig', array(
+        return $this->render('@Med/medecin/show.html.twig', array(
             'medecin' => $medecin,
             'delete_form' => $deleteForm->createView(),
         ));

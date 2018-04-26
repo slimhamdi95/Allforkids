@@ -24,37 +24,9 @@ class Medecin
     /**
      * @var string
      *
-     * @ORM\Column(name="nom", type="string", length=255)
-     */
-    private $nom;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="prenom", type="string", length=255)
-     */
-    private $prenom;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="Mail", type="string", length=255)
-     */
-    private $mail;
-
-    /**
-     * @var string
-     *
      * @ORM\Column(name="Tel", type="string", length=255)
      */
     private $tel;
-
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="pass", type="string", length=255)
-     */
-    private $pass;
 
     /**
      * @var string
@@ -63,6 +35,27 @@ class Medecin
      */
     private $adress;
 
+    /**
+     * @ORM\OneToOne(targetEntity="AllForKids\EntityBundle\Entity\User")
+     * @ORM\JoinColumn(name="id_user", referencedColumnName="id")
+     */
+    private $user;
+
+    /**
+     * @return mixed
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * @param mixed $user
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+    }
 
     /**
      * Get id
@@ -75,94 +68,6 @@ class Medecin
     }
 
     /**
-     * Set nom
-     *
-     * @param string $nom
-     *
-     * @return Medecin
-     */
-    public function setNom($nom)
-    {
-        $this->nom = $nom;
-
-        return $this;
-    }
-
-    /**
-     * Get nom
-     *
-     * @return string
-     */
-    public function getNom()
-    {
-        return $this->nom;
-    }
-
-    /**
-     * Set prenom
-     *
-     * @param string $prenom
-     *
-     * @return Medecin
-     */
-    public function setPrenom($prenom)
-    {
-        $this->prenom = $prenom;
-
-        return $this;
-    }
-
-    /**
-     * Get prenom
-     *
-     * @return string
-     */
-    public function getPrenom()
-    {
-        return $this->prenom;
-    }
-
-    /**
-     * Set mail
-     *
-     * @param string $mail
-     *
-     * @return Medecin
-     */
-    public function setMail($mail)
-    {
-        $this->mail = $mail;
-
-        return $this;
-    }
-
-    /**
-     * Get mail
-     *
-     * @return string
-     */
-    public function getMail()
-    {
-        return $this->mail;
-    }
-
-    /**
-     * Set tel
-     *
-     * @param string $tel
-     *
-     * @return Medecin
-     */
-    public function setTel($tel)
-    {
-        $this->tel = $tel;
-
-        return $this;
-    }
-
-    /**
-     * Get tel
-     *
      * @return string
      */
     public function getTel()
@@ -171,51 +76,28 @@ class Medecin
     }
 
     /**
-     * Set pass
-     *
-     * @param string $pass
-     *
-     * @return Medecin
+     * @param string $tel
      */
-    public function setPass($pass)
+    public function setTel($tel)
     {
-        $this->pass = $pass;
-
-        return $this;
+        $this->tel = $tel;
     }
 
     /**
-     * Get pass
-     *
-     * @return string
-     */
-    public function getPass()
-    {
-        return $this->pass;
-    }
-
-    /**
-     * Set adress
-     *
-     * @param string $adress
-     *
-     * @return Medecin
-     */
-    public function setAdress($adress)
-    {
-        $this->adress = $adress;
-
-        return $this;
-    }
-
-    /**
-     * Get adress
-     *
      * @return string
      */
     public function getAdress()
     {
         return $this->adress;
     }
+
+    /**
+     * @param string $adress
+     */
+    public function setAdress($adress)
+    {
+        $this->adress = $adress;
+    }
+
 }
 
