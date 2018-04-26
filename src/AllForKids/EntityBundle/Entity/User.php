@@ -101,7 +101,9 @@ class User extends BaseUser
 /**
      * @ORM\OneToMany(targetEntity="MedBundle\Entity\Article", mappedBy="user")
      */
+
     private $articles;
+
 
 
     /**
@@ -274,7 +276,8 @@ class User extends BaseUser
 
         return $this;
     }
-/**
+
+    /**
      * @return mixed
      */
     public function getArticles()
@@ -289,6 +292,7 @@ class User extends BaseUser
     {
         $this->articles = $articles;
     }
+
 
 
 
