@@ -2,14 +2,75 @@
 
 namespace EtablissementBundle\Controller;
 
+use EtablissementBundle\Entity\Etablissement;
 use EtablissementBundle\Entity\Note;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\BrowserKit\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
 
 
 class DefaultController extends Controller
 {
+
+
+    /****Mobile Service ******/
+    public function all1Action()
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $etablissement = $em->getRepository('EtablissementBundle:Etablissement')->findAll();
+        $ser = new Serializer([new ObjectNormalizer()]);
+        $formated = $ser->normalize($etablissement);
+        return new JsonResponse($formated);
+
+    }
+
+    public function find1Action($id)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $ev = $em->getRepository('EtablissementBundle:Etablissement')->find($id);
+        $ser = new Serializer([new ObjectNormalizer()]);
+        $formated = $ser->normalize($ev);
+        return new JsonResponse($formated);
+    }
+
+
+
+    public function new1Action($user,$nom,$type,$region,$ville,$description,$image,$verification){
+        $em = $this->getDoctrine()->getManager();
+        $ev = new Etablissement();
+        $user =(int)$user;
+        $ev->setNom($nom);
+        $ev->setDescription($description);
+        $ev->setType($type);
+        $region=(int)$region;
+        $ville=(int)$ville;
+        $ev->setImage($image);
+        $ev->setVerification($verification);
+
+        $a= $em->getRepository('EtablissementBundle:Region')->find($region);
+        $b= $em->getRepository('EtablissementBundle:Ville')->find($ville);
+        $ev->setVille($b->getNomVille());
+        $u = $em->getRepository('AllForKidsEntityBundle:User')->find($user);
+        $ev->setIdUser($u);
+        $ev->setRegion($a);
+       // $ev->setVille($b);
+
+
+        $em->persist($ev);
+        $em->flush();
+
+        $ser = new Serializer([new ObjectNormalizer()]);
+        $formated = $ser->normalize($ev);
+        return new JsonResponse($formated);
+    }
+
+//////////////////////////SYMFONY/////////////////
+
     public function indexAction()
     {
         return $this->render('EtablissementBundle:Default:index.html.twig');
