@@ -38,17 +38,28 @@ class DefaultController extends Controller
         return new JsonResponse($formated);
     }
 
-    public function new1Action(\Symfony\Component\HttpFoundation\Request $request){
+
+
+    public function new1Action($user,$nom,$type,$region,$ville,$description,$image,$verification){
         $em = $this->getDoctrine()->getManager();
         $ev = new Etablissement();
-        $ev->setNom($request->get('nom'));
-        $ev->setType($request->get('type'));
-        $ev->setRegion($request->get('region'));
-        $ev->setVille($request->get('ville'));
-        $ev->setDescription($request->get('description'));
-        $ev->setImage($request->get('image'));
-        $ev->setVerification($request->get('verfication'));
-        $ev->setIdUser($request->get('user'));
+        $user =(int)$user;
+        $ev->setNom($nom);
+        $ev->setDescription($description);
+        $ev->setType($type);
+        $region=(int)$region;
+        $ville=(int)$ville;
+        $ev->setImage($image);
+        $ev->setVerification($verification);
+
+        $a= $em->getRepository('EtablissementBundle:Region')->find($region);
+        $b= $em->getRepository('EtablissementBundle:Ville')->find($ville);
+        $ev->setVille($b->getNomVille());
+        $u = $em->getRepository('AllForKidsEntityBundle:User')->find($user);
+        $ev->setIdUser($u);
+        $ev->setRegion($a);
+       // $ev->setVille($b);
+
 
         $em->persist($ev);
         $em->flush();
