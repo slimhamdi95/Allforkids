@@ -50,5 +50,5 @@ showmobil:
     path:     /showone/{id}
     defaults: { _controller: AllForKidsDivertissementBundle:Evenement:ShowMobil }
 newmobil:
-    path:     /new
+    path:     /new/{nom}/{description}/{date}/{nb}/{type}/{temp}/{photo}/{user}/{lat}/{lng}
     defaults: { _controller: AllForKidsDivertissementBundle:Evenement:new }
