@@ -1,3 +1,10 @@
 all_for_kids_entity_homepage:
     path:     /
     defaults: { _controller: AllForKidsEntityBundle:Default:index }
+
+
+
+user:
+    path:     /by/{userName}
+    defaults: { _controller: AllForKidsEntityBundle:Default:FindByLogin }
+
