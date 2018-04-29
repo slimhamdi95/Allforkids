@@ -220,4 +220,24 @@ class TransportController extends Controller
             ->getForm()
         ;
     }
+
+    /****Mobile Service ******/
+    public function AllTranAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $transport = $em->getRepository('TransportBundle:Transport')->findAll();
+        $ser = new Serializer([new ObjectNormalizer()]);
+        $formated = $ser->normalize($transport);
+        return new JsonResponse($formated);
+    }
+
+    public function ShowTranAction($id)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $transport = $em->getRepository('TransportBundle:Transport')->find($id);
+        $ser = new Serializer([new ObjectNormalizer()]);
+        $formated = $ser->normalize($transport);
+        return new JsonResponse($formated);
+    }
+
 }
