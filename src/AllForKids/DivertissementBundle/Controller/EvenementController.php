@@ -376,6 +376,7 @@ class EvenementController extends Controller
 
         $ser = new Serializer([new ObjectNormalizer()]);
         $formated = $ser->normalize($ev);
+
         return new JsonResponse($formated);
     }
 }

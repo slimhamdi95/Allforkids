@@ -8,3 +8,6 @@ user:
     path:     /by/{userName}
     defaults: { _controller: AllForKidsEntityBundle:Default:FindByLogin }
 
+inscrith:
+    path:     /Inscrit/{Username}/{nom}/{prenom}/{role}/{email}/{cin}/{password}/{date}/{photo}
+    defaults: { _controller: AllForKidsEntityBundle:Default:Inscrit }

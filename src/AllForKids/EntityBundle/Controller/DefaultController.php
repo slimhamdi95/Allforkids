@@ -2,6 +2,8 @@
 
 namespace AllForKids\EntityBundle\Controller;
 
+use AllForKids\EntityBundle\Entity\User;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntityValidator;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
@@ -30,7 +32,34 @@ class DefaultController extends Controller
     }
 
 
-   
+   public function InscritAction ( $Username, $nom , $prenom , $role ,$email , $cin , $password,$date ,$photo){
+
+           $em = $this->getDoctrine()->getManager();
+           $ev = new User();
+           $ev->setUsername($Username);
+           $ev->setNom($nom);
+           $ev->setPrenom($prenom);
+           $ev->setRole($role);
+           $ev->setEmail($email);
+           $ev->setCin($cin);
+           $ev->setPassword($password);
+
+       $d = new \DateTime($date);
+       $ev->setDate($d);
+           $ev->setPhoto($photo);
+
+           $em->persist($ev);
+           $em->flush();
+
+           $ser = new Serializer([new ObjectNormalizer()]);
+           $formated = $ser->normalize($ev);
+
+           return new JsonResponse($formated);
+       }
+
+
+
+
 
 
 
