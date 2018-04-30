@@ -28,6 +28,15 @@ class DefaultController extends Controller
 
     }
 
+    public function allregionAction(){
+
+        $em = $this->getDoctrine()->getManager();
+        $region = $em->getRepository('EtablissementBundle:Region')->findAll();
+        $ser = new Serializer([new ObjectNormalizer()]);
+        $formated = $ser->normalize($region);
+        return new JsonResponse($formated);
+    }
+
     public function find1Action($id)
     {
 
