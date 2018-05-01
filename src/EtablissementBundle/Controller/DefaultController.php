@@ -47,6 +47,37 @@ class DefaultController extends Controller
         return new JsonResponse($formated);
     }
 
+    public function findvilleAction($id)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $ev = $em->getRepository('EtablissementBundle:Ville')->findBy(['idRegion' =>$id ]);
+        $ser = new Serializer([new ObjectNormalizer()]);
+        $formated = $ser->normalize($ev);
+        return new JsonResponse($formated);
+    }
+
+    public function findidregionAction($nom)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $ev = $em->getRepository('EtablissementBundle:Region')->findBy(['nomRegion' =>$nom ]);
+        $ser = new Serializer([new ObjectNormalizer()]);
+        $formated = $ser->normalize($ev);
+        return new JsonResponse($formated);
+    }
+
+    public function deleteAction($id){
+        $em = $this->getDoctrine()->getManager();
+        $etab = $em->getRepository('EtablissementBundle:Etablissement')->find($id);
+        $em->remove($etab);
+        $em->flush();
+        $etab ="removed";
+        $ser = new Serializer([new ObjectNormalizer()]);
+        $formated = $ser->normalize($etab);
+        return new JsonResponse($formated);
+    }
+
 
 
     public function new1Action($user,$nom,$type,$region,$ville,$description,$image,$verification){
@@ -54,20 +85,15 @@ class DefaultController extends Controller
         $ev = new Etablissement();
         $user =(int)$user;
         $ev->setNom($nom);
-        $ev->setDescription($description);
         $ev->setType($type);
-        $region=(int)$region;
-        $ville=(int)$ville;
+        $ev->setRegion($region);
+        $ev->setVille($ville);
+        $ev->setDescription($description);
         $ev->setImage($image);
         $ev->setVerification($verification);
 
-        $a= $em->getRepository('EtablissementBundle:Region')->find($region);
-        $b= $em->getRepository('EtablissementBundle:Ville')->find($ville);
-        $ev->setVille($b->getNomVille());
         $u = $em->getRepository('AllForKidsEntityBundle:User')->find($user);
         $ev->setIdUser($u);
-        $ev->setRegion($a);
-       // $ev->setVille($b);
 
 
         $em->persist($ev);
