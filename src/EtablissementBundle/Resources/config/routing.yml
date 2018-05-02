@@ -41,7 +41,25 @@ find1:
     defaults: { _controller: EtablissementBundle:Default:find1 }
 
 new1:
-    path:     /new1
+    path:     /new1/{user}/{nom}/{type}/{region}/{ville}/{description}/{image}/{verification}
     defaults: { _controller: EtablissementBundle:Default:new1 }
+
+allregion:
+    path:     /allregion
+    defaults: { _controller: EtablissementBundle:Default:allregion }
+
+findville:
+    path:     /findville/{id}
+    defaults: { _controller: EtablissementBundle:Default:findville }
+
+
+findidregion:
+    path:     /findidregion/{nom}
+    defaults: { _controller: EtablissementBundle:Default:findidregion }
+
+
+delete:
+    path:     /delete/{id}
+    defaults: { _controller: EtablissementBundle:Default:delete }
 
 

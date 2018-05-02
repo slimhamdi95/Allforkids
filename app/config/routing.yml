@@ -30,7 +30,7 @@ all_for_kids_divertissement:
 
 all_for_kids_entity:
     resource: "@AllForKidsEntityBundle/Resources/config/routing.yml"
-    prefix:   /
+    prefix:   /ent
 
 app:
     resource: '@AppBundle/Controller/'

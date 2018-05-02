@@ -28,6 +28,15 @@ class DefaultController extends Controller
 
     }
 
+    public function allregionAction(){
+
+        $em = $this->getDoctrine()->getManager();
+        $region = $em->getRepository('EtablissementBundle:Region')->findAll();
+        $ser = new Serializer([new ObjectNormalizer()]);
+        $formated = $ser->normalize($region);
+        return new JsonResponse($formated);
+    }
+
     public function find1Action($id)
     {
 
@@ -38,17 +47,54 @@ class DefaultController extends Controller
         return new JsonResponse($formated);
     }
 
-    public function new1Action(\Symfony\Component\HttpFoundation\Request $request){
+    public function findvilleAction($id)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $ev = $em->getRepository('EtablissementBundle:Ville')->findBy(['idRegion' =>$id ]);
+        $ser = new Serializer([new ObjectNormalizer()]);
+        $formated = $ser->normalize($ev);
+        return new JsonResponse($formated);
+    }
+
+    public function findidregionAction($nom)
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $ev = $em->getRepository('EtablissementBundle:Region')->findBy(['nomRegion' =>$nom ]);
+        $ser = new Serializer([new ObjectNormalizer()]);
+        $formated = $ser->normalize($ev);
+        return new JsonResponse($formated);
+    }
+
+    public function deleteAction($id){
+        $em = $this->getDoctrine()->getManager();
+        $etab = $em->getRepository('EtablissementBundle:Etablissement')->find($id);
+        $em->remove($etab);
+        $em->flush();
+        $etab ="removed";
+        $ser = new Serializer([new ObjectNormalizer()]);
+        $formated = $ser->normalize($etab);
+        return new JsonResponse($formated);
+    }
+
+
+
+    public function new1Action($user,$nom,$type,$region,$ville,$description,$image,$verification){
         $em = $this->getDoctrine()->getManager();
         $ev = new Etablissement();
-        $ev->setNom($request->get('nom'));
-        $ev->setType($request->get('type'));
-        $ev->setRegion($request->get('region'));
-        $ev->setVille($request->get('ville'));
-        $ev->setDescription($request->get('description'));
-        $ev->setImage($request->get('image'));
-        $ev->setVerification($request->get('verfication'));
-        $ev->setIdUser($request->get('user'));
+        $user =(int)$user;
+        $ev->setNom($nom);
+        $ev->setType($type);
+        $ev->setRegion($region);
+        $ev->setVille($ville);
+        $ev->setDescription($description);
+        $ev->setImage($image);
+        $ev->setVerification($verification);
+
+        $u = $em->getRepository('AllForKidsEntityBundle:User')->find($user);
+        $ev->setIdUser($u);
+
 
         $em->persist($ev);
         $em->flush();

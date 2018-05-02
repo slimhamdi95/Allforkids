@@ -19,7 +19,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\File\UploadedFile ;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
-
+use Symfony\Component\Validator\Constraints\Date ;
 class EvenementController extends Controller
 {
     public function ShowAllAction(Request $request)
@@ -352,25 +352,31 @@ class EvenementController extends Controller
         $formated = $ser->normalize($ev);
         return new JsonResponse($formated);
     }
-    public function newAction(Request $request){
+    public function newAction($nom,$description,$date,$nb,$type,$temp,$photo,$user,$lat,$lng){
         $em = $this->getDoctrine()->getManager();
         $ev = new Evenement();
-        $ev->setNom($request->get('nom'));
-        $ev->setDescriptionn($request->get('description'));
-        $ev->setNbrParticipation($request->get('nb'));
-        $ev->setDate($request->get('date'));
-        $ev->setType($request->get('type'));
-        $ev->setTemp($request->get('temp'));
-        $ev->setPhoto($request->get('photo'));
-        $ev->setIdUser($request->get('user'));
-        $ev->setLatitude($request->get('lat'));
-        $ev->setLongitude($request->get('lng'));
+        $ev->setNom($nom);
+        $ev->setDescriptionn($description);
+        $ev->setNbrParticipation($nb);
+         $d = new \DateTime($date);
+        // $d->setDate();
+        $ev->setDate($d);
+        $ev->setType($type);
+        $d = new \DateTime($temp);
+        $ev->setTemp($d);
+        $ev->setPhoto($photo);
+        $user =(int)$user;
+        $u = $em->getRepository('AllForKidsEntityBundle:User')->find($user);
+        $ev->setIdUser($u);
+        $ev->setLatitude($lat);
+        $ev->setLongitude($lng);
 
         $em->persist($ev);
         $em->flush();
 
         $ser = new Serializer([new ObjectNormalizer()]);
         $formated = $ser->normalize($ev);
+
         return new JsonResponse($formated);
     }
 }
