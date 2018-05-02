@@ -13,6 +13,7 @@ use Symfony\Component\Validator\Constraints as Assert ;
  */
 class User extends BaseUser
 {
+
     /**
      * @var integer
      *
@@ -20,6 +21,7 @@ class User extends BaseUser
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
+
     protected $id;
 
     /**
@@ -349,5 +351,6 @@ class User extends BaseUser
     {
         return $this->notes;
     }
+
 }
 
