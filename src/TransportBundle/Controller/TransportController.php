@@ -8,6 +8,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use TransportBundle\TransportBundle;
 
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
+
 /**
  * Transport controller.
  *
@@ -227,14 +231,39 @@ class TransportController extends Controller
         $em = $this->getDoctrine()->getManager();
         $transport = $em->getRepository('TransportBundle:Transport')->findAll();
         $ser = new Serializer([new ObjectNormalizer()]);
+        $formatted = $ser->normalize($transport);
+        return new JsonResponse($formatted);
+    }
+
+    public function findTranAction($idTransport)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $transport = $em->getRepository('TransportBundle:Transport')->find($idTransport);
+        $ser = new Serializer([new ObjectNormalizer()]);
         $formated = $ser->normalize($transport);
         return new JsonResponse($formated);
     }
 
-    public function ShowTranAction($id)
-    {
+    public function newMobileAction(Request $request){
         $em = $this->getDoctrine()->getManager();
-        $transport = $em->getRepository('TransportBundle:Transport')->find($id);
+        $transport = new Transport();
+        $transport->setRegion($request->get('region'));
+        $transport->setVille($request->get('ville'));
+        $transport->setDepart($request->get('depart'));
+        $transport->setArrive($request->get('arrive'));
+        $transport->setDescription($request->get('description'));
+        $transport->setTelephone($request->get('telephone'));
+        $transport->setPlace($request->get('place'));
+        $transport->setFrais($request->get('frais'));
+        $transport->setType($request->get('type'));
+        $transport->setDate($request->get('date'));
+        $transport->setArrivename($request->get('arriveName'));
+        $transport->setDepartname($request->get('departName'));
+        $transport->setIdCreateur($request->get('idCreateur'));
+
+        $em->persist($transport);
+        $em->flush();
+
         $ser = new Serializer([new ObjectNormalizer()]);
         $formated = $ser->normalize($transport);
         return new JsonResponse($formated);
