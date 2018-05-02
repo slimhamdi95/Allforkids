@@ -262,4 +262,16 @@ class TransportController extends Controller
         return new JsonResponse($formated);
     }
 
+    public function joindreMobileAction($id,$iduser){
+        $em = $this->getDoctrine()->getManager();
+        $joindre = new JoindreTransport();
+        $joindre->setTransportId($id);
+        $joindre->setUserId($iduser);
+        $em->persist($joindre);
+        $em->flush();
+        $ser = new Serializer([new ObjectNormalizer()]);
+        $formated = $ser->normalize($joindre);
+        return new JsonResponse($formated);
+    }
+
 }
