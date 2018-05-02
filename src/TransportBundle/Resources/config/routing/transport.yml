@@ -50,3 +50,15 @@ transport_delete:
     path:     /{idTransport}/delete
     defaults: { _controller: "TransportBundle:Transport:delete" }
     methods:  DELETE
+
+transport_all:
+    path:     /all
+    defaults: { _controller: "TransportBundle:Transport:AllTran" }
+
+transport_find:
+    path:     /find/{idTransport}
+    defaults: { _controller: "TransportBundle:Transport:findTran" }
+
+transport_newMobile:
+    path:     /newMobile
+    defaults: { _controller: "TransportBundle:Transport:newMobile" }
