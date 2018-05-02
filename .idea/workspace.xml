@@ -1,22 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-<<<<<<< HEAD
-    <list default="true" id="542bce49-3b64-4775-941a-2b693c432ec3" name="Default" comment="">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/AllForKids/DivertissementBundle/Evenement1.php" />
-      <change beforePath="$PROJECT_DIR$/src/AllForKids/DivertissementBundle/Controller/EvenementController.php" afterPath="$PROJECT_DIR$/src/AllForKids/DivertissementBundle/Controller/EvenementController.php" />
-      <change beforePath="$PROJECT_DIR$/src/AllForKids/DivertissementBundle/Resources/config/routing.yml" afterPath="$PROJECT_DIR$/src/AllForKids/DivertissementBundle/Resources/config/routing.yml" />
-      <change beforePath="$PROJECT_DIR$/src/AllForKids/DivertissementBundle/Resources/views/Evenement/Show.html.twig" afterPath="$PROJECT_DIR$/src/AllForKids/DivertissementBundle/Resources/views/Evenement/Show.html.twig" />
-      <change beforePath="$PROJECT_DIR$/src/AllForKids/EntityBundle/Entity/User.php" afterPath="$PROJECT_DIR$/src/AllForKids/EntityBundle/Entity/User.php" />
-      <change beforePath="$PROJECT_DIR$/src/AllForKids/EntityBundle/Repository/ParticipevenementRepository.php" afterPath="$PROJECT_DIR$/src/AllForKids/EntityBundle/Repository/ParticipevenementRepository.php" />
-=======
-    <list default="true" id="21112b2c-d0a0-4946-9978-e88ac142ac49" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/Allforkids.iml" afterPath="$PROJECT_DIR$/.idea/Allforkids.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/php.xml" afterPath="$PROJECT_DIR$/.idea/php.xml" />
+    <list default="true" id="dafc69dd-6dd2-4a8d-8231-e63d46b3e978" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TransportBundle/Controller/TransportController.php" afterPath="$PROJECT_DIR$/src/TransportBundle/Controller/TransportController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TransportBundle/Resources/config/routing/transport.yml" afterPath="$PROJECT_DIR$/src/TransportBundle/Resources/config/routing/transport.yml" />
->>>>>>> 04859a056b2910f3e96574f9eb4d1209e2e75d45
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -25,128 +11,44 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-<<<<<<< HEAD
-  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
-    <pharConfigPath>$PROJECT_DIR$/composer.json</pharConfigPath>
-  </component>
-  <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="EvenementController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/AllForKids/DivertissementBundle/Controller/EvenementController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="480">
-              <caret line="450" column="33" lean-forward="false" selection-start-line="450" selection-start-column="33" selection-end-line="450" selection-end-column="33" />
-              <folding>
-                <element signature="e#62#110#0#PHP" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ParticipevenementRepository.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AllForKids/EntityBundle/Repository/ParticipevenementRepository.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="918">
-              <caret line="39" column="17" lean-forward="false" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="17" />
-              <folding>
-                <marker date="1525192527204" expanded="true" signature="325:462" ph="select pe FR... AllForKidsEntityBundle" />
-                <marker date="1525192527204" expanded="true" signature="697:832" ph="delete FROM AllForKidsEntityBundle" />
-                <marker date="1525192527204" expanded="true" signature="1055:1146" ph="select COUNT... AllForKidsEntityBundle" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Show.html.twig" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AllForKids/DivertissementBundle/Resources/views/Evenement/Show.html.twig">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3564">
-              <caret line="132" column="0" lean-forward="false" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
-=======
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="EvenementController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AllForKids/DivertissementBundle/Controller/EvenementController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5797">
-              <caret line="357" column="10" lean-forward="false" selection-start-line="357" selection-start-column="10" selection-end-line="357" selection-end-column="10" />
->>>>>>> 04859a056b2910f3e96574f9eb4d1209e2e75d45
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-<<<<<<< HEAD
-      <file leaf-file-name="User.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AllForKids/EntityBundle/Entity/User.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="7506">
-              <caret line="280" column="0" lean-forward="false" selection-start-line="280" selection-start-column="0" selection-end-line="280" selection-end-column="0" />
-              <folding>
-                <element signature="e#49#91#0#PHP" expanded="true" />
-              </folding>
-=======
+    <leaf>
       <file leaf-file-name="TransportController.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TransportBundle/Controller/TransportController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4318">
-              <caret line="262" column="0" lean-forward="false" selection-start-line="262" selection-start-column="0" selection-end-line="262" selection-end-column="0" />
-              <folding />
->>>>>>> 04859a056b2910f3e96574f9eb4d1209e2e75d45
-            </state>
-          </provider>
-        </entry>
-      </file>
-<<<<<<< HEAD
-      <file leaf-file-name="Evenement1.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AllForKids/DivertissementBundle/Evenement1.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="999">
-              <caret line="42" column="5" lean-forward="false" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
-=======
-      <file leaf-file-name="Evenement.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AllForKids/EntityBundle/Entity/Evenement.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
+            <state relative-caret-position="-3854">
               <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
->>>>>>> 04859a056b2910f3e96574f9eb4d1209e2e75d45
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-<<<<<<< HEAD
-      <file leaf-file-name="Evenement.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/AllForKids/EntityBundle/Entity/Evenement.php">
+      <file leaf-file-name="EvenementController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/AllForKids/DivertissementBundle/Controller/EvenementController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="444">
-              <caret line="292" column="37" lean-forward="false" selection-start-line="292" selection-start-column="30" selection-end-line="292" selection-end-column="37" />
-=======
-      <file leaf-file-name="transport.yml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/TransportBundle/Resources/config/routing/transport.yml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="464">
-              <caret line="62" column="24" lean-forward="false" selection-start-line="62" selection-start-column="15" selection-end-line="62" selection-end-column="24" />
->>>>>>> 04859a056b2910f3e96574f9eb4d1209e2e75d45
+            <state relative-caret-position="178">
+              <caret line="346" column="5" lean-forward="false" selection-start-line="346" selection-start-column="5" selection-end-line="346" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-<<<<<<< HEAD
       <file leaf-file-name="routing.yml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/AllForKids/DivertissementBundle/Resources/config/routing.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="714">
-              <caret line="64" column="27" lean-forward="false" selection-start-line="64" selection-start-column="15" selection-end-line="64" selection-end-column="27" />
-=======
-      <file leaf-file-name="Transport.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/TransportBundle/Entity/Transport.php">
+            <state relative-caret-position="-420">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="transport.yml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/TransportBundle/Resources/config/routing/transport.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="25" column="24" lean-forward="false" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="24" />
->>>>>>> 04859a056b2910f3e96574f9eb4d1209e2e75d45
+            <state relative-caret-position="-590">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -154,38 +56,8 @@
       </file>
     </leaf>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-<<<<<<< HEAD
-      <find>particip</find>
-      <find>findDqlNbParticipE</find>
-      <find>nb</find>
-      <find>findDqlN</find>
-=======
-      <find>sho</find>
-      <find>new</find>
->>>>>>> 04859a056b2910f3e96574f9eb4d1209e2e75d45
-    </findStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="IdeDocumentHistory">
-    <option name="CHANGED_PATHS">
-      <list>
-<<<<<<< HEAD
-        <option value="$PROJECT_DIR$/src/AllForKids/DivertissementBundle/Evenement1.php" />
-        <option value="$PROJECT_DIR$/src/AllForKids/EntityBundle/Entity/User.php" />
-        <option value="$PROJECT_DIR$/src/AllForKids/EntityBundle/Repository/ParticipevenementRepository.php" />
-        <option value="$PROJECT_DIR$/src/AllForKids/DivertissementBundle/Resources/views/Evenement/Show.html.twig" />
-        <option value="$PROJECT_DIR$/src/AllForKids/DivertissementBundle/Resources/config/routing.yml" />
-        <option value="$PROJECT_DIR$/src/AllForKids/DivertissementBundle/Controller/EvenementController.php" />
-=======
-        <option value="$PROJECT_DIR$/src/TransportBundle/Resources/config/routing/transport.yml" />
-        <option value="$PROJECT_DIR$/src/TransportBundle/Controller/TransportController.php" />
->>>>>>> 04859a056b2910f3e96574f9eb4d1209e2e75d45
-      </list>
-    </option>
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
@@ -193,66 +65,6 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-<<<<<<< HEAD
-  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true">
-    <include_path>
-      <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/collections" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/annotations" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-bundle" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/doctrine-cache-bundle" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/common" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/dbal" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/lexer" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/orm" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/inflector" />
-      <path value="$PROJECT_DIR$/vendor/doctrine/instantiator" />
-      <path value="$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle" />
-      <path value="$PROJECT_DIR$/vendor/fig/link-util" />
-      <path value="$PROJECT_DIR$/vendor/incenteev/composer-parameter-handler" />
-      <path value="$PROJECT_DIR$/vendor/gedmo/doctrine-extensions" />
-      <path value="$PROJECT_DIR$/vendor/knplabs/knp-components" />
-      <path value="$PROJECT_DIR$/vendor/jdorn/sql-formatter" />
-      <path value="$PROJECT_DIR$/vendor/knplabs/knp-snappy-bundle" />
-      <path value="$PROJECT_DIR$/vendor/knplabs/knp-paginator-bundle" />
-      <path value="$PROJECT_DIR$/vendor/knplabs/knp-snappy" />
-      <path value="$PROJECT_DIR$/vendor/paragonie/random_compat" />
-      <path value="$PROJECT_DIR$/vendor/monolog/monolog" />
-      <path value="$PROJECT_DIR$/vendor/psr/link" />
-      <path value="$PROJECT_DIR$/vendor/psr/log" />
-      <path value="$PROJECT_DIR$/vendor/psr/cache" />
-      <path value="$PROJECT_DIR$/vendor/psr/container" />
-      <path value="$PROJECT_DIR$/vendor/sensio/distribution-bundle" />
-      <path value="$PROJECT_DIR$/vendor/sensio/framework-extra-bundle" />
-      <path value="$PROJECT_DIR$/vendor/psr/simple-cache" />
-      <path value="$PROJECT_DIR$/vendor/sensiolabs/security-checker" />
-      <path value="$PROJECT_DIR$/vendor/sensio/generator-bundle" />
-      <path value="$PROJECT_DIR$/vendor/swiftmailer/swiftmailer" />
-      <path value="$PROJECT_DIR$/vendor/stof/doctrine-extensions-bundle" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-apcu" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-intl-icu" />
-      <path value="$PROJECT_DIR$/vendor/symfony/monolog-bundle" />
-      <path value="$PROJECT_DIR$/vendor/symfony/phpunit-bridge" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php70" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-util" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-mbstring" />
-      <path value="$PROJECT_DIR$/vendor/symfony/polyfill-php56" />
-      <path value="$PROJECT_DIR$/vendor/behat/transliterator" />
-      <path value="$PROJECT_DIR$/vendor/twig/twig" />
-      <path value="$PROJECT_DIR$/vendor/symfony/swiftmailer-bundle" />
-      <path value="$PROJECT_DIR$/vendor/symfony/symfony" />
-      <path value="$PROJECT_DIR$/vendor/discutea/forum-bundle" />
-      <path value="$PROJECT_DIR$/vendor/blackknight467/star-rating-bundle" />
-      <path value="$PROJECT_DIR$/vendor/composer" />
-    </include_path>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1938" />
-    <option name="height" value="1050" />
-  </component>
-=======
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" interpreter_name="PHP" />
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
@@ -261,7 +73,6 @@
     <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
->>>>>>> 04859a056b2910f3e96574f9eb4d1209e2e75d45
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
@@ -278,117 +89,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
-<<<<<<< HEAD
       <pane id="Scope" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Allforkids" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Allforkids" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Allforkids" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Allforkids" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Allforkids" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Allforkids" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="bin" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Allforkids" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Allforkids" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Allforkids" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Allforkids" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="AllForKids" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Allforkids" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Allforkids" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="AllForKids" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="DivertissementBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Allforkids" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Allforkids" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="AllForKids" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="DivertissementBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Controller" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Allforkids" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Allforkids" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="AllForKids" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="DivertissementBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Allforkids" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Allforkids" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="AllForKids" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="DivertissementBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="config" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Allforkids" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Allforkids" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="AllForKids" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="DivertissementBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Allforkids" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Allforkids" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="AllForKids" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="DivertissementBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Resources" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Evenement" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Allforkids" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Allforkids" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="AllForKids" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="EntityBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Allforkids" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Allforkids" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="AllForKids" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="EntityBundle" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Repository" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="Allforkids" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Allforkids" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="vendor" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
-  </component>
-  <component name="PropertiesComponent">
-    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../bin/php/php5.6.31/php.exe" />
-=======
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -529,28 +230,6 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Entity" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Allforkids" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Allforkids" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="TransportBundle" />
-              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="Controller" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
@@ -572,8 +251,26 @@
               <option name="myItemId" value="AllForKids" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
+          </PATH>
+          <PATH>
             <PATH_ELEMENT>
-              <option name="myItemId" value="EntityBundle" />
+              <option name="myItemId" value="Allforkids" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Allforkids" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AllForKids" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DivertissementBundle" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -595,11 +292,11 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="EntityBundle" />
+              <option name="myItemId" value="DivertissementBundle" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="Entity" />
+              <option name="myItemId" value="Resources" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -618,17 +315,53 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="AllForKids" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DivertissementBundle" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Resources" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Allforkids" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Allforkids" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="AllForKids" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DivertissementBundle" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controller" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="reference.webide.settings.project.settings.php" />
->>>>>>> 04859a056b2910f3e96574f9eb4d1209e2e75d45
     <property name="WebServerToolWindowFactoryState" value="false" />
   </component>
   <component name="RunDashboard">
@@ -646,91 +379,45 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
-<<<<<<< HEAD
-  <component name="SvnConfiguration">
-    <configuration />
-  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="542bce49-3b64-4775-941a-2b693c432ec3" name="Default" comment="" />
-      <created>1525118620337</created>
+      <changelist id="dafc69dd-6dd2-4a8d-8231-e63d46b3e978" name="Default" comment="" />
+      <created>1525257895132</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1525118620337</updated>
-      <workItem from="1525118628963" duration="1456000" />
-      <workItem from="1525121507788" duration="2590000" />
-      <workItem from="1525131327628" duration="154000" />
-      <workItem from="1525131500400" duration="2316000" />
-      <workItem from="1525182740755" duration="2634000" />
-      <workItem from="1525185711212" duration="426000" />
-      <workItem from="1525191108245" duration="2437000" />
-      <workItem from="1525256656394" duration="2597000" />
-=======
-  <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="21112b2c-d0a0-4946-9978-e88ac142ac49" name="Default" comment="" />
-      <created>1524775897935</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1524775897935</updated>
-      <workItem from="1524775908613" duration="7324000" />
-      <workItem from="1524821701301" duration="1592000" />
-      <workItem from="1525214837378" duration="111000" />
->>>>>>> 04859a056b2910f3e96574f9eb4d1209e2e75d45
+      <updated>1525257895132</updated>
+      <workItem from="1525257906033" duration="1195000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-<<<<<<< HEAD
-    <option name="totallyTimeSpent" value="14610000" />
-  </component>
-  <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="7" />
-    <editor active="true" />
-    <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27604726" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-=======
-    <option name="totallyTimeSpent" value="9027000" />
+    <option name="totallyTimeSpent" value="1195000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20278184" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
->>>>>>> 04859a056b2910f3e96574f9eb4d1209e2e75d45
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-<<<<<<< HEAD
-    <option name="version" value="1" />
-=======
     <option name="processedProjectFiles" value="true" />
->>>>>>> 04859a056b2910f3e96574f9eb4d1209e2e75d45
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
@@ -740,469 +427,37 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/AllForKids/DivertissementBundle/Controller/EvenementController.php">
+    <entry file="file://$PROJECT_DIR$/src/AllForKids/DivertissementBundle/Resources/config/routing.yml">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state relative-caret-position="0">
+        <state relative-caret-position="-420">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#62#110#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AllForKids/EntityBundle/Repository/ParticipevenementRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1053">
-          <caret line="39" column="17" lean-forward="false" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="17" />
-          <folding>
-            <marker date="1525192527204" expanded="true" signature="325:462" ph="select pe FR... AllForKidsEntityBundle" />
-            <marker date="1525192527204" expanded="true" signature="697:832" ph="delete FROM AllForKidsEntityBundle" />
-            <marker date="1525192527204" expanded="true" signature="1055:1146" ph="select COUNT... AllForKidsEntityBundle" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AllForKids/DivertissementBundle/Resources/views/Evenement/Show.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3564">
-          <caret line="132" column="0" lean-forward="false" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
-=======
-        <state relative-caret-position="6069">
-          <caret line="357" column="10" lean-forward="false" selection-start-line="357" selection-start-column="10" selection-end-line="357" selection-end-column="10" />
->>>>>>> 04859a056b2910f3e96574f9eb4d1209e2e75d45
           <folding />
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/src/AllForKids/EntityBundle/Entity/User.php">
+    <entry file="file://$PROJECT_DIR$/src/AllForKids/DivertissementBundle/Controller/EvenementController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7506">
-          <caret line="280" column="0" lean-forward="false" selection-start-line="280" selection-start-column="0" selection-end-line="280" selection-end-column="0" />
-          <folding>
-            <element signature="e#49#91#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="178">
+          <caret line="346" column="5" lean-forward="false" selection-start-line="346" selection-start-column="5" selection-end-line="346" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AllForKids/DivertissementBundle/Evenement1.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="999">
-          <caret line="42" column="5" lean-forward="false" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
-=======
     <entry file="file://$PROJECT_DIR$/src/TransportBundle/Controller/TransportController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4454">
-          <caret line="262" column="0" lean-forward="false" selection-start-line="262" selection-start-column="0" selection-end-line="262" selection-end-column="0" />
->>>>>>> 04859a056b2910f3e96574f9eb4d1209e2e75d45
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AllForKids/EntityBundle/Entity/Evenement.php">
-      <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state relative-caret-position="7857">
-          <caret line="292" column="37" lean-forward="false" selection-start-line="292" selection-start-column="30" selection-end-line="292" selection-end-column="37" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AllForKids/DivertissementBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1485">
-          <caret line="55" column="14" lean-forward="false" selection-start-line="55" selection-start-column="14" selection-end-line="55" selection-end-column="33" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AllForKids/DivertissementBundle/Controller/EvenementController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
+        <state relative-caret-position="-3854">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#62#110#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AllForKids/EntityBundle/Entity/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7506">
-          <caret line="280" column="0" lean-forward="false" selection-start-line="280" selection-start-column="0" selection-end-line="280" selection-end-column="0" />
-          <folding>
-            <element signature="e#49#91#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AllForKids/DivertissementBundle/Evenement1.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="999">
-          <caret line="42" column="5" lean-forward="false" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
-=======
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
->>>>>>> 04859a056b2910f3e96574f9eb4d1209e2e75d45
           <folding />
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/src/AllForKids/EntityBundle/Entity/Evenement.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7857">
-          <caret line="292" column="37" lean-forward="false" selection-start-line="292" selection-start-column="30" selection-end-line="292" selection-end-column="37" />
-=======
-    <entry file="file://$PROJECT_DIR$/src/TransportBundle/Entity/Transport.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="24" lean-forward="false" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="24" />
->>>>>>> 04859a056b2910f3e96574f9eb4d1209e2e75d45
-          <folding />
-        </state>
-      </provider>
-    </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/src/AllForKids/DivertissementBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1377">
-          <caret line="51" column="9" lean-forward="false" selection-start-line="51" selection-start-column="9" selection-end-line="51" selection-end-column="9" />
-=======
     <entry file="file://$PROJECT_DIR$/src/TransportBundle/Resources/config/routing/transport.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1054">
-          <caret line="62" column="24" lean-forward="false" selection-start-line="62" selection-start-column="15" selection-end-line="62" selection-end-column="24" />
->>>>>>> 04859a056b2910f3e96574f9eb4d1209e2e75d45
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AllForKids/DivertissementBundle/Controller/EvenementController.php">
-      <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state relative-caret-position="0">
+        <state relative-caret-position="-590">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#62#110#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AllForKids/EntityBundle/Entity/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7506">
-          <caret line="280" column="0" lean-forward="false" selection-start-line="280" selection-start-column="0" selection-end-line="280" selection-end-column="0" />
-          <folding>
-            <element signature="e#49#91#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AllForKids/DivertissementBundle/Evenement1.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="999">
-          <caret line="42" column="5" lean-forward="false" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/AllForKids/EntityBundle/Entity/Evenement.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7857">
-          <caret line="292" column="37" lean-forward="false" selection-start-line="292" selection-start-column="30" selection-end-line="292" selection-end-column="37" />
-=======
-        <state relative-caret-position="6069">
-          <caret line="357" column="10" lean-forward="false" selection-start-line="357" selection-start-column="10" selection-end-line="357" selection-end-column="10" />
->>>>>>> 04859a056b2910f3e96574f9eb4d1209e2e75d45
-          <folding />
-        </state>
-      </provider>
-    </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/src/AllForKids/DivertissementBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1377">
-          <caret line="51" column="9" lean-forward="false" selection-start-line="51" selection-start-column="9" selection-end-line="51" selection-end-column="9" />
-=======
-    <entry file="file://$PROJECT_DIR$/src/TransportBundle/Controller/TransportController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4454">
-          <caret line="262" column="0" lean-forward="false" selection-start-line="262" selection-start-column="0" selection-end-line="262" selection-end-column="0" />
->>>>>>> 04859a056b2910f3e96574f9eb4d1209e2e75d45
-          <folding />
-        </state>
-      </provider>
-    </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/src/AllForKids/DivertissementBundle/Controller/EvenementController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#62#110#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AllForKids/DivertissementBundle/Evenement1.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1134">
-          <caret line="42" column="5" lean-forward="false" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
-=======
-    <entry file="file://$PROJECT_DIR$/src/AllForKids/EntityBundle/Entity/Evenement.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
->>>>>>> 04859a056b2910f3e96574f9eb4d1209e2e75d45
-          <folding />
-        </state>
-      </provider>
-    </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/src/AllForKids/EntityBundle/Entity/Evenement.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7641">
-          <caret line="284" column="29" lean-forward="false" selection-start-line="284" selection-start-column="20" selection-end-line="284" selection-end-column="29" />
-=======
-    <entry file="file://$PROJECT_DIR$/src/TransportBundle/Resources/config/routing/transport.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1054">
-          <caret line="62" column="24" lean-forward="false" selection-start-line="62" selection-start-column="15" selection-end-line="62" selection-end-column="24" />
->>>>>>> 04859a056b2910f3e96574f9eb4d1209e2e75d45
-          <folding />
-        </state>
-      </provider>
-    </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/src/AllForKids/DivertissementBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1377">
-          <caret line="51" column="9" lean-forward="false" selection-start-line="51" selection-start-column="9" selection-end-line="51" selection-end-column="9" />
-=======
-    <entry file="file://$PROJECT_DIR$/src/TransportBundle/Entity/Transport.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="24" lean-forward="false" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="24" />
->>>>>>> 04859a056b2910f3e96574f9eb4d1209e2e75d45
-          <folding />
-        </state>
-      </provider>
-    </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/src/AllForKids/DivertissementBundle/Controller/EvenementController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#62#110#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AllForKids/DivertissementBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1377">
-          <caret line="51" column="9" lean-forward="false" selection-start-line="51" selection-start-column="9" selection-end-line="51" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AllForKids/DivertissementBundle/Controller/EvenementController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#62#110#0#PHP" expanded="true" />
-          </folding>
-=======
-    <entry file="file://$PROJECT_DIR$/src/AllForKids/DivertissementBundle/Resources/config/services.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="34" column="1" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TransportBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
->>>>>>> 04859a056b2910f3e96574f9eb4d1209e2e75d45
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AllForKids/DivertissementBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state relative-caret-position="1377">
-          <caret line="51" column="9" lean-forward="false" selection-start-line="51" selection-start-column="9" selection-end-line="51" selection-end-column="9" />
-          <folding />
-=======
-        <state relative-caret-position="430">
-          <caret line="50" column="63" lean-forward="false" selection-start-line="50" selection-start-column="63" selection-end-line="50" selection-end-column="63" />
->>>>>>> 04859a056b2910f3e96574f9eb4d1209e2e75d45
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AllForKids/DivertissementBundle/Controller/EvenementController.php">
-      <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#62#110#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Controller/RegistrationController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="768">
-          <caret line="97" column="0" lean-forward="false" selection-start-line="97" selection-start-column="0" selection-end-line="97" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/vendor/friendsofsymfony/user-bundle/Model/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="768">
-          <caret line="157" column="5" lean-forward="true" selection-start-line="157" selection-start-column="5" selection-end-line="157" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AllForKids/DivertissementBundle/Resources/views/Evenement/ShowAll.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="34" column="36" lean-forward="false" selection-start-line="34" selection-start-column="35" selection-end-line="34" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AllForKids/DivertissementBundle/Evenement1.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="999">
-          <caret line="42" column="5" lean-forward="false" selection-start-line="42" selection-start-column="5" selection-end-line="42" selection-end-column="5" />
-=======
-        <state relative-caret-position="5797">
-          <caret line="357" column="10" lean-forward="false" selection-start-line="357" selection-start-column="10" selection-end-line="357" selection-end-column="10" />
->>>>>>> 04859a056b2910f3e96574f9eb4d1209e2e75d45
-          <folding />
-        </state>
-      </provider>
-    </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/src/AllForKids/EntityBundle/Entity/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="7506">
-          <caret line="280" column="0" lean-forward="false" selection-start-line="280" selection-start-column="0" selection-end-line="280" selection-end-column="0" />
-          <folding>
-            <element signature="e#49#91#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AllForKids/EntityBundle/Repository/EvenementRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="426">
-          <caret line="24" column="35" lean-forward="true" selection-start-line="24" selection-start-column="35" selection-end-line="24" selection-end-column="35" />
-          <folding>
-            <marker date="1523276902000" expanded="true" signature="310:450" ph="select pe FR... AllForKidsEntityBundle" />
-            <marker date="1523276902000" expanded="true" signature="603:834" ph="select e FRO... AllForKidsEntityBundle" />
-            <marker date="1523276902000" expanded="true" signature="1028:1098" ph="select e FRO... AllForKidsEntityBundle" />
-            <marker date="1523276902000" expanded="true" signature="1292:1369" ph="delete FROM AllForKidsEntityBundle" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/config/parameters.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AllForKids/DivertissementBundle/Resources/views/Evenement/Show.html.twig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3564">
-          <caret line="132" column="0" lean-forward="false" selection-start-line="132" selection-start-column="0" selection-end-line="132" selection-end-column="0" />
-=======
-    <entry file="file://$PROJECT_DIR$/src/TransportBundle/Controller/TransportController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4318">
-          <caret line="262" column="0" lean-forward="false" selection-start-line="262" selection-start-column="0" selection-end-line="262" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AllForKids/EntityBundle/Entity/Evenement.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
->>>>>>> 04859a056b2910f3e96574f9eb4d1209e2e75d45
-          <folding />
-        </state>
-      </provider>
-    </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/src/AllForKids/EntityBundle/Entity/Evenement.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="444">
-          <caret line="292" column="37" lean-forward="false" selection-start-line="292" selection-start-column="30" selection-end-line="292" selection-end-column="37" />
-=======
-    <entry file="file://$PROJECT_DIR$/src/TransportBundle/Entity/Transport.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="25" column="24" lean-forward="false" selection-start-line="25" selection-start-column="12" selection-end-line="25" selection-end-column="24" />
->>>>>>> 04859a056b2910f3e96574f9eb4d1209e2e75d45
-          <folding />
-        </state>
-      </provider>
-    </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/src/AllForKids/EntityBundle/Repository/ParticipevenementRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="918">
-          <caret line="39" column="17" lean-forward="false" selection-start-line="39" selection-start-column="17" selection-end-line="39" selection-end-column="17" />
-          <folding>
-            <marker date="1525192527204" expanded="true" signature="325:462" ph="select pe FR... AllForKidsEntityBundle" />
-            <marker date="1525192527204" expanded="true" signature="697:832" ph="delete FROM AllForKidsEntityBundle" />
-            <marker date="1525192527204" expanded="true" signature="1055:1146" ph="select COUNT... AllForKidsEntityBundle" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/AllForKids/DivertissementBundle/Resources/config/routing.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="714">
-          <caret line="64" column="27" lean-forward="false" selection-start-line="64" selection-start-column="15" selection-end-line="64" selection-end-column="27" />
-=======
-    <entry file="file://$PROJECT_DIR$/src/TransportBundle/Resources/config/routing/transport.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="62" column="24" lean-forward="false" selection-start-line="62" selection-start-column="15" selection-end-line="62" selection-end-column="24" />
->>>>>>> 04859a056b2910f3e96574f9eb4d1209e2e75d45
-          <folding />
-        </state>
-      </provider>
-    </entry>
-<<<<<<< HEAD
-    <entry file="file://$PROJECT_DIR$/src/AllForKids/DivertissementBundle/Controller/EvenementController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="450" column="33" lean-forward="false" selection-start-line="450" selection-start-column="33" selection-end-line="450" selection-end-column="33" />
-          <folding>
-            <element signature="e#62#110#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-=======
->>>>>>> 04859a056b2910f3e96574f9eb4d1209e2e75d45
   </component>
 </project>
