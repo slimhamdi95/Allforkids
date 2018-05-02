@@ -64,3 +64,9 @@ anullparticipation:
 findparticip:
     path:     /findparticip/{id}/{iduser}
     defaults: { _controller: AllForKidsDivertissementBundle:Evenement:findparticip }
+deletemobile:
+    path:     /deletemobile/{id}
+    defaults: { _controller: AllForKidsDivertissementBundle:Evenement:deletemobile }
+updatemobile:
+    path:     /updatemobile/{id}/{nom}/{description}/{date}/{nb}/{type}/{temp}/{photo}/{user}/{lat}/{lng}
+    defaults: { _controller: AllForKidsDivertissementBundle:Evenement:updatemobile }

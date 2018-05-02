@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-<<<<<<< HEAD
   <component name="PhpIncludePathManager">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/doctrine/cache" />
@@ -53,7 +52,5 @@
       <path value="$PROJECT_DIR$/vendor/composer" />
     </include_path>
   </component>
-=======
->>>>>>> 04859a056b2910f3e96574f9eb4d1209e2e75d45
   <component name="PhpProjectSharedConfiguration" php_language_level="5.5.0" />
 </project>

@@ -455,4 +455,40 @@ class EvenementController extends Controller
         $formated = $ser->normalize($a);
         return new JsonResponse($formated);
     }
+    public function deletemobileAction($id){
+        $em = $this->getDoctrine()->getManager();
+        $ev = $em->getRepository(Evenement::class)->find($id);
+        $em->remove($ev);
+        $em->flush();
+        $pe="Deleting succsess" ;
+        $ser = new Serializer([new ObjectNormalizer()]);
+        $formated = $ser->normalize($pe);
+        return new JsonResponse($formated);
+    }
+    public function updatemobileAction($id,$nom,$description,$date,$nb,$type,$temp,$photo,$user,$lat,$lng){
+
+        $em = $this->getDoctrine()->getManager();
+        $ev = $em->getRepository(Evenement::class)->find($id);
+        $ev->setNom($nom);
+        $ev->setDescriptionn($description);
+        $ev->setNbrParticipation($nb);
+        $d = new \DateTime($date);
+
+        $ev->setDate($d);
+        $ev->setType($type);
+        $d = new \DateTime($temp);
+        $ev->setTemp($d);
+        $ev->setPhoto($photo);
+        $user =(int)$user;
+        $u = $em->getRepository('AllForKidsEntityBundle:User')->find($user);
+        $ev->setIdUser($u);
+        $ev->setLatitude($lat);
+        $ev->setLongitude($lng);
+        $em->flush();
+        $aa = "Update success";
+        $ser = new Serializer([new ObjectNormalizer()]);
+        $formated = $ser->normalize($aa);
+
+        return new JsonResponse($formated);
+    }
 }
