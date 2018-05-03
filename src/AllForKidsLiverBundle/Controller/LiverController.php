@@ -154,5 +154,27 @@ class LiverController extends Controller
                 'l' => $pagination
             ));
     }
+    /****Mobile Service ******/
+    public function AlllivreAction()
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $evenement=$em->getRepository('AllForKidsEntityBundle:Livre')->findAll();
+        $ser = new Serializer([new ObjectNormalizer()]);
+        $formated = $ser->normalize($evenement);
+        return new JsonResponse($formated);
+
+    }
+    public function AddGodOrBadAction($idLivre,$good,$bad){
+        $em = $this->getDoctrine()->getManager();
+        $livre = $em->getRepository('AllForKidsEntityBundle:Livre')->find($idLivre);
+        $livre->setGood($good);
+        $livre->setBad($bad);
+        $em->flush();
+
+        $ser = new Serializer([new ObjectNormalizer()]);
+        $formated = $ser->normalize($livre);
+        return new JsonResponse($formated);
+    }
 
 }
