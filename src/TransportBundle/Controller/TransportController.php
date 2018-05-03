@@ -8,6 +8,10 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use TransportBundle\TransportBundle;
 
+use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
+use Symfony\Component\Serializer\Serializer;
+
 /**
  * Transport controller.
  *
@@ -227,16 +231,46 @@ class TransportController extends Controller
         $em = $this->getDoctrine()->getManager();
         $transport = $em->getRepository('TransportBundle:Transport')->findAll();
         $ser = new Serializer([new ObjectNormalizer()]);
+        $formatted = $ser->normalize($transport);
+        return new JsonResponse($formatted);
+    }
+
+    public function findTranAction($idTransport)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $transport = $em->getRepository('TransportBundle:Transport')->find($idTransport);
+        $ser = new Serializer([new ObjectNormalizer()]);
         $formated = $ser->normalize($transport);
         return new JsonResponse($formated);
     }
 
-    public function ShowTranAction($id)
-    {
+    public function newMobileAction($user,$description,$telephone,$place,$frais,$type){
         $em = $this->getDoctrine()->getManager();
-        $transport = $em->getRepository('TransportBundle:Transport')->find($id);
+        $transport = new Transport();
+        $user =(int)$user;
+        $transport->setDescription($description);
+        $transport->setTelephone($telephone);
+        $transport->setPlace($place);
+        $transport->setFrais($frais);
+        $transport->setType($type);
+        $u = $em->getRepository('AllForKidsEntityBundle:User')->find($user);
+        $transport->setIdCreateur($u);
+        $em->persist($transport);
+        $em->flush();
         $ser = new Serializer([new ObjectNormalizer()]);
         $formated = $ser->normalize($transport);
+        return new JsonResponse($formated);
+    }
+
+    public function joindreMobileAction($id,$iduser){
+        $em = $this->getDoctrine()->getManager();
+        $joindre = new JoindreTransport();
+        $joindre->setTransportId($id);
+        $joindre->setUserId($iduser);
+        $em->persist($joindre);
+        $em->flush();
+        $ser = new Serializer([new ObjectNormalizer()]);
+        $formated = $ser->normalize($joindre);
         return new JsonResponse($formated);
     }
 
