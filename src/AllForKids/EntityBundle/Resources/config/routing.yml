@@ -11,3 +11,10 @@ user:
 inscrith:
     path:     /Inscrit/{Username}/{nom}/{prenom}/{role}/{email}/{cin}/{password}/{date}/{photo}
     defaults: { _controller: AllForKidsEntityBundle:Default:Inscrit }
+
+
+
+
+inscritR:
+    path:     /InscritR/{username}/{nom}/{prenom}/{role}/{email}/{cin}/{password}/{date}/{photo}
+    defaults: { _controller: AllForKidsEntityBundle:Default:InscritR }

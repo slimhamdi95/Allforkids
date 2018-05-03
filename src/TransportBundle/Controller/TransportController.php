@@ -244,28 +244,33 @@ class TransportController extends Controller
         return new JsonResponse($formated);
     }
 
-    public function newMobileAction(Request $request){
+    public function newMobileAction($user,$description,$telephone,$place,$frais,$type){
         $em = $this->getDoctrine()->getManager();
         $transport = new Transport();
-        $transport->setRegion($request->get('region'));
-        $transport->setVille($request->get('ville'));
-        $transport->setDepart($request->get('depart'));
-        $transport->setArrive($request->get('arrive'));
-        $transport->setDescription($request->get('description'));
-        $transport->setTelephone($request->get('telephone'));
-        $transport->setPlace($request->get('place'));
-        $transport->setFrais($request->get('frais'));
-        $transport->setType($request->get('type'));
-        $transport->setDate($request->get('date'));
-        $transport->setArrivename($request->get('arriveName'));
-        $transport->setDepartname($request->get('departName'));
-        $transport->setIdCreateur($request->get('idCreateur'));
-
+        $user =(int)$user;
+        $transport->setDescription($description);
+        $transport->setTelephone($telephone);
+        $transport->setPlace($place);
+        $transport->setFrais($frais);
+        $transport->setType($type);
+        $u = $em->getRepository('AllForKidsEntityBundle:User')->find($user);
+        $transport->setIdCreateur($u);
         $em->persist($transport);
         $em->flush();
-
         $ser = new Serializer([new ObjectNormalizer()]);
         $formated = $ser->normalize($transport);
+        return new JsonResponse($formated);
+    }
+
+    public function joindreMobileAction($id,$iduser){
+        $em = $this->getDoctrine()->getManager();
+        $joindre = new JoindreTransport();
+        $joindre->setTransportId($id);
+        $joindre->setUserId($iduser);
+        $em->persist($joindre);
+        $em->flush();
+        $ser = new Serializer([new ObjectNormalizer()]);
+        $formated = $ser->normalize($joindre);
         return new JsonResponse($formated);
     }
 
