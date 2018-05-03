@@ -34,10 +34,10 @@ class ParticipevenementRepository extends \Doctrine\ORM\EntityRepository
     public function findDqlNbParticipE($a)
     {
         $q=$this->getEntityManager()
-            ->createQuery("select COUNT (pe) FROM AllForKidsEntityBundle:Participevenement pe WHERE pe.idEvenement = :a")
+            ->createQuery("select COUNT(pe) FROM AllForKidsEntityBundle:Participevenement pe WHERE pe.idEvenement = :a")
             ->setParameter('a',$a);
 
-        return $q->getFirstResult();
+        return $q->getSingleScalarResult();
 
     }
 }
