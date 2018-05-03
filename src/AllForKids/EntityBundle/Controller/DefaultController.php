@@ -26,17 +26,19 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $ev = $em->getRepository('AllForKidsEntityBundle:User')->findOneBy(['username' => $userName]);
+        $date = $ev->getDate();
+        $result = $date->format('Y-m-d');
+        $ev->setDate($result);
         $ser = new Serializer([new ObjectNormalizer()]);
         $formated = $ser->normalize($ev);
         return new JsonResponse($formated);
     }
 
 
-   public function InscritAction ( $Username, $nom , $prenom , $role ,$email , $cin , $password,$date ,$photo){
-
+   public function InscritAction ( $username, $nom , $prenom , $role ,$email , $cin , $password,$date ,$photo){
            $em = $this->getDoctrine()->getManager();
            $ev = new User();
-           $ev->setUsername($Username);
+           $ev->setUsername($username);
            $ev->setNom($nom);
            $ev->setPrenom($prenom);
            $ev->setRole($role);
@@ -46,7 +48,7 @@ class DefaultController extends Controller
 
        $d = new \DateTime($date);
        $ev->setDate($d);
-           $ev->setPhoto($photo);
+       $ev->setPicture($photo);
 
            $em->persist($ev);
            $em->flush();
@@ -85,10 +87,10 @@ class DefaultController extends Controller
     }
 
 
-    public function ModifierAction ( $username, $nom , $prenom , $role ,$email , $cin , $password,$date ,$photo){
+    public function ModifierAction ($id, $username, $nom , $prenom , $role ,$email , $cin , $password,$date ,$photo){
 
         $em = $this->getDoctrine()->getManager();
-        $ev = new User();
+        $ev = $em->getRepository('AllForKidsEntityBundle:User')->find($id);
         $ev->getUsername($username);
         $ev->getNom($nom);
         $ev->getPrenom($prenom);
@@ -99,9 +101,9 @@ class DefaultController extends Controller
 
         $d = new \DateTime($date);
         $ev->getDate($d);
-        $ev->getPhoto($photo);
+        $ev->setPicture($photo);
 
-        $this->getDoctrine()->getManager()->flush();
+        $ev->flush();
 
         $ser = new Serializer([new ObjectNormalizer()]);
         $formated = $ser->normalize($ev);
