@@ -8,6 +8,20 @@ user:
     path:     /by/{userName}
     defaults: { _controller: AllForKidsEntityBundle:Default:FindByLogin }
 
-inscrith:
-    path:     /Inscrit/{Username}/{nom}/{prenom}/{role}/{email}/{cin}/{password}/{date}/{photo}
+Inscrit:
+    path:     /Inscrit/{username}/{nom}/{prenom}/{role}/{email}/{cin}/{password}/{date}/{photo}
     defaults: { _controller: AllForKidsEntityBundle:Default:Inscrit }
+
+
+
+
+Modifier:
+    path:     /Modifier/{id}/{username}/{nom}/{prenom}/{role}/{email}/{cin}/{password}/{date}/{photo}
+    defaults: { _controller: AllForKidsEntityBundle:Default:Modifier }
+
+
+
+
+AllUser:
+    path:     /AllUser
+    defaults: { _controller: AllForKidsEntityBundle:Default:FindAllUser }
