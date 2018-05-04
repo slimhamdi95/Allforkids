@@ -10,4 +10,24 @@ namespace EtablissementBundle\Repository;
  */
 class RejoindreRepository extends \Doctrine\ORM\EntityRepository
 {
+
+    public function findDqlRejoindre($a,$b)
+    {
+        $q=$this->getEntityManager()
+            ->createQuery("select re FROM EtablissementBundle:Rejoindre re WHERE re.etablissement = :a
+                            AND re.user = :id_user")
+            ->setParameter('a',$a)
+            ->setParameter('id_user',$b);
+        return $q->getResult();
+
+    }
+
+    public function DeleteDqlRejoindre($a)
+    {
+        $q=$this->getEntityManager()
+            ->createQuery("delete re FROM EtablissementBundle:Rejoindre re WHERE re.etablissement = :a ")
+            ->setParameter('a',$a);
+        $q->execute();
+
+    }
 }
