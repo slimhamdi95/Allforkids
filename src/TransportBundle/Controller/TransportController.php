@@ -7,11 +7,11 @@ use TransportBundle\Entity\Transport;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use TransportBundle\TransportBundle;
-
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
-
+use TransportBundle\Repository\JoindreTransportRepository;
+use TransportBundle\Repository\TransportRepository;
 /**
  * Transport controller.
  *
@@ -296,9 +296,6 @@ class TransportController extends Controller
         echo(hello);
     }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 51fde5de9dea87e23779992ea905beb0ce8841d9
 
 }
