@@ -226,10 +226,10 @@ class TransportController extends Controller
     }
 
     /****Mobile Service ******/
-    public function AllTranAction()
+    public function AllranAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $transport = $em->getRepository('TransportBundle:Transport')->findAll();
+        $transport = $em->gTetRepository('TransportBundle:Transport')->findAll();
         $ser = new Serializer([new ObjectNormalizer()]);
         $formatted = $ser->normalize($transport);
         return new JsonResponse($formatted);
@@ -285,20 +285,25 @@ class TransportController extends Controller
         return new JsonResponse($formated);
     }
 
-    public function findparticipAction($id,$iduser){
+    public function myRejoindreMobileAction($iduser)
+    {
         $em = $this->getDoctrine()->getManager();
-        $pe = $em->getRepository('AllForKidsEntityBundle:Participevenement')->findDqlParticipE($id, $iduser);
-
-
-        if($pe == [])
-        {
-            $a = array('nb'=>0);
-        }else{
-            $a = array('nb'=>1);
-        }
+        $transportRejoindre = $em->getRepository('TransportBundle:JoindreTransport')->findListTransportjoindre($iduser);
+        $idtransport = $transportRejoindre->getTransportId();
+        $transport = $em->getRepository('TransportBundle:Transport')->findTransport($idtransport);
         $ser = new Serializer([new ObjectNormalizer()]);
-        $formated = $ser->normalize($a);
-        return new JsonResponse($formated);
+        $formatted = $ser->normalize($transport);
+        return new JsonResponse($formatted);
+        echo(hello);
+    }
+
+    public function AllranAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $transport = $em->gTetRepository('TransportBundle:Transport')->findAll();
+        $ser = new Serializer([new ObjectNormalizer()]);
+        $formatted = $ser->normalize($transport);
+        return new JsonResponse($formatted);
     }
 
 }

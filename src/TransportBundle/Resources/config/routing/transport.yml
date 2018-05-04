@@ -70,3 +70,7 @@ transport_joindre_Mobile:
 transport_delete_Mobile:
     path:     /deleteMobile/{id}
     defaults: { _controller: "TransportBundle:Transport:deleteMobile" }
+
+transport_myRejoindre_Mobile:
+    path:     /MyrejoindreMobile/{iduser}
+    defaults: { _controller: "TransportBundle:Transport:myRejoindreMobile" }
