@@ -62,4 +62,18 @@ delete:
     path:     /delete/{id}
     defaults: { _controller: EtablissementBundle:Default:delete }
 
+update1:
+    path:     /update1/{id}/{user}/{nom}/{type}/{region}/{ville}/{description}/{image}/{verification}
+    defaults: { _controller: EtablissementBundle:Default:update1 }
 
+getRole:
+    path:     /getRole/{id}
+    defaults: { _controller: EtablissementBundle:Default:getRole }
+
+newrejoindre:
+    path:     /newrejoindre/{id_etab}/{user}
+    defaults: { _controller: EtablissementBundle:Default:newrejoindre }
+
+getMail:
+    path:     /getMail/{id}
+    defaults: { _controller: EtablissementBundle:Default:getMail }

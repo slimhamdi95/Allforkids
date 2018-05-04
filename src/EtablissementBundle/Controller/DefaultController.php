@@ -2,8 +2,11 @@
 
 namespace EtablissementBundle\Controller;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use EtablissementBundle\Entity\Etablissement;
 use EtablissementBundle\Entity\Note;
+use EtablissementBundle\Entity\Rejoindre;
+use EtablissementBundle\Etab1;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\BrowserKit\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,9 +24,16 @@ class DefaultController extends Controller
     {
 
         $em = $this->getDoctrine()->getManager();
-        $etablissement = $em->getRepository('EtablissementBundle:Etablissement')->findAll();
+        $region = $em->getRepository('EtablissementBundle:Etablissement')->findAll();
+        $a = new ArrayCollection();
+        foreach ($region as $e){
+            $e1 = new Etab1($e->getIdEtablissement(),$e->getIdUser()->getId(),$e->getNom(),$e->getType(),
+                       $e->getRegion(),$e->getVille(),$e->getDescription(),$e->getImage(),$e->getVerification());
+            $a->add($e1);
+        }
         $ser = new Serializer([new ObjectNormalizer()]);
-        $formated = $ser->normalize($etablissement);
+        $formated = $ser->normalize($a);
+
         return new JsonResponse($formated);
 
     }
@@ -42,8 +52,11 @@ class DefaultController extends Controller
 
         $em = $this->getDoctrine()->getManager();
         $ev = $em->getRepository('EtablissementBundle:Etablissement')->find($id);
+        $e1 =new  Etab1($ev->getIdEtablissement(),$ev->getIdUser()->getId(),$ev->getNom(),$ev->getType(),
+            $ev->getRegion(),$ev->getVille(),$ev->getDescription(),$ev->getImage(),$ev->getVerification());
+
         $ser = new Serializer([new ObjectNormalizer()]);
-        $formated = $ser->normalize($ev);
+        $formated = $ser->normalize($e1);
         return new JsonResponse($formated);
     }
 
@@ -104,6 +117,65 @@ class DefaultController extends Controller
         return new JsonResponse($formated);
     }
 
+    public function update1Action($id,$user,$nom,$type,$region,$ville,$description,$image,$verification){
+        $em = $this->getDoctrine()->getManager();
+        $ev = $em->getRepository('EtablissementBundle:Etablissement')->find($id);
+
+        $user =(int)$user;
+        $ev->setNom($nom);
+        $ev->setType($type);
+        $ev->setRegion($region);
+        $ev->setVille($ville);
+        $ev->setDescription($description);
+        $ev->setImage($image);
+        $ev->setVerification($verification);
+
+        $u = $em->getRepository('AllForKidsEntityBundle:User')->find($user);
+        $ev->setIdUser($u);
+        $em->flush();
+
+        $ser = new Serializer([new ObjectNormalizer()]);
+        $formated = $ser->normalize($ev);
+        return new JsonResponse($formated);
+    }
+    public function getRoleAction($id){
+        $em = $this->getDoctrine()->getManager();
+        $ev = $em->getRepository('AllForKidsEntityBundle:User')->find($id);
+
+        $a =array("roles"=>$ev->getRoles()) ;
+        $ser = new Serializer([new ObjectNormalizer()]);
+        $formated = $ser->normalize($a);
+        return new JsonResponse($formated);
+    }
+
+    public function getMailAction($id){
+        $em = $this->getDoctrine()->getManager();
+        $ev = $em->getRepository('AllForKidsEntityBundle:User')->find($id);
+
+        $a =array("mail"=>$ev->getEmail()) ;
+        $ser = new Serializer([new ObjectNormalizer()]);
+        $formated = $ser->normalize($a);
+        return new JsonResponse($formated);
+    }
+
+   public function newrejoindreAction($id_etab,$user){
+        $em = $this->getDoctrine()->getManager();
+        $ev = new Rejoindre();
+        $user =(int)$user;
+        $id_etab =(int)$id_etab;
+        $a = $em->getRepository('EtablissementBundle:Etablissement')->find($id_etab);
+        $u = $em->getRepository('AllForKidsEntityBundle:User')->find($user);
+        $ev->setUser($u);
+        $ev->setEtablissement($a);
+        $ev->setVerification("Non valide");
+
+        $em->persist($ev);
+        $em->flush();
+   $gg ="ok";
+        $ser = new Serializer([new ObjectNormalizer()]);
+        $formated = $ser->normalize($gg);
+        return new JsonResponse($formated);
+    }
 //////////////////////////SYMFONY/////////////////
 
     public function indexAction()
@@ -207,4 +279,5 @@ class DefaultController extends Controller
         );*/
 
     }
+
 }
