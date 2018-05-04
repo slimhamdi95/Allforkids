@@ -7,11 +7,11 @@ use TransportBundle\Entity\Transport;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use TransportBundle\TransportBundle;
-
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
-
+use TransportBundle\Repository\JoindreTransportRepository;
+use TransportBundle\Repository\TransportRepository;
 /**
  * Transport controller.
  *
@@ -235,8 +235,7 @@ class TransportController extends Controller
         return new JsonResponse($formatted);
     }
 
-    public function findTranAction($idTransport)
-    {
+    public function findTranAction($idTransport){
         $em = $this->getDoctrine()->getManager();
         $transport = $em->getRepository('TransportBundle:Transport')->find($idTransport);
         $ser = new Serializer([new ObjectNormalizer()]);
@@ -285,20 +284,18 @@ class TransportController extends Controller
         return new JsonResponse($formated);
     }
 
-    public function findparticipAction($id,$iduser){
+    public function myRejoindreMobileAction($iduser)
+    {
         $em = $this->getDoctrine()->getManager();
-        $pe = $em->getRepository('AllForKidsEntityBundle:Participevenement')->findDqlParticipE($id, $iduser);
-
-
-        if($pe == [])
-        {
-            $a = array('nb'=>0);
-        }else{
-            $a = array('nb'=>1);
-        }
+        $transportRejoindre = $em->getRepository('TransportBundle:JoindreTransport')->findListTransportjoindre($iduser);
+        $idtransport = $transportRejoindre->getTransportId();
+        $transport = $em->getRepository('TransportBundle:Transport')->findTransport($idtransport);
         $ser = new Serializer([new ObjectNormalizer()]);
-        $formated = $ser->normalize($a);
-        return new JsonResponse($formated);
+        $formatted = $ser->normalize($transport);
+        return new JsonResponse($formatted);
+        echo(hello);
     }
+
+
 
 }

@@ -27,12 +27,29 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $ev = $em->getRepository('AllForKidsEntityBundle:User')->findOneBy(['username' => $userName]);
-        $date = $ev->getDate();
-        $result = $date->format('Y-m-d');
-        $ev->setDate($result);
-        $ser = new Serializer([new ObjectNormalizer()]);
-        $formated = $ser->normalize($ev);
-        return new JsonResponse($formated);
+        if($ev == null){
+            $ev1 = new User();
+            $ev1->setId(0);
+            $ev1->setUsername("0");
+            $ev1->setPicture("0");
+            $ev1->setPassword("0");
+            $ev1->setPrenom("0");
+            $ev1->setDate( new \DateTime());
+            $ev1->setNom("0");
+            $ev1->setCin("0");
+            
+            $ser = new Serializer([new ObjectNormalizer()]);
+            $formated = $ser->normalize($ev1);
+            return new JsonResponse($formated);
+        }else{
+            $date = $ev->getDate();
+            $result = $date->format('Y-m-d');
+            $ev->setDate($result);
+            $ser = new Serializer([new ObjectNormalizer()]);
+            $formated = $ser->normalize($ev);
+            return new JsonResponse($formated);
+        }
+
     }
 
 
