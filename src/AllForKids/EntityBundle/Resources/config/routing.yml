@@ -18,3 +18,10 @@ Inscrit:
 Modifier:
     path:     /Modifier/{id}/{username}/{nom}/{prenom}/{role}/{email}/{cin}/{password}/{date}/{photo}
     defaults: { _controller: AllForKidsEntityBundle:Default:Modifier }
+
+
+
+
+AllUser:
+    path:     /AllUser
+    defaults: { _controller: AllForKidsEntityBundle:Default:FindAllUser }
