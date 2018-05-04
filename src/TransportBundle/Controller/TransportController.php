@@ -226,17 +226,16 @@ class TransportController extends Controller
     }
 
     /****Mobile Service ******/
-    public function AllranAction()
+    public function AllTranAction()
     {
         $em = $this->getDoctrine()->getManager();
-        $transport = $em->gTetRepository('TransportBundle:Transport')->findAll();
+        $transport = $em->getRepository('TransportBundle:Transport')->findAll();
         $ser = new Serializer([new ObjectNormalizer()]);
         $formatted = $ser->normalize($transport);
         return new JsonResponse($formatted);
     }
 
-    public function findTranAction($idTransport)
-    {
+    public function findTranAction($idTransport){
         $em = $this->getDoctrine()->getManager();
         $transport = $em->getRepository('TransportBundle:Transport')->find($idTransport);
         $ser = new Serializer([new ObjectNormalizer()]);
@@ -297,13 +296,6 @@ class TransportController extends Controller
         echo(hello);
     }
 
-    public function AllranAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-        $transport = $em->gTetRepository('TransportBundle:Transport')->findAll();
-        $ser = new Serializer([new ObjectNormalizer()]);
-        $formatted = $ser->normalize($transport);
-        return new JsonResponse($formatted);
-    }
+
 
 }
