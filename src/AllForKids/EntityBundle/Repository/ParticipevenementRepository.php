@@ -40,4 +40,13 @@ class ParticipevenementRepository extends \Doctrine\ORM\EntityRepository
         return $q->getSingleScalarResult();
 
     }
+    public function DeleteDqlParticipEDeleteEvent($a)
+    {
+        $q=$this->getEntityManager()
+            ->createQuery("delete  FROM AllForKidsEntityBundle:Participevenement pe WHERE pe.idEvenement = :a")
+            ->setParameter('a',$a);
+
+        $q->execute();
+
+    }
 }

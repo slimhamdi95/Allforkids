@@ -456,7 +456,9 @@ class EvenementController extends Controller
         return new JsonResponse($formated);
     }
     public function deletemobileAction($id){
+
         $em = $this->getDoctrine()->getManager();
+        $em->getRepository('AllForKidsEntityBundle:Participevenement')->DeleteDqlParticipEDeleteEvent($id);
         $ev = $em->getRepository(Evenement::class)->find($id);
         $em->remove($ev);
         $em->flush();

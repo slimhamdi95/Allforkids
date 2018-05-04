@@ -246,14 +246,12 @@ class TransportController extends Controller
     public function newMobileAction($user,$description,$telephone,$place,$frais,$type){
         $em = $this->getDoctrine()->getManager();
         $transport = new Transport();
-        $user =(int)$user;
         $transport->setDescription($description);
         $transport->setTelephone($telephone);
         $transport->setPlace($place);
         $transport->setFrais($frais);
         $transport->setType($type);
-        $u = $em->getRepository('AllForKidsEntityBundle:User')->find($user);
-        $transport->setIdCreateur($u);
+        $transport->setIdCreateur($user);
         $em->persist($transport);
         $em->flush();
         $ser = new Serializer([new ObjectNormalizer()]);
@@ -288,6 +286,7 @@ class TransportController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $transportRejoindre = $em->getRepository('TransportBundle:JoindreTransport')->findListTransportjoindre($iduser);
+        die();
         $idtransport = $transportRejoindre->getTransportId();
         $transport = $em->getRepository('TransportBundle:Transport')->findTransport($idtransport);
         $ser = new Serializer([new ObjectNormalizer()]);
