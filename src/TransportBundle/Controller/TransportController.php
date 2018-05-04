@@ -7,11 +7,11 @@ use TransportBundle\Entity\Transport;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use TransportBundle\TransportBundle;
-
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
-
+use TransportBundle\Repository\JoindreTransportRepository;
+use TransportBundle\Repository\TransportRepository;
 /**
  * Transport controller.
  *
@@ -235,8 +235,7 @@ class TransportController extends Controller
         return new JsonResponse($formatted);
     }
 
-    public function findTranAction($idTransport)
-    {
+    public function findTranAction($idTransport){
         $em = $this->getDoctrine()->getManager();
         $transport = $em->getRepository('TransportBundle:Transport')->find($idTransport);
         $ser = new Serializer([new ObjectNormalizer()]);
@@ -273,5 +272,30 @@ class TransportController extends Controller
         $formated = $ser->normalize($joindre);
         return new JsonResponse($formated);
     }
+
+    public function deleteMobileAction($id){
+        $em = $this->getDoctrine()->getManager();
+        $transport= $em->getRepository(Transport::class)->find($id);
+        $em->remove($transport);
+        $em->flush();
+        $pe="Deleting succsess" ;
+        $ser = new Serializer([new ObjectNormalizer()]);
+        $formated = $ser->normalize($pe);
+        return new JsonResponse($formated);
+    }
+
+    public function myRejoindreMobileAction($iduser)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $transportRejoindre = $em->getRepository('TransportBundle:JoindreTransport')->findListTransportjoindre($iduser);
+        $idtransport = $transportRejoindre->getTransportId();
+        $transport = $em->getRepository('TransportBundle:Transport')->findTransport($idtransport);
+        $ser = new Serializer([new ObjectNormalizer()]);
+        $formatted = $ser->normalize($transport);
+        return new JsonResponse($formatted);
+        echo(hello);
+    }
+
+
 
 }
