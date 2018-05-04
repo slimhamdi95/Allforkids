@@ -297,13 +297,5 @@ class TransportController extends Controller
         echo(hello);
     }
 
-    public function AllranAction()
-    {
-        $em = $this->getDoctrine()->getManager();
-        $transport = $em->gTetRepository('TransportBundle:Transport')->findAll();
-        $ser = new Serializer([new ObjectNormalizer()]);
-        $formatted = $ser->normalize($transport);
-        return new JsonResponse($formatted);
-    }
 
 }
