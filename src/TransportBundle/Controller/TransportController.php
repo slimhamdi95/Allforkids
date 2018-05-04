@@ -274,4 +274,31 @@ class TransportController extends Controller
         return new JsonResponse($formated);
     }
 
+    public function deleteMobileAction($id){
+        $em = $this->getDoctrine()->getManager();
+        $transport= $em->getRepository(Transport::class)->find($id);
+        $em->remove($transport);
+        $em->flush();
+        $pe="Deleting succsess" ;
+        $ser = new Serializer([new ObjectNormalizer()]);
+        $formated = $ser->normalize($pe);
+        return new JsonResponse($formated);
+    }
+
+    public function findparticipAction($id,$iduser){
+        $em = $this->getDoctrine()->getManager();
+        $pe = $em->getRepository('AllForKidsEntityBundle:Participevenement')->findDqlParticipE($id, $iduser);
+
+
+        if($pe == [])
+        {
+            $a = array('nb'=>0);
+        }else{
+            $a = array('nb'=>1);
+        }
+        $ser = new Serializer([new ObjectNormalizer()]);
+        $formated = $ser->normalize($a);
+        return new JsonResponse($formated);
+    }
+
 }
