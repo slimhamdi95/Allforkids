@@ -22,3 +22,9 @@ DeleteLiver :
 AffichAdmin:
     path:     /admin/AfficheAdminLivre
     defaults: { _controller: AllForKidsLiverBundle:Liver:showAllAdmin }
+Alllivremobile:
+    path:     /Alllivre
+    defaults: { _controller: AllForKidsLiverBundle:Liver:Alllivre }
+AddGodOrBad:
+    path:     /AddGodOrBad/{idLivre}/{good}/{bad}
+    defaults: { _controller: AllForKidsLiverBundle:Liver:AddGodOrBad }
