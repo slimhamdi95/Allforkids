@@ -295,6 +295,22 @@ class TransportController extends Controller
         echo(hello);
     }
 
+    public function updateMobileAction($id,$user,$description,$telephone,$place,$frais,$type){
+        $em = $this->getDoctrine()->getManager();
+        $transport= $em->getRepository(Transport::class)->find($id);
+
+        $transport->setDescription($description);
+        $transport->setTelephone($telephone);
+        $transport->setPlace($place);
+        $transport->setFrais($frais);
+        $transport->setType($type);
+        $transport->setIdCreateur($user);
+        $em->flush();
+        $ser = new Serializer([new ObjectNormalizer()]);
+        $formated = $ser->normalize("ok");
+        return new JsonResponse($formated);
+    }
+
 
 
 }

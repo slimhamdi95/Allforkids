@@ -74,3 +74,7 @@ transport_delete_Mobile:
 transport_myRejoindre_Mobile:
     path:     /MyrejoindreMobile/{iduser}
     defaults: { _controller: "TransportBundle:Transport:myRejoindreMobile" }
+
+transport_update_Mobile:
+    path:     /updateMobile/{id}/{user}/{description}/{telephone}/{place}/{frais}/{type}
+    defaults: { _controller: "TransportBundle:Transport:updateMobile" }
