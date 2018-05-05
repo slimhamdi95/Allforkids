@@ -60,7 +60,7 @@ transport_find:
     defaults: { _controller: "TransportBundle:Transport:findTran" }
 
 transport_newMobile:
-    path:     /newMobile/{user}/{description}/{telephone}/{place}/{frais}/{type}
+    path:     /newMobile/{user}/{depart}/{arrive}/{depart1}/{arrive1}/{description}/{telephone}/{place}/{frais}/{type}
     defaults: { _controller: "TransportBundle:Transport:newMobile" }
 
 transport_joindre_Mobile:

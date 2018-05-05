@@ -243,9 +243,13 @@ class TransportController extends Controller
         return new JsonResponse($formated);
     }
 
-    public function newMobileAction($user,$description,$telephone,$place,$frais,$type){
+    public function newMobileAction($user,$depart,$arrive,$depart1,$arrive1,$description,$telephone,$place,$frais,$type){
         $em = $this->getDoctrine()->getManager();
         $transport = new Transport();
+        $transport->setDepart($depart1);
+        $transport->setArrive($arrive1);
+        $transport->setDepartname($depart);
+        $transport->setArrivename($arrive);
         $transport->setDescription($description);
         $transport->setTelephone($telephone);
         $transport->setPlace($place);
