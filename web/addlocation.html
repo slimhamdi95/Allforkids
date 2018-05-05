@@ -1,0 +1,85 @@
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
+<script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCq5FMCE1AZYb8dXtdqyNfuez-5Sv9z73M&callback=initMap"  async defer></script>
+  <style>
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+      #map {
+        height: 100%;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+    
+<input id="departinput" type="text"/>
+
+<input id="arriv" type="text"/>
+
+<div hidden id="map"></div>
+
+<script type="text/javascript">
+     var map;
+        var depart;
+        var arrive;
+        var arriveName;
+        var departName;
+        
+        function getArrive(){
+            return arrive;
+        }
+        
+        function getDepart(){
+             return depart;
+        }
+        
+        
+         
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'), {
+              center: {lat: -34.397, lng: 150.644},
+              zoom: 8
+        });
+        
+        var departinput = document.getElementById('departinput');
+        var autocomplete =  new google.maps.places.Autocomplete(departinput);
+        var arriv = document.getElementById('arriv');
+        var autocompletearriv =  new google.maps.places.Autocomplete(arriv);
+        
+        google.maps.event.addListener(autocomplete, 'place_changed', function() {
+            var data = $("#search_form").serialize();
+        depart = autocomplete.getPlace().geometry.location;
+           markerdep = new google.maps.Marker({
+            position: depart,
+            map: map
+        });
+        
+        alert(depart);
+      //  show_submit_data(data);
+});
+                google.maps.event.addListener(autocompletearriv, 'place_changed', function() {
+                            arrive = autocompletearriv.getPlace().geometry.location;
+       markerdep = new google.maps.Marker({
+            position: arrive,
+            map: map
+        });
+    //var data = $("#search_form").serialize();
+    alert('location destination selected');
+      //  show_submit_data(data);
+});
+      }
+      
+      function getArriveName(){
+            arriveName = document.getElementById('arriv').value;
+            return arriveName;
+        }
+        
+        function getDepartName(){
+            departName = document.getElementById('departinput').value;
+            return departName;
+        }
+
+
+</script>
