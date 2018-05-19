@@ -132,20 +132,24 @@ class DefaultController extends Controller
     public function ModifierAction ($id, $username, $nom , $prenom , $role ,$email , $cin , $password,$date ,$photo){
 
         $em = $this->getDoctrine()->getManager();
+
         $ev = $em->getRepository('AllForKidsEntityBundle:User')->find($id);
         $ev->getUsername($username);
+
         $ev->getNom($nom);
         $ev->getPrenom($prenom);
         $ev->getRole($role);
+
         $ev->getEmail($email);
         $ev->getCin($cin);
         $ev->getPassword($password);
 
         $d = new \DateTime($date);
         $ev->getDate($d);
+
         $ev->setPicture($photo);
 
-        $ev->flush();
+        $em->flush();
 
         $ser = new Serializer([new ObjectNormalizer()]);
         $formated = $ser->normalize($ev);
