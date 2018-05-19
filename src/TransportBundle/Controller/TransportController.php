@@ -243,17 +243,19 @@ class TransportController extends Controller
         return new JsonResponse($formated);
     }
 
-    public function newMobileAction($user,$description,$telephone,$place,$frais,$type){
+    public function newMobileAction($user,$depart,$arrive,$depart1,$arrive1,$description,$telephone,$place,$frais,$type){
         $em = $this->getDoctrine()->getManager();
         $transport = new Transport();
-        $user =(int)$user;
+        $transport->setDepart($depart1);
+        $transport->setArrive($arrive1);
+        $transport->setDepartname($depart);
+        $transport->setArrivename($arrive);
         $transport->setDescription($description);
         $transport->setTelephone($telephone);
         $transport->setPlace($place);
         $transport->setFrais($frais);
         $transport->setType($type);
-        $u = $em->getRepository('AllForKidsEntityBundle:User')->find($user);
-        $transport->setIdCreateur($u);
+        $transport->setIdCreateur($user);
         $em->persist($transport);
         $em->flush();
         $ser = new Serializer([new ObjectNormalizer()]);
@@ -288,12 +290,29 @@ class TransportController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $transportRejoindre = $em->getRepository('TransportBundle:JoindreTransport')->findListTransportjoindre($iduser);
+        die();
         $idtransport = $transportRejoindre->getTransportId();
         $transport = $em->getRepository('TransportBundle:Transport')->findTransport($idtransport);
         $ser = new Serializer([new ObjectNormalizer()]);
         $formatted = $ser->normalize($transport);
         return new JsonResponse($formatted);
         echo(hello);
+    }
+
+    public function updateMobileAction($id,$user,$description,$telephone,$place,$frais,$type){
+        $em = $this->getDoctrine()->getManager();
+        $transport= $em->getRepository(Transport::class)->find($id);
+
+        $transport->setDescription($description);
+        $transport->setTelephone($telephone);
+        $transport->setPlace($place);
+        $transport->setFrais($frais);
+        $transport->setType($type);
+        $transport->setIdCreateur($user);
+        $em->flush();
+        $ser = new Serializer([new ObjectNormalizer()]);
+        $formated = $ser->normalize("ok");
+        return new JsonResponse($formated);
     }
 
 

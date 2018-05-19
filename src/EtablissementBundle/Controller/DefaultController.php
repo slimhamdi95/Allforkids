@@ -82,16 +82,15 @@ class DefaultController extends Controller
 
     public function deleteAction($id){
         $em = $this->getDoctrine()->getManager();
+
         $etab = $em->getRepository('EtablissementBundle:Etablissement')->find($id);
         $em->remove($etab);
         $em->flush();
-        $etab ="removed";
+        $a ="removed";
         $ser = new Serializer([new ObjectNormalizer()]);
-        $formated = $ser->normalize($etab);
+        $formated = $ser->normalize($a);
         return new JsonResponse($formated);
     }
-
-
 
     public function new1Action($user,$nom,$type,$region,$ville,$description,$image,$verification){
         $em = $this->getDoctrine()->getManager();
@@ -135,7 +134,7 @@ class DefaultController extends Controller
         $em->flush();
 
         $ser = new Serializer([new ObjectNormalizer()]);
-        $formated = $ser->normalize($ev);
+        $formated = $ser->normalize("ok");
         return new JsonResponse($formated);
     }
     public function getRoleAction($id){
@@ -174,6 +173,30 @@ class DefaultController extends Controller
    $gg ="ok";
         $ser = new Serializer([new ObjectNormalizer()]);
         $formated = $ser->normalize($gg);
+        return new JsonResponse($formated);
+    }
+
+    public function findrejoindreAction($id_etab,$iduser){
+        $em = $this->getDoctrine()->getManager();
+        $re = $em->getRepository('EtablissementBundle:Rejoindre')->findBy(['etablissement'=>$id_etab,'user'=>$iduser]);
+
+        if($re == [])
+        {
+            $a = array('nb'=>0);
+        }else{
+            $a = array('nb'=>1);
+        }
+        $ser = new Serializer([new ObjectNormalizer()]);
+        $formated = $ser->normalize($a);
+        return new JsonResponse($formated);
+    }
+
+    public function supprimerejAction($id_etab){
+        $em = $this->getDoctrine()->getManager();
+        $em->getRepository('EtablissementBundle:Rejoindre')->DeleteDqlRejoindre($id_etab);
+        $pe="supp succsess" ;
+        $ser = new Serializer([new ObjectNormalizer()]);
+        $formated = $ser->normalize($pe);
         return new JsonResponse($formated);
     }
 //////////////////////////SYMFONY/////////////////

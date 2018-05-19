@@ -1,0 +1,75 @@
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
+<script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCZHZIOjgBdrHzEqY7Hr7TkVKvrbnu4JMQ&callback=initMap"  async defer></script>
+    
+  <div id="map" style="height:100%;width:100%;">  </div>
+<script>
+
+        var loc1 //='(36.89839200000001, 10.189732000000049)';
+        var loc2 //='(36.7999048, 10.182713499999977)';
+        var directionsDisplay;
+
+        var    directionsService ;
+
+        function initMap() {
+            // Create a map object and specify the DOM element for display.
+            var map = new google.maps.Map(document.getElementById('map'), {
+                center: {lat: 36.862499, lng: 10.195556},
+                zoom: 8
+            });
+            directionsService = new google.maps.DirectionsService();
+            directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true});
+            directionsDisplay.setMap(map);
+            getDirections (loc1,loc2);
+        }
+
+        markerdep = new google.maps.Marker({
+            position: loc2,
+            map: map
+        });
+
+        function getDirections(loc1,loc2) {
+
+            // ==== Set up the walk and avoid highways options ====
+            var request = {};
+            request.travelMode = google.maps.DirectionsTravelMode.DRIVING;
+            // ==== set the start and end locations ====
+
+            // var saddr = new google.maps.LatLng(loc1.split(',')[0].trim().substr(1,loc1.length), loc1.split(',')[1].trim().substr(0,loc1.length-1));
+            //var daddr = new google.maps.LatLng(loc2.split(',')[0].trim().substr(1,loc2.length), loc2.split(',')[1].trim().substr(0,loc2.length-1));
+
+            //request.origin = saddr;
+            //request.destination = daddr;
+
+            loc1 = loc1.substring(1, loc1.length-1);
+            loc1trim = loc1.trim();
+            var result1 = loc1trim.split(",");
+            var loc1lat = result1[0];
+            var loc1lng = result1[1];
+
+            var saddr = new google.maps.LatLng(loc1lat,loc1lng);
+            request.origin = saddr;
+
+            loc2 = loc2.substring(1, loc2.length-1);
+            loc1trim = loc2.trim();
+            var result2 = loc1trim.split(",");
+            var loc2lat = result2[0];
+            var loc2lng = result2[1];
+
+            var daddr = new google.maps.LatLng(loc2lat,loc2lng);
+            request.destination = daddr;
+
+            //alert(request.origin);
+            //alert(request.destination);
+            directionsService.route(request, function (response, status) {
+                if (status == google.maps.DirectionsStatus.OK) {
+                    directionsDisplay.setDirections(response);
+                } else
+                    alert("Directions not found:" + status);
+            });
+
+        }
+
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyDTPdWrqfqni2I2Ex9pOG4ivq8XoeJFuz4&callback=initMap"
+            async defer></script>
+    {% endblock %}

@@ -8,7 +8,8 @@
  */
 namespace TransportBundle\Repository;
 
-class TransportRepository extends Doctrine\ORM\EntityRepository
+
+class TransportRepository extends \Doctrine\ORM\EntityRepository
 {
     public function findTransport($idtransport)
     {

@@ -77,3 +77,12 @@ newrejoindre:
 getMail:
     path:     /getMail/{id}
     defaults: { _controller: EtablissementBundle:Default:getMail }
+
+findrejoindre:
+    path:     /findrejoindre/{id_etab}/{iduser}
+    defaults: { _controller: EtablissementBundle:Default:findrejoindre }
+
+supprimerej:
+    path:     /supprimerej/{id_etab}
+    defaults: { _controller: EtablissementBundle:Default:supprimerej }
+

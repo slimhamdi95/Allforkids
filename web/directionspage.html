@@ -1,0 +1,66 @@
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js'></script>
+<script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=AIzaSyCZHZIOjgBdrHzEqY7Hr7TkVKvrbnu4JMQ&callback=initMap"  async defer></script>
+    
+  <div id="map" style="height:100%;width:100%;">  </div>
+<script type="text/javascript">
+          var map;
+                      var directionsDisplay;
+
+          var    directionsService ;
+
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: -34.397, lng: 150.644},
+          zoom: 8
+        });
+        directionsService = new google.maps.DirectionsService();
+        directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true});
+        directionsDisplay.setMap(map);
+
+      }
+     function getDirections(lat1,lng1,lat2,lng2) {
+     var pos1 = {
+                  lat: lat1, lng: lng1                
+                 }
+                
+                         var pos2 = {
+                  lat: lat2, lng: lng2               
+                 }
+      var marker1 = new google.maps.Marker({
+                    position: pos1,
+                    map: map,
+                    title: 'depart',
+                    // animation: google.maps.Animation.DROP,
+
+                });
+                  var marker2 = new google.maps.Marker({
+                    position: pos2,
+                    map: map,
+                    title: 'arrive',
+                    // animation: google.maps.Animation.DROP,
+
+                });
+                         
+                var request = {};
+
+                    request.travelMode = google.maps.DirectionsTravelMode.DRIVING;
+
+                var saddr = marker1.getPosition();
+                var daddr =  marker2.getPosition();
+
+                request.origin = saddr;
+                request.destination = daddr;
+                directionsService.route(request, function (response, status) {
+                    if (status == google.maps.DirectionsStatus.OK) {
+                        directionsDisplay.setDirections(response);
+                        for (var i = 0; i < response.routes[0].legs[0].steps.length; i++) {
+                            helpings.push(response.routes[0].legs[0].steps[i].instructions);
+                        }
+                    } else
+                        alert("Directions not found:" + status);
+                });
+
+            }
+</script>
+
+

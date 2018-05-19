@@ -8,12 +8,12 @@
 
 namespace TransportBundle\Repository;
 
-class JoindreTransportRepository extends Doctrine\ORM\EntityRepository
+class JoindreTransportRepository extends \Doctrine\ORM\EntityRepository
 {
     public function findListTransportjoindre($iduser)
     {
         $listJoindreTransport=$this->getEntityManager()->createQuery("
-            select jt FROM TransportBunde:JoindreTransport jt 
+            select jt FROM TransportBundle:JoindreTransport jt 
             WHERE jt.UserId = :iduser")
             ->setParameter('iduser',$iduser)->getResult();
 
