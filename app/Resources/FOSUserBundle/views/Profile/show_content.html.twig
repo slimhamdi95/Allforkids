@@ -1,0 +1,66 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->
+<link rel="icon" type="image/png" href="{{ asset('Login/images/icons/favicon.ico') }}"/>
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="{{ asset('Login/vendor/bootstrap/css/bootstrap.min.css') }}">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="{{ asset('Login/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="{{ asset('Login/fonts/Linearicons-Free-v1.0.0/icon-font.min.css') }}">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="{{ asset('Login/vendor/animate/animate.css') }}">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="{{ asset('Login/vendor/css-hamburgers/hamburgers.min.css') }}">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="{{ asset('Login/vendor/animsition/css/animsition.min.css') }}">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="{{ asset('Login/vendor/select2/select2.min.css') }}">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="{{ asset('Login/vendor/daterangepicker/daterangepicker.css') }}">
+<!--===============================================================================================-->
+<link rel="stylesheet" type="text/css" href="{{ asset('Login/css/util.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('Login/css/main.css') }}">
+<!--===============================================================================================-->
+{% trans_default_domain 'FOSUserBundle' %}
+
+<div class="fos_user_user_show">
+
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100" style=" text-align: center;">
+                <div class="login100-form-title" style="background-image: url(images/bg-01.jpg);">
+                <span class="login100-form-title-1">
+                    Profil
+                </span>
+                </div>
+
+                <label >{{ 'profile.show.username'|trans }}: {{ user.username }}</label>
+                <label>{{ 'profile.show.email'|trans }}: {{ user.email }}</label>
+                <label>{{ 'Cin'|trans }}: {{ user.cin }}</label>
+                <label>{{ 'Nom'|trans }}: {{ user.nom }}</label>
+                <label>{{ 'Prenom'|trans }}: {{ user.prenom }}</label>
+                <label>{{ 'Date de nissance'|trans }}: {{ user.date|date('d-m-Y') }}</label>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<!--===============================================================================================-->
+<script src="{{ asset('Login/vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+<!--===============================================================================================-->
+<script src="{{ asset('Login/vendor/animsition/js/animsition.min.js') }}"></script>
+<!--===============================================================================================-->
+<script src="{{ asset('Login/vendor/bootstrap/js/popper.js') }}"></script>
+<script src="{{ asset('Login/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+<!--===============================================================================================-->
+<script src="{{ asset('Login/vendor/select2/select2.min.js') }}"></script>
+<!--===============================================================================================-->
+<script src="{{ asset('Login/vendor/daterangepicker/moment.min.js') }}"></script>
+<script src="{{ asset('Login/vendor/daterangepicker/daterangepicker.js') }}"></script>
+<!--===============================================================================================-->
+<script src="{{ asset('Login/vendor/countdowntime/countdowntime.js') }}"></script>
+<!--===============================================================================================-->
+<script src="{{ asset('Login/js/main.js') }}"></script>

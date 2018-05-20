@@ -68,7 +68,7 @@ class User extends BaseUser
      *
      * @Assert\File(
      *     maxSize = "5M",
-     *     mimeTypes = { "image/gif", "image/png"},
+     *     mimeTypes = { "image/gif", "image/png", "image/jpeg"},
      *     maxSizeMessage = "The maxmimum allowed file size is 5MB.",
      *     mimeTypesMessage = "Type de Ficher non autorisées"
      * )

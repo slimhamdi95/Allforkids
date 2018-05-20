@@ -264,46 +264,53 @@
             </div>
         </div>
     </div>
+    <script type="text/javascript">
+        jQuery( document ).ready(function() {
+            console.log('hi');
+            var $region = jQuery('#etablissementbundle_etablissement_region');
+            $region.change(function() {
 
+                var $id = $region.val();
+                // Submit data via AJAX to the form's action path.
+                console.log($id);
+                jQuery.ajax({
+                    url: "{{ path('etablissement_info')|escape('js') }}",
+                    type: 'POST',
+                    data : { id : $id} ,
+                    dataType: 'json',
+
+                    success: function(reponse) {
+                        console.log(reponse);
+                        if(reponse === "null"){
+                            jQuery('#villeselect').empty();
+                            jQuery('#villeselect').attr('disabled','disabled');
+
+                        }else{
+                            jQuery('#villeselect').empty();
+                            jQuery('#villeselect').append('<option value="" selected> Séléctionner ville </option>');
+                            jQuery.each(reponse, function (index, element) {
+                                jQuery('#villeselect').append('<option value="' + element.idVille + '"> ' + element.nomVille + ' </option>');
+                            });}
+                    },
+                    error:function () {
+                        console.log('nothing');
+
+                    }
+
+                });
+            });
+        });
+
+    </script>
     <!-- _________________________ Finish Middle _________________________ -->
     <a href="javascript:void(0);" id="slide_top" class="cmsmasters_theme_icon_slide_top"></a>
     </div>
-
+    <script type="text/javascript">
+        jQuery( document ).ready(function() {
+            console.log('hi');});
+        </script>
 {% endblock %}
 {% block javascripts %}
-    <script>
-        var $region = jQuery('#etablissementbundle_etablissement_region');
-        $region.change(function() {
 
-            var $id = $region.val();
-            // Submit data via AJAX to the form's action path.
-            console.log($id);
-            jQuery.ajax({
-                url: "{{ path('etablissement_info')|escape('js') }}",
-                type: 'POST',
-                data : { id : $id} ,
-                dataType: 'json',
-
-                success: function(reponse) {
-                    console.log(reponse);
-                    if(reponse === "null"){
-                        jQuery('#villeselect').empty();
-                        jQuery('#villeselect').attr('disabled','disabled');
-
-                    }else{
-                        jQuery('#villeselect').empty();
-                        jQuery('#villeselect').append('<option value="" selected> Séléctionner ville </option>');
-                        jQuery.each(reponse, function (index, element) {
-                            jQuery('#villeselect').append('<option value="' + element.idVille + '"> ' + element.nomVille + ' </option>');
-                        });}
-                },
-                error:function () {
-                    console.log('nothing');
-
-                }
-
-            });
-        });
-    </script>
 
 {% endblock %}

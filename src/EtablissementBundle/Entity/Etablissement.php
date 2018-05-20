@@ -63,8 +63,12 @@ class Etablissement
      *
      * @ORM\Column(name="image", type="string", length=255, nullable=false)
      * @Assert\NotBlank(message="Ajouter une image jpg")
-     * @Assert\File(mimeTypes={ "image/jpeg" ,"image/png"})
-     * @Assert\File(mimeTypes={ "image/jpg" ,"image/png"})
+     * @Assert\File(
+     *     maxSize = "5M",
+     *     mimeTypes = { "image/gif", "image/png", "image/jpeg"},
+     *     maxSizeMessage = "The maxmimum allowed file size is 5MB.",
+     *     mimeTypesMessage = "Type de Ficher non autorisées"
+     * )
      */
     private $image;
 

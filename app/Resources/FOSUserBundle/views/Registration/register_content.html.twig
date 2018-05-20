@@ -1,0 +1,11 @@
+{% trans_default_domain 'FOSUserBundle' %}
+<div style="padding: 10px;">
+    {% form_theme form 'bootstrap_3_layout.html.twig' %}
+    {{ form_start(form, {'method': 'post','class': 'login100-form validate-form' ,'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
+    {{ form_widget(form) }}
+    <div class="pull-right">
+        <input class="login100-form-btn" type="submit" value="{{ 'registration.submit'|trans }}" />
+    </div>
+    {{ form_end(form) }}
+</div>
+
